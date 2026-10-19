@@ -1,1 +1,4 @@
+.venv/
+HeatShift_Warehouse/model_results/
+HeatShift_Warehouse/pip-temp/
 /HeatShift_Warehouse/warehouse.sqlite
