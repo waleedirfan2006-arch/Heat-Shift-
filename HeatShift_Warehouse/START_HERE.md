@@ -1,9 +1,9 @@
-# HeatShift: Step 2 is built
+# HeatShift: Step 2 is built; Step 3 trains the first model
 
 A data warehouse is one organised place for your data.
 This package has the original files, cleaned tables and final model tables.
 It also has `warehouse.sqlite`: the same tables in one database file.
-No paid service or account is needed. No model has been trained yet.
+No paid service or account is needed. The first Ridge regression is in the sibling `HeatShift_Training` folder.
 
 ## 1. What is inside?
 
@@ -40,7 +40,7 @@ All choices below are **Recommended**. They are recorded in the Python script.
 10. Store times in UTC, the common world time standard. Also provide Pakistan time where useful.
 11. Keep historical event time separate from the time this warehouse imported the file.
 
-`quality/cleaning_actions.csv` records exclusions and flagged values, their source rows, rules and processing times. Ordinary column renaming and unit decoding are explained here and in the script. No learned cleaning or model fitting has happened.
+`quality/cleaning_actions.csv` records exclusions and flagged values, their source rows, rules and processing times. Ordinary column renaming and unit decoding are explained here and in the script. No learned cleaning was used in building this data warehouse.
 
 ## 3. What is the final data?
 
@@ -64,12 +64,12 @@ Read `02_final/model_contract.json` for the exact input list. Do not feed every 
 It is enough to start a simple three-city temperature prototype. It does not prove good predictions.
 Read `quality/QUALITY_REPORT.md` for the measured usable counts.
 Recommended model: Ridge regression, a simple model that learns a weighted combination of inputs.
-Compare its errors against the fixed baseline on the same test examples.
+Compare its errors against the fixed baseline on the same validation examples.
 
 The actual station files cover 2023 to 24 August 2025. Open-Meteo covers 2022 to 2024.
 The earlier plan had NOAA training in 2022–2023. NOAA 2022 was not among these uploads.
 The planned date boundaries are retained. The available training examples therefore come from 2023 only.
-No test dates were moved to improve a result. No result has been calculated.
+No test dates were moved to improve the result. Current validation scores are documented in the project README and `../HeatShift_Training/model_results/validation_metrics.json`.
 Recommended: obtain the three missing NOAA 2022 files before training if your submitted declaration promised them. Otherwise record the missing year and resolve any declaration change with the organisers.
 
 The station readings have many empty hours. This version predicts the next day's same-time temperature where usable station data exist. It does not yet provide a complete 24-hour curve.
@@ -80,7 +80,7 @@ It cannot predict illnesses, guarantee safe working hours or demonstrate an accu
 1. Extract the ZIP.
 2. Open `quality/QUALITY_REPORT.md` and the CSV tables. Excel can open CSV files. Treat station IDs as text; do not save over original files from Excel.
 3. Keep `test_locked.csv`, `replay.csv` and `reserve_2025.csv` out of model tuning.
-4. Use `train.csv` for the next step: train the simple model.
+4. Use `train.csv` to teach the model and `validation.csv` to compare it with the simple baseline.
 5. Your web teammate can query `warehouse.sqlite` with Python's built-in `sqlite3`.
 
 The warehouse is already built. To recreate it, open a terminal in this folder:
@@ -96,6 +96,19 @@ The build checks raw file fingerprints first. It stops if the originals have cha
 It works from the included local snapshots. It does not download files or run hourly yet.
 Do not run two rebuilds at the same time.
 Do not edit cleaned/final files manually: a rebuild replaces them. Change reviewed rules in the script instead.
+
+## 7. Train and compare the first model
+
+Open a terminal in the sibling `HeatShift_Training` folder, then install the listed packages and run the model:
+
+```bash
+python -m pip install -r requirements.txt
+python train_model.py
+```
+
+The script tries Ridge settings using three time-ordered checks inside `HeatShift_Warehouse/02_final/train.csv`. It then compares the selected Ridge model with the simple baseline on `HeatShift_Warehouse/02_final/validation.csv`. A lower MAE means a smaller average temperature error. The report and prediction examples are saved in `HeatShift_Training/model_results/`.
+
+The script does not open `test_locked.csv`, `replay.csv`, or `reserve_2025.csv`. Keep the locked test for one final check after you have finished choosing the model.
 
 Example database query:
 
@@ -131,3 +144,4 @@ Fingerprint / SHA-256: a code that changes when a file's bytes change.
 Provenance: the record of where data came from.
 Leakage: giving the model information that would not be known when predicting.
 MAE: the average size of prediction errors, measured here in degrees Celsius.
+
