@@ -3,7 +3,9 @@
 A data warehouse is one organised place for your data.
 This package has the original files, cleaned tables and final model tables.
 It also has `warehouse.sqlite`: the same tables in one database file.
-No paid service or account is needed for this local warehouse. No model has been trained yet.
+No paid service or account is needed for this local warehouse.
+Training code and earlier model results exist in ../HeatShift_Training.
+Those results have not been verified against this updated warehouse.
 Read COMPLETED_AND_NEXT.md for this update. The Data Quality Agent is intentionally unbuilt.
 Already using D:\Heat-Shift-? Read GITHUB_UPDATE.md before copying this newer package into your repository.
 
@@ -47,7 +49,7 @@ All choices below are **Recommended**. They are recorded in the Python script.
 10. Store times in UTC, the common world time standard. Also provide Pakistan time where useful.
 11. Keep historical event time separate from the time this warehouse imported the file.
 
-`quality/cleaning_actions.csv` records exclusions and flagged values, their source rows, rules and processing times. Ordinary column renaming and unit decoding are explained here and in the script. No learned cleaning or model fitting has happened.
+`quality/cleaning_actions.csv` records exclusions and flagged values, their source rows, rules and processing times. Ordinary column renaming and unit decoding are explained here and in the script. No learned cleaning or model fitting happens during the warehouse build.
 
 ## 3. What is the final data?
 
@@ -75,7 +77,7 @@ Compare its errors against the fixed baseline on the same test examples.
 
 The station files now cover 2022 to 24 August 2025. Open-Meteo covers 2022 to 2024.
 The assistant collected the three missing NOAA 2022 files, restoring the originally planned 2022–2023 training window.
-The planned date boundaries are retained. No test dates were moved to improve a result. No model result has been calculated.
+The planned date boundaries are retained. No test dates were moved to improve a result. Existing model results must be checked against this updated dataset.
 Check Dataset_Declaration_DRAFT.md against the declaration actually submitted by your team.
 
 The station readings have many empty hours. This version predicts the next day's same-time temperature where usable station data exist. It does not yet provide a complete 24-hour curve.
