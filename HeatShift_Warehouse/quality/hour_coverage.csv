@@ -1,0 +1,10 @@
+city,year,accepted_unique_readings,calendar_hours_to_last_observed_day,missing_hour_slots,coverage_pct,median_spacing_hours,largest_gap_hours,note
+Karachi,2023,2813,8760,5947,32.110000,3.000000,48.000000,Hourly reference grid; scheduled 3-hour reports also leave empty hour slots.
+Karachi,2024,2735,8784,6049,31.140000,3.000000,123.000000,Hourly reference grid; scheduled 3-hour reports also leave empty hour slots.
+Karachi,2025,1853,5664,3811,32.720000,3.000000,15.000000,Hourly reference grid; scheduled 3-hour reports also leave empty hour slots.
+Lahore,2023,5043,8760,3717,57.570000,1.000000,13.000000,Hourly reference grid; scheduled 3-hour reports also leave empty hour slots.
+Lahore,2024,6502,8784,2282,74.020000,1.000000,121.000000,Hourly reference grid; scheduled 3-hour reports also leave empty hour slots.
+Lahore,2025,4243,5664,1421,74.910000,1.000000,10.000000,Hourly reference grid; scheduled 3-hour reports also leave empty hour slots.
+Multan,2023,2800,8760,5960,31.960000,3.000000,48.000000,Hourly reference grid; scheduled 3-hour reports also leave empty hour slots.
+Multan,2024,2701,8784,6083,30.750000,3.000000,123.000000,Hourly reference grid; scheduled 3-hour reports also leave empty hour slots.
+Multan,2025,1849,5664,3815,32.640000,3.000000,15.000000,Hourly reference grid; scheduled 3-hour reports also leave empty hour slots.

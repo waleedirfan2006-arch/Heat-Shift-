@@ -1,0 +1,15 @@
+check,result,checked_at_utc
+raw hashes match supplied snapshots,PASS,2026-10-19T12:46:56Z
+clean NOAA station/time unique,PASS,2026-10-19T12:46:56Z
+clean Open-Meteo city/time unique,PASS,2026-10-19T12:46:56Z
+NOAA observations are on the hour; no rounding used,PASS,2026-10-19T12:46:56Z
+all targets exactly 24 hours ahead,PASS,2026-10-19T12:46:56Z
+target and required current temperature never filled,PASS,2026-10-19T12:46:56Z
+model examples unique,PASS,2026-10-19T12:46:56Z
+baseline equals current measured temperature,PASS,2026-10-19T12:46:56Z
+no Open-Meteo features in model contract,PASS,2026-10-19T12:46:56Z
+future target never listed as an input,PASS,2026-10-19T12:46:56Z
+training labels stop before validation starts,PASS,2026-10-19T12:46:56Z
+lag24 refers to same exact past time,PASS,2026-10-19T12:46:56Z
+lag48 refers to same exact past time,PASS,2026-10-19T12:46:56Z
+each planned split has all three cities,PASS,2026-10-19T12:46:56Z

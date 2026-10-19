@@ -1,0 +1,22 @@
+column,meaning,model_input
+current_row_id,"ID of the selected current station reading. Proof only, not an input.",0
+current_raw_row_id,Original file SHA-256 plus record number for current reading. Proof only.,0
+station_id,"Station identifier. Treat as a category, not a number.",1
+city,City label. Station and grid cover different physical locations.,0
+prediction_time_utc,Historical time at which the prediction is simulated.,0
+temp_c,Current measured temperature in degrees Celsius. Required model input.,1
+temp_lag24_c,Temperature exactly 24 hours before prediction time. Optional input; blanks remain.,1
+lag24_row_id,ID of the source reading 24 hours earlier. Proof only.,0
+lag24_missing,1 if the 24-hour older input is missing; otherwise 0.,1
+temp_lag48_c,Temperature exactly 48 hours before prediction time. Optional input; blanks remain.,1
+lag48_row_id,ID of the source reading 48 hours earlier. Proof only.,0
+lag48_missing,1 if the 48-hour older input is missing; otherwise 0.,1
+target_time_utc,"Exactly 24 hours after prediction time. Metadata, not a feature.",0
+target_temp_24h_c,"Measured answer in Celsius. Used for learning/scoring, NEVER as an input.",0
+target_row_id,"ID of the future measured answer. Proof only, NEVER an input.",0
+target_raw_row_id,Original file SHA-256 plus record number for answer. Proof only.,0
+example_id,Stable identifier for this example. Not an input.,0
+baseline_temp_24h_c,Simple forecast: equal to current measured temperature. Benchmark only.,0
+hour_pk,"Hour of prediction time in Pakistan, 0 to 23. Treat as a category.",1
+month_pk,"Month of prediction time in Pakistan, 1 to 12. Treat as a category.",1
+split,"Allowed purpose: train, validation, calibration, test_locked, replay, reserve_2025 or boundary_gap.",0
