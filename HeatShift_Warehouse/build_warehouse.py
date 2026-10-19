@@ -1,5 +1,5 @@
 """HeatShift Step 2. Rebuild from the supplied, unchanged CSV snapshots.
-Requires Python 3.10+ and pandas. No network, model training or cloud account.
+Tested with Python 3.12 and the pinned requirements. No network, model training or cloud account.
 All project choices below are Recommended; source encodings follow NOAA docs.
 """
 from pathlib import Path
@@ -51,7 +51,7 @@ def quality_report(folder, audit, splits, coverage):
     a = audit
     text = f'''# HeatShift data quality report
 
-Built at {a['built_at_utc']}. These are measured counts from the uploaded files, not model results.
+Built at {a['built_at_utc']}. These are measured counts from the active raw snapshots, not model results.
 
 ## Main counts
 
@@ -182,7 +182,7 @@ def build():
         if sha(ROOT / item['raw_file']) != item['sha256']:
             raise RuntimeError('Raw hash mismatch: ' + item['raw_file'] + '. Original data changed. Build stopped.')
     run_at = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-    staging = Path(tempfile.mkdtemp(prefix='.build_', dir=ROOT))
+    staging = Path(tempfile.mkdtemp(prefix='heatshift_build_'))
     for name in ['01_clean', '02_final', 'quality']:
         (staging / name).mkdir()
     actions, profiles, raw_noaa, raw_open, noaa_parts, open_parts = [], [], [], [], [], []
@@ -381,13 +381,14 @@ def build():
                  examples_by_split={k:int(v) for k,v in model.split.value_counts().sort_index().items()},
                  missing_optional_lag24=int(model.lag24_missing.sum()), missing_optional_lag48=int(model.lag48_missing.sum()),
                  checks_passed=len(check_rows), rule_counts=rule_counts, model_trained=False,
-                 limitations=['NOAA 2022 is absent. Planned training window stays 2022-2023; available training is 2023 only.',
+                 data_quality_agent_status='Not implemented: explicitly excluded by user',
+                 limitations=['NOAA 2022-2023 supports training. Test dates remain fixed; 2025 is not used for training.',
                               'NOAA 2025 is reserve data, not extra training across the locked 2024 test.',
-                              'Source download timestamps, exact Open-Meteo query and model setting remain Unverified.',
+                              'Original Open-Meteo download time, request and model setting remain Unverified. NOAA has new verified during-event fetch receipts.',
                               'Station measurements are sparse. Not a complete 24-hour forecast curve.',
                               'Historical availability of station reports is unknown; replay assumes event-time availability.',
                               'No performance claim: model and fixed baseline have not been evaluated.',
-                              'Local snapshot rebuild only. Automated source collection and hourly orchestration are future steps.'])
+                              'Complete local-snapshot rebuild provided. Hourly orchestration and Data Quality Agent are future steps.'])
     write_json(staging / 'quality/summary.json', audit)
     quality_report(staging / 'quality', audit, split_counts, pd.DataFrame(coverage))
     contract = dict(status='Recommended. Check against your actually submitted declaration before model training.',
@@ -425,11 +426,17 @@ def build():
     # Publish only after validation. Previous outputs are preserved if processing fails above.
     for name in ['01_clean','02_final','quality']:
         dest = ROOT / name
-        if dest.exists():
-            shutil.rmtree(dest)
-        shutil.move(str(staging/name),dest)
-    (staging / 'warehouse.sqlite').replace(ROOT / 'warehouse.sqlite')
-    staging.rmdir()
+        dest.mkdir(parents=True,exist_ok=True)
+        for source in (staging/name).iterdir():
+            target = dest/source.name
+            temporary = target.with_name(target.name+'.next')
+            shutil.copyfile(source,temporary)
+            temporary.replace(target)
+    # The database is the canonical published warehouse. Replace it last and atomically.
+    temporary_database = ROOT / 'warehouse.sqlite.next'
+    shutil.copyfile(staging / 'warehouse.sqlite',temporary_database)
+    temporary_database.replace(ROOT / 'warehouse.sqlite')
+    shutil.rmtree(staging)
     print(json.dumps(audit,indent=2))
 
 if __name__ == '__main__':

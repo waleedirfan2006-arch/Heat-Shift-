@@ -1,2 +1,4 @@
 pandas==2.2.3
-
+numpy==2.3.5
+python-dateutil==2.9.0.post0
+six==1.17.0

@@ -1,3 +1,4 @@
 .PHONY: data
+PYTHON ?= python
 data:
-	python build_warehouse.py
+	$(PYTHON) pipeline.py $(if $(WORKDIR),--output "$(WORKDIR)",)

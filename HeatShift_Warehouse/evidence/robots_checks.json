@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://archive-api.open-meteo.com/robots.txt",
+    "status": 200,
+    "body": "User-agent: *\nDisallow: /",
+    "checked_at_utc": "2026-10-19T13:13:52.100389+00:00"
+  },
+  {
+    "url": "https://open-meteo.com/robots.txt",
+    "status": 403,
+    "body": "error code: 1010\n",
+    "checked_at_utc": "2026-10-19T13:13:55.558921+00:00"
+  },
+  {
+    "url": "https://noaa-global-hourly-pds.s3.amazonaws.com/robots.txt",
+    "status": 404,
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>robots.txt</Key><RequestId>RX67X7SM26ZQHC82</RequestId><HostId>ln7V12tMgm6o+KJCYl4Fbt7W+U70Hq9hiMj06XQWbpSFLYXUcpRIg5mUmCyCspgS1pCPfKDsIOk=</HostId></Error>",
+    "checked_at_utc": "2026-10-19T13:13:58.770794+00:00"
+  }
+]
