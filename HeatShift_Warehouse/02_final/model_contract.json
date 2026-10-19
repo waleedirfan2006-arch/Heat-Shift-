@@ -1,0 +1,36 @@
+{
+  "status": "Recommended. Check against your actually submitted declaration before model training.",
+  "task": "Same-station air temperature exactly 24 hours after prediction_time_utc",
+  "features": [
+    "station_id",
+    "temp_c",
+    "temp_lag24_c",
+    "temp_lag48_c",
+    "lag24_missing",
+    "lag48_missing",
+    "hour_pk",
+    "month_pk"
+  ],
+  "target": "target_temp_24h_c",
+  "baseline": "baseline_temp_24h_c = temp_c",
+  "metric": "MAE in Celsius on identical scored rows for model and baseline",
+  "forbidden_inputs": [
+    "target_temp_24h_c",
+    "target_time_utc",
+    "target_row_id",
+    "target_raw_row_id",
+    "split",
+    "example_id",
+    "current_raw_row_id",
+    "current_row_id",
+    "lag24_row_id",
+    "lag48_row_id",
+    "baseline_temp_24h_c"
+  ],
+  "missing_values": "Keep optional lags blank. Fit median imputation on train only during model training. Never fill target/current temperature.",
+  "categories": "Treat station_id, hour_pk and month_pk as categories in the model.",
+  "split_rule": "By target UTC time; 24-hour target gap at start of each later window. 2025 reserved.",
+  "evaluation": "Do not use test_locked, replay or reserve_2025 for choosing features, preprocessing or tuning.",
+  "provenance": "current/lag/target row IDs join clean NOAA; raw_row_id joins raw tables and file checksum plus record number.",
+  "time_policy": "Actual event UTC and real ingestion UTC remain separate. No invented original arrival times."
+}
