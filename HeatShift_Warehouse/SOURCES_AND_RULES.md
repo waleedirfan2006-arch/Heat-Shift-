@@ -1,6 +1,6 @@
 # Sources and Recommended rules
 
-This is a Step 2 warehouse of the 12 files uploaded by the team. It does not certify all contest requirements.
+This warehouse has 15 active raw snapshots: the 12 supplied files plus 3 NOAA 2022 files fetched during this update. The 9 overlapping NOAA downloads matched the uploaded bytes. It does not certify all contest requirements.
 Original files were copied unchanged. Derived files must be described as modified data.
 
 ## Checked documentation
@@ -28,8 +28,10 @@ Terms reference: https://registry.opendata.aws/noaa-isd/
 Open-Meteo attribution: weather data provided by Open-Meteo.com, processed by the HeatShift team. The public data terms specify CC BY 4.0. Confirm the selected underlying data provider/model from the original export request and add any required credit.
 Terms reference: https://open-meteo.com/en/terms
 
-Exact original download URLs, query settings and fetch times remain Unverified unless the team supplies its download records. No raw hash is claimed to match a new online download.
-The manifest records actual local ingestion time and a SHA-256 fingerprint for every supplied file. It deliberately leaves unknown original fetch times blank.
+The 12 NOAA station/year URLs were fetched during this update. Actual timestamps, URLs and matching hashes are in evidence/fetch_receipts.json. Original uploaded download times remain separate from these new fetch times.
+Exact original Open-Meteo download URL, query settings, model and fetch time remain Unverified. The manifest deliberately records unknown values as unknown instead of using file modification time.
+The API host's robots.txt returned Disallow for crawlers; the public documentation describes API use. To avoid assuming the guide's interpretation, this update did not re-fetch Open-Meteo. It reloads the user-supplied snapshots. Original collection method and any required organizer clarification remain a team evidence task.
+NOAA's public S3 bucket returned 404 for robots.txt, and the official registry supplies public download instructions. Access-check responses are saved in evidence/robots_checks.json.
 
 ## Frozen date windows from the earlier playbook
 
@@ -37,7 +39,7 @@ Recommended; check against the declaration actually submitted by the team.
 
 | Target time in UTC | Purpose |
 |---|---|
-| 2022–2023 | Train; only 2023 NOAA is available in these uploads |
+| 2022–2023 | Train; missing 2022 station files have now been collected |
 | January–February 2024 | Validation |
 | March 2024 | Calibration |
 | April–September 2024 | Locked final test |

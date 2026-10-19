@@ -1,0 +1,13 @@
+{
+  "checked_at_utc": "2026-10-19T13:27:28.462469+00:00",
+  "clean_start_command": "make data WORKDIR=<initially-empty-folder>",
+  "raw_snapshots_restored_and_hash_verified": 15,
+  "identical_clean_final_csvs": 11,
+  "cold_start_sqlite_integrity": "ok",
+  "target_station_time_value_links": "PASS",
+  "training_window": "PASS",
+  "corrupted_raw_stops_build": "PASS",
+  "last_good_database_unchanged_on_hash_failure": "PASS",
+  "data_quality_agent": "NOT IMPLEMENTED (user requested exclusion)",
+  "model_trained": false
+}

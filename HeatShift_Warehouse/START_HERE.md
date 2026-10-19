@@ -1,15 +1,17 @@
-# HeatShift: Step 2 is built
+# HeatShift: sources and warehouse update
 
 A data warehouse is one organised place for your data.
 This package has the original files, cleaned tables and final model tables.
 It also has `warehouse.sqlite`: the same tables in one database file.
-No paid service or account is needed. No model has been trained yet.
+No paid service or account is needed for this local warehouse. No model has been trained yet.
+Read COMPLETED_AND_NEXT.md for this update. The Data Quality Agent is intentionally unbuilt.
+Already using D:\Heat-Shift-? Read GITHUB_UPDATE.md before copying this newer package into your repository.
 
 ## 1. What is inside?
 
 | Place | Simple meaning | What to do |
 |---|---|---|
-| `00_raw/` | Your 12 original files. Only filenames were made clearer. File contents are unchanged. | Never edit them. |
+| `00_raw/` | 15 active snapshots: 12 NOAA station/year files and 3 supplied Open-Meteo files. Original uploaded bytes are preserved. | Never edit them. |
 | `01_clean/noaa_observations.csv` | Accepted station temperature readings. One reading per station and time. | Use for station charts and building examples. |
 | `01_clean/open_meteo_context.csv` | Clean historical grid estimates. A grid is a small area used by a weather model. | Use for separate historical comparison. |
 | `02_final/train.csv` | Examples the model may learn from. | Start model training with this file. |
@@ -22,7 +24,12 @@ No paid service or account is needed. No model has been trained yet.
 | `02_final/model_data.csv` | All labelled examples, with a `split` column showing each purpose. | Never randomly split or train on this whole file. |
 | `02_final/historical_comparison.csv` | Station temperature beside the historical grid temperature. | Not an input to the prediction model. |
 | `quality/` | Counts, gaps, exclusions, alternative reports and checks. | Read `quality/QUALITY_REPORT.md` first. |
-| `manifest.json` | A record of each source file and its fingerprint. | Complete missing original download details honestly. |
+| `manifest.csv` / `manifest.json` | Source details and fingerprints; CSV for review, JSON for the program. | Complete remaining Open-Meteo evidence honestly. |
+| `source_snapshots.zip` | Frozen copies of all active raw files. | Allows a rebuild into an empty folder without the internet. |
+| `pipeline.py` | Restores snapshots, checks hashes and runs the builder. | Use this for the full rebuild. |
+| `fetch_sources.py` | Checks known NOAA URLs against frozen hashes. | Optional network verification; never silently changes originals. |
+| `evidence/` | Actual NOAA fetch receipts, access checks and the original uploaded snapshots. | Keep as evidence. |
+| `AI_Use_Log.md` | Records the assistant's substantial help and pending human review. | Each student fills their review honestly. |
 
 ## 2. How was it cleaned?
 
@@ -66,11 +73,10 @@ Read `quality/QUALITY_REPORT.md` for the measured usable counts.
 Recommended model: Ridge regression, a simple model that learns a weighted combination of inputs.
 Compare its errors against the fixed baseline on the same test examples.
 
-The actual station files cover 2023 to 24 August 2025. Open-Meteo covers 2022 to 2024.
-The earlier plan had NOAA training in 2022–2023. NOAA 2022 was not among these uploads.
-The planned date boundaries are retained. The available training examples therefore come from 2023 only.
-No test dates were moved to improve a result. No result has been calculated.
-Recommended: obtain the three missing NOAA 2022 files before training if your submitted declaration promised them. Otherwise record the missing year and resolve any declaration change with the organisers.
+The station files now cover 2022 to 24 August 2025. Open-Meteo covers 2022 to 2024.
+The assistant collected the three missing NOAA 2022 files, restoring the originally planned 2022–2023 training window.
+The planned date boundaries are retained. No test dates were moved to improve a result. No model result has been calculated.
+Check Dataset_Declaration_DRAFT.md against the declaration actually submitted by your team.
 
 The station readings have many empty hours. This version predicts the next day's same-time temperature where usable station data exist. It does not yet provide a complete 24-hour curve.
 It cannot predict illnesses, guarantee safe working hours or demonstrate an accurate live forecast for today.
@@ -87,13 +93,13 @@ The warehouse is already built. To recreate it, open a terminal in this folder:
 
 ```bash
 python -m pip install -r requirements.txt
-python build_warehouse.py
+python pipeline.py
 ```
 
 On Windows, use `py` instead of `python` if needed. On Linux, `python3` may be the command.
-If Make is installed, `make data` runs the same build.
+If Make is installed, `make data` runs the same build. To use an empty destination, run `python pipeline.py --output fresh_build` or `make data WORKDIR=fresh_build`.
 The build checks raw file fingerprints first. It stops if the originals have changed.
-It works from the included local snapshots. It does not download files or run hourly yet.
+The full rebuild reloads the included local snapshots. It does not run hourly yet. Optional `python fetch_sources.py` checks known NOAA URLs; unknown Open-Meteo requests are skipped explicitly.
 Do not run two rebuilds at the same time.
 Do not edit cleaned/final files manually: a rebuild replaces them. Change reviewed rules in the script instead.
 
@@ -107,9 +113,9 @@ GROUP BY split, city;
 
 ## 6. Things still needed
 
-- Original download times and exact Open-Meteo request/model setting were not supplied. They are marked **Unverified**. A file's local modification time is not proof of a download time.
+- The current NOAA snapshots have new, verified fetch times and byte matches in evidence/fetch_receipts.json. Original Open-Meteo download time and exact request/model setting remain **Unverified**. A file's local modification time is not proof of a download time.
 - We have not called these Open-Meteo uploads ERA5. The CSV does not prove which model was selected.
-- Source URLs inferred from station/year are candidate URLs, not proof of where these exact bytes were fetched.
+- NOAA source URLs were actually fetched and checked. The original Open-Meteo request remains unknown; do not substitute a guessed request as if it were the original.
 - Keep source and licence acknowledgements. See `SOURCES_AND_RULES.md`.
 - Automated collection, the hourly schedule, drift checks, the AI assistant and the dashboard are later steps. This package does not claim the whole competition system is complete.
 - The word `locked` is a team rule, not file encryption. All supplied historical readings are still present in raw data.

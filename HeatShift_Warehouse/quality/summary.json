@@ -1,31 +1,31 @@
 {
-  "built_at_utc": "2026-10-19T12:46:56Z",
+  "built_at_utc": "2026-10-19T13:24:12Z",
   "status": "PASS_WITH_DOCUMENTED_LIMITATIONS",
-  "original_files": 12,
-  "raw_noaa_rows": 34719,
+  "original_files": 15,
+  "raw_noaa_rows": 43927,
   "raw_open_meteo_rows": 78912,
-  "clean_noaa_readings": 30539,
+  "clean_noaa_readings": 39305,
   "clean_open_meteo_rows": 78912,
-  "alternative_noaa_reports": 4076,
-  "selected_times_with_conflicting_temperatures": 1571,
-  "model_examples_total": 26609,
-  "excluded_missing_target": 3930,
+  "alternative_noaa_reports": 4465,
+  "selected_times_with_conflicting_temperatures": 1718,
+  "model_examples_total": 33799,
+  "excluded_missing_target": 5506,
   "examples_by_split": {
     "boundary_gap": 124,
     "calibration": 755,
     "replay": 2370,
     "reserve_2025": 6958,
     "test_locked": 5346,
-    "train": 9273,
+    "train": 16463,
     "validation": 1783
   },
-  "missing_optional_lag24": 2457,
-  "missing_optional_lag48": 2546,
+  "missing_optional_lag24": 3255,
+  "missing_optional_lag48": 3386,
   "checks_passed": 14,
   "rule_counts": {
     "invalid_time": 0,
-    "noaa_missing_temperature": 71,
-    "noaa_quality_not_accepted": 33,
+    "noaa_missing_temperature": 110,
+    "noaa_quality_not_accepted": 47,
     "noaa_temperature_out_of_range": 0,
     "open_missing_temperature_c": 0,
     "open_range_temperature_c": 0,
@@ -42,16 +42,17 @@
     "open_missing_shortwave_radiation_wm2": 0,
     "open_range_shortwave_radiation_wm2": 0,
     "open_dew_above_air": 0,
-    "multiple_accepted_reports_at_time": 4076
+    "multiple_accepted_reports_at_time": 4465
   },
   "model_trained": false,
+  "data_quality_agent_status": "Not implemented: explicitly excluded by user",
   "limitations": [
-    "NOAA 2022 is absent. Planned training window stays 2022-2023; available training is 2023 only.",
+    "NOAA 2022-2023 supports training. Test dates remain fixed; 2025 is not used for training.",
     "NOAA 2025 is reserve data, not extra training across the locked 2024 test.",
-    "Source download timestamps, exact Open-Meteo query and model setting remain Unverified.",
+    "Original Open-Meteo download time, request and model setting remain Unverified. NOAA has new verified during-event fetch receipts.",
     "Station measurements are sparse. Not a complete 24-hour forecast curve.",
     "Historical availability of station reports is unknown; replay assumes event-time availability.",
     "No performance claim: model and fixed baseline have not been evaluated.",
-    "Local snapshot rebuild only. Automated source collection and hourly orchestration are future steps."
+    "Complete local-snapshot rebuild provided. Hourly orchestration and Data Quality Agent are future steps."
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "rebuilt_at_utc": "2026-10-19T13:25:03.335837+00:00",
+  "mode": "verified_local_snapshot_reload",
+  "raw_files_verified": 15,
+  "raw_files_restored": [],
+  "data_quality_agent": "NOT IMPLEMENTED: intentionally excluded by user",
+  "note": "Reload time is not original publisher fetch time. No model trained."
+}
