@@ -17,18 +17,18 @@ The project uses Ridge regression and compares it with a simple baseline: predic
 
 Lower error is better. The best Ridge version is the temperature-change model, but its validation error is still higher than the baseline's. The model has **not beaten the baseline**, so this project does not claim that it has. The locked test data has not been used; keep it untouched until the model and choices are finalized.
 
-The detailed results are in [`HeatShift_Warehouse/model_results/validation_metrics.json`](HeatShift_Warehouse/model_results/validation_metrics.json). They include error breakdowns and details of the candidate comparisons.
+The detailed results are in [`HeatShift_Training/model_results/validation_metrics.json`](HeatShift_Training/model_results/validation_metrics.json). They include error breakdowns and details of the candidate comparisons.
 
 ## Run the model
 
-Open a terminal in `HeatShift_Warehouse`, then run:
+Open a terminal in `HeatShift_Training`, then run:
 
 ```bash
 python -m pip install -r requirements.txt
 python train_model.py
 ```
 
-The script reads `02_final/train.csv` and `02_final/validation.csv`. It saves the fitted model, validation scores, and example predictions in `model_results/`. It does not read `test_locked.csv`, `replay.csv`, or `reserve_2025.csv`.
+The script reads `HeatShift_Warehouse/02_final/train.csv` and `validation.csv`. It saves the fitted model, validation scores, and example predictions in `HeatShift_Training/model_results/`. It does not read `test_locked.csv`, `replay.csv`, or `reserve_2025.csv`.
 
-See [`HeatShift_Warehouse/START_HERE.md`](HeatShift_Warehouse/START_HERE.md) for the data guide and next steps.
+The data files and their cleaning notes are in [`HeatShift_Warehouse/START_HERE.md`](HeatShift_Warehouse/START_HERE.md).
 
