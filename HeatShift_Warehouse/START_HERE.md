@@ -3,7 +3,7 @@
 A data warehouse is one organised place for your data.
 This package has the original files, cleaned tables and final model tables.
 It also has `warehouse.sqlite`: the same tables in one database file.
-No paid service or account is needed. The first Ridge regression is in `train_model.py`.
+No paid service or account is needed. The first Ridge regression is in the sibling `HeatShift_Training` folder.
 
 ## 1. What is inside?
 
@@ -69,7 +69,7 @@ Compare its errors against the fixed baseline on the same validation examples.
 The actual station files cover 2023 to 24 August 2025. Open-Meteo covers 2022 to 2024.
 The earlier plan had NOAA training in 2022–2023. NOAA 2022 was not among these uploads.
 The planned date boundaries are retained. The available training examples therefore come from 2023 only.
-No test dates were moved to improve the result. Current validation scores are documented in the project README and `model_results/validation_metrics.json`.
+No test dates were moved to improve the result. Current validation scores are documented in the project README and `../HeatShift_Training/model_results/validation_metrics.json`.
 Recommended: obtain the three missing NOAA 2022 files before training if your submitted declaration promised them. Otherwise record the missing year and resolve any declaration change with the organisers.
 
 The station readings have many empty hours. This version predicts the next day's same-time temperature where usable station data exist. It does not yet provide a complete 24-hour curve.
@@ -99,14 +99,14 @@ Do not edit cleaned/final files manually: a rebuild replaces them. Change review
 
 ## 7. Train and compare the first model
 
-Install the listed packages, then run this command from the `HeatShift_Warehouse` folder:
+Open a terminal in the sibling `HeatShift_Training` folder, then install the listed packages and run the model:
 
 ```bash
 python -m pip install -r requirements.txt
 python train_model.py
 ```
 
-The script tries Ridge settings using three time-ordered checks inside `02_final/train.csv`. It then compares the selected Ridge model with the simple baseline on `02_final/validation.csv`. A lower MAE means a smaller average temperature error. The report and prediction examples are saved in `model_results/`.
+The script tries Ridge settings using three time-ordered checks inside `HeatShift_Warehouse/02_final/train.csv`. It then compares the selected Ridge model with the simple baseline on `HeatShift_Warehouse/02_final/validation.csv`. A lower MAE means a smaller average temperature error. The report and prediction examples are saved in `HeatShift_Training/model_results/`.
 
 The script does not open `test_locked.csv`, `replay.csv`, or `reserve_2025.csv`. Keep the locked test for one final check after you have finished choosing the model.
 
