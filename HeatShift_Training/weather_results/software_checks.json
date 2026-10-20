@@ -1,0 +1,14 @@
+{
+  "checked_at_utc": "2026-10-20T21:36:45.116699+00:00",
+  "input_parser_tests": 32,
+  "dom_integration_tests": 12,
+  "real_feature_browser_python_parity_rows": 1783,
+  "maximum_residual_difference": 0,
+  "saved_artifact_reproduces_validation_predictions": true,
+  "agent_files_changed": false,
+  "live_deployment_verified": false,
+  "separate_calibration_rows": 755,
+  "calibration_did_not_change_fitted_model": true,
+  "full_browser_input_parity_usable_reports": 1771,
+  "full_browser_input_max_difference": 0
+}

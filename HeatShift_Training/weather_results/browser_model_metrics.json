@@ -1,0 +1,122 @@
+{
+  "selected": {
+    "id": "hgb_absolute_error_200_15_10",
+    "kind": "hgb",
+    "loss": "absolute_error",
+    "iterations": 200,
+    "leaves": 15,
+    "l2": 10
+  },
+  "residual_weight": 0.75,
+  "selection": "best training-CV HGB among browser-engine-compatible candidates; other families remain research comparisons",
+  "training_examples": 16463,
+  "validation": {
+    "examples": 1783,
+    "mae_c": 1.2280463726635686,
+    "rmse_c": 1.6092061990653475,
+    "baseline_mae_c": 1.2351654514862591,
+    "baseline_rmse_c": 1.664813514522864
+  },
+  "validation_by_city": {
+    "Karachi": {
+      "examples": 419,
+      "mae_c": 1.3471905204025438,
+      "rmse_c": 1.7930690206390332,
+      "baseline_mae_c": 1.3675417661097853,
+      "baseline_rmse_c": 1.8422254882080373
+    },
+    "Lahore": {
+      "examples": 963,
+      "mae_c": 1.1421155247204,
+      "rmse_c": 1.4867784072013492,
+      "baseline_mae_c": 1.1290758047767393,
+      "baseline_rmse_c": 1.5374420098140344
+    },
+    "Multan": {
+      "examples": 401,
+      "mae_c": 1.3099167184656662,
+      "rmse_c": 1.687057529441024,
+      "baseline_mae_c": 1.3516209476309227,
+      "baseline_rmse_c": 1.7609649361172452
+    }
+  },
+  "metar_precision_baseline_mae_c": 1.2439147504206394,
+  "mean_validation_mae_improvement_c": 0.007119078822690297,
+  "seven_day_block_bootstrap_95pct_improvement_interval_c": [
+    -0.07411511092990303,
+    0.07847854137680084
+  ],
+  "blocks": 9,
+  "historical_bands_c": {
+    "Karachi": 2.266119777188497,
+    "Lahore": 3.4433639296894896,
+    "Multan": 3.2216114910611817
+  },
+  "training_sha256": "8a0631c337dd89272c141b04d2e61df0c368d2413b2ed8a3728540c56aa6f6f5",
+  "validation_sha256": "afd513bc85535eea623672ba4c409677822d7e0cd2ac1ef49af37f8e8985b792",
+  "artifact_sha256": "eedda1c67736c26f5053040f9beff5c5570f997c8e82e9f764f4e4ee1501eacb",
+  "compressed_model_sha256": "163cb5933df52a8d938b7415291a5776e8fdca6887b5f4dde3aa7d9098b4f54c",
+  "runtime_seconds": 3.438185417000568,
+  "limitations": [
+    "Validation was reused during development; no independent final-performance claim.",
+    "Not compared directly against JMA primary on matching archived features.",
+    "Live METAR measurements can differ from historical NOAA reports.",
+    "Raw event arrival/revision times are unverified.",
+    "Historical OOF bands are not calibrated coverage guarantees."
+  ],
+  "raw_feature_sources": {
+    "00_raw/noaa_41640099999_2022.csv": "14bde0177c3c0c9963c2a5c4c0c6f8bd66f64383e222522c766b0584af3844c4",
+    "00_raw/noaa_41675099999_2022.csv": "5b09b664d9f54c82e3fee4445f2552ea723570946d70feda0cfeafc4f9e68f93",
+    "00_raw/noaa_41780099999_2022.csv": "57ea56a62af14a07d8d1cfe3aa639e03d102af316812396927644af6b59be797",
+    "00_raw/noaa_41640099999_2023.csv": "3a68ca2c47581391d512fee540d14761dc22964563125934c8d907d01fcdf3c6",
+    "00_raw/noaa_41675099999_2023.csv": "3b0e582ff2ebd5a90baa60d7064f9608e336ab3332811a3d02d04455470d8f61",
+    "00_raw/noaa_41780099999_2023.csv": "5c92a4d5e873525c6840bac98c166e99dd85cad53914c1277dc878921d275827",
+    "00_raw/noaa_41640099999_2024.csv": "66e21af07ffc065028b3b83f6f53602d6b3baed884966039731e312db62ee99f",
+    "00_raw/noaa_41675099999_2024.csv": "af010452bedca937d5f22f445d33dffc3499ff6124ce252d2f2e85cbae038f96",
+    "00_raw/noaa_41780099999_2024.csv": "b074773ce2cf9460eecd4aab6867f00321fba3312f25b68d7a518dab83491ae0"
+  },
+  "source_documentation": "https://www.ncei.noaa.gov/pub/data/noaa/isd-format-document.pdf",
+  "overall_cv_winner": {
+    "id": "hgb_absolute_error_200_15_10",
+    "kind": "hgb",
+    "loss": "absolute_error",
+    "iterations": 200,
+    "leaves": 15,
+    "l2": 10
+  },
+  "matches_overall_cv_winner": true,
+  "calibration": {
+    "calibration_sha256": "68bae84534a1a67c98602f62848e43358aba1661991b7e52e6cf546b59ec545f",
+    "model_sha256": "eedda1c67736c26f5053040f9beff5c5570f997c8e82e9f764f4e4ee1501eacb",
+    "model_changed": false,
+    "nominal_coverage": 0.9,
+    "method": "Per-city split-conformal absolute error quantile with finite-sample rank correction",
+    "groups": {
+      "Karachi": {
+        "examples": 183,
+        "half_width_c": 2.8035534564005182,
+        "calibration_coverage": 0.907103825136612
+      },
+      "Lahore": {
+        "examples": 398,
+        "half_width_c": 3.816686819477688,
+        "calibration_coverage": 0.9045226130653267
+      },
+      "Multan": {
+        "examples": 174,
+        "half_width_c": 3.2560465321317302,
+        "calibration_coverage": 0.9080459770114943
+      }
+    },
+    "raw_feature_sources": {
+      "00_raw/noaa_41640099999_2024.csv": "66e21af07ffc065028b3b83f6f53602d6b3baed884966039731e312db62ee99f",
+      "00_raw/noaa_41675099999_2024.csv": "af010452bedca937d5f22f445d33dffc3499ff6124ce252d2f2e85cbae038f96",
+      "00_raw/noaa_41780099999_2024.csv": "b074773ce2cf9460eecd4aab6867f00321fba3312f25b68d7a518dab83491ae0"
+    },
+    "limitations": [
+      "Time-series exchangeability is not guaranteed.",
+      "Coverage measured on calibration rows is not independent future coverage.",
+      "This does not choose or tune prediction-model parameters."
+    ]
+  }
+}
