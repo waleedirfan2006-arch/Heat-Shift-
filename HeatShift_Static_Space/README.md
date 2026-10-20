@@ -12,7 +12,7 @@ pinned: false
 
 Choose Karachi, Lahore, or Multan. Enter the latest on-the-hour airport METAR temperature and its observation time in Pakistan Standard Time (PKT). The page retrieves the JMA GSM previous-day forecast inputs and runs the same frozen HistGradientBoosting model used by the Python demo. It compares the estimate with the persistence baseline (tomorrow equals the observed temperature).
 
-The live Gradio version cannot run on this Hugging Face account's free plan. This static version avoids paid compute. Aviation Weather Center does not allow browser cross-origin API requests, so the current METAR temperature must be entered manually. The model and JMA data remain the same; the observation source and entry are made explicit.
+This folder uses Hugging Face's static SDK. Aviation Weather Center does not allow browser cross-origin API requests, so the current METAR temperature must be entered manually. The model and JMA data remain the same; the observation source and entry are made explicit.
 
 This is an experimental student project, not an exact answer, official forecast, or weather warning. Weather predictions have unavoidable error. The model does not learn from requested predictions.
 
@@ -35,3 +35,7 @@ Predictions are not guaranteed. The approximate 90th-percentile error bands use 
 - `model.js`: JavaScript model inference.
 - `export_model.py`: regenerate `model.json` from the frozen joblib artifact.
 
+
+## Interactive update
+
+The workspace supports pasted station reports, Celsius/Fahrenheit, dark mode, baseline-only mode, five session comparisons and downloadable receipts. Entered observations must be exact-hour reports from the last four hours. The new station-only training experiment is documented in REVIEW.md; it was not promoted because it did not beat validation persistence. Copy all deployment files together.
