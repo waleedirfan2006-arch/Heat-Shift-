@@ -1,0 +1,21 @@
+{
+  "checked_at_utc": "2026-10-20T04:34:30.701638+00:00",
+  "clean_start_then_updated_manifest_rebuild": true,
+  "raw_snapshots_reloaded": 15,
+  "clean_final_csv_byte_matches": {
+    "01_clean/noaa_observations.csv": true,
+    "01_clean/open_meteo_context.csv": true,
+    "02_final/boundary_gap.csv": true,
+    "02_final/calibration.csv": true,
+    "02_final/historical_comparison.csv": true,
+    "02_final/model_data.csv": true,
+    "02_final/replay.csv": true,
+    "02_final/reserve_2025.csv": true,
+    "02_final/test_locked.csv": true,
+    "02_final/train.csv": true,
+    "02_final/validation.csv": true
+  },
+  "sqlite_integrity": "ok",
+  "updated_source_metadata_in_SQLite": true,
+  "all_passed": true
+}

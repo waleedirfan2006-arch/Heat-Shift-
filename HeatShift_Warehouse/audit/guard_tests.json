@@ -1,0 +1,56 @@
+{
+  "at_utc": "2026-10-20T16:12:59.856105+00:00",
+  "type": "SYNTHETIC COPY-ONLY STRESS TESTS; NOT MODEL EVALUATION",
+  "model_fitted": false,
+  "results": [
+    {
+      "case": "actual partitions accepted",
+      "pass": true
+    },
+    {
+      "case": "changed baseline",
+      "pass": true,
+      "reason": "validation: changed baseline"
+    },
+    {
+      "case": "wrong split",
+      "pass": true,
+      "reason": "validation: wrong split"
+    },
+    {
+      "case": "wrong horizon",
+      "pass": true,
+      "reason": "validation: outside fixed date window"
+    },
+    {
+      "case": "future training date",
+      "pass": true,
+      "reason": "train: outside fixed date window"
+    },
+    {
+      "case": "missing target",
+      "pass": true,
+      "reason": "validation: invalid target_temp_24h_c"
+    },
+    {
+      "case": "incorrect lag markers",
+      "pass": true,
+      "reason": "validation: incorrect lag marker"
+    },
+    {
+      "case": "duplicate examples",
+      "pass": true,
+      "reason": "validation: empty or duplicate examples"
+    },
+    {
+      "case": "incorrect PKT hour",
+      "pass": true,
+      "reason": "validation: wrong PKT features"
+    },
+    {
+      "case": "infinite current value",
+      "pass": true,
+      "reason": "validation: invalid temp_c"
+    }
+  ]
+}

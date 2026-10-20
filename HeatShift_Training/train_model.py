@@ -8,6 +8,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import hashlib
+from datetime import datetime, timezone
+from validate_data import validate_partitions
 from pathlib import Path
 
 import joblib
@@ -122,6 +125,7 @@ def main():
     args = parser.parse_args()
     train = load_partition(args.data_dir / "train.csv")
     validation = load_partition(args.data_dir / "validation.csv")
+    validate_partitions(train, validation)
     folds = chronological_folds(train)
     candidates, models, predictions = [], {}, {}
 
@@ -176,7 +180,9 @@ def main():
         "model": "Ridge regression", "ridge_alpha": float(winner["selected_alpha"]), "prediction_mode": mode,
         "selected_candidate_id": selected_id, "target": "same-station measured temperature 24 hours later (C)",
         "training_examples": int(len(train)), "validation_examples": int(len(validation)),
-        "training_period": "2023 only in the supplied files; NOAA 2022 files are absent",
+        "training_period": f"{train.target_time_utc.min().isoformat()} to {train.target_time_utc.max().isoformat()}, by target UTC time",
+        "trained_at_utc": datetime.now(timezone.utc).isoformat(),
+        "input_sha256": {name: hashlib.sha256((args.data_dir / name).read_bytes()).hexdigest() for name in ["train.csv", "validation.csv"]},
         "validation_period": "2024-01-01 through 2024-02-29, by target UTC time",
         "ridge": {"mae_c": ridge_mae, "rmse_c": float(np.sqrt(mean_squared_error(actual, pred)))},
         "baseline": {"mae_c": baseline_mae, "rmse_c": float(np.sqrt(mean_squared_error(actual, baseline)))},

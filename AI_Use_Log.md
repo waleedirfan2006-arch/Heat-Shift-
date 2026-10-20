@@ -64,3 +64,28 @@ Recommended review exercise: each student explains one real raw record, its clea
 ## Future entries
 
 For every later AI-assisted task, add the date, tool/model if known, task, code/text kept or changed, actual tests and the person who can explain it.
+
+---
+
+## Update added on 20 October 2026
+
+The earlier entries above describe the work at that time. The following entry records the later audit; it does not claim a new model training run or completed human review.
+
+# AI assistance record
+
+The cumulative record is in [HeatShift_Warehouse/AI_Use_Log.md](HeatShift_Warehouse/AI_Use_Log.md).
+
+## Data-quality and leakage review — 2026-10-20T04:33:32.124744+00:00
+
+- User requested a full review, source-evidence completion, updated files and GitHub upload if possible.
+- Assistant inspected base commit ffdecac496688f8257741f69ac61d693be53ace2, all raw/clean/final tables and training code.
+- Authored independent audit code, reports, pre-training guards and copy-only stress tests. These are substantial AI-written contributions.
+- Verified hashes, exact time joins, split boundaries, preprocessing placement and fresh rebuild outputs. No model trained/scored, no agents implemented, no data values/split windows changed.
+- Checked official Open-Meteo documentation/licence and completed supported manifest fields. Original URL, selected model and download timestamp remain Unverified without collector evidence.
+- Fixed stale hardcoded training-period text; added input hashes and guard checks. Waleed must review before training.
+- Human review: pending. Team members must record their own review honestly.
+- GitHub action status is recorded in AUDIT_UPDATE.md / delivery message; do not infer publication from this log.
+
+## Log merge — 20 October 2026
+
+The assistant preserved the uploaded root assistance log and appended the audit record. The installer now checks against that reviewed uploaded log before replacing it. No other installer checks were removed.

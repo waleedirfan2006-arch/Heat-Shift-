@@ -32,3 +32,7 @@ The script reads `HeatShift_Warehouse/02_final/train.csv` and `validation.csv`. 
 
 The data files and their cleaning notes are in [`HeatShift_Warehouse/START_HERE.md`](HeatShift_Warehouse/START_HERE.md).
 
+
+## Data audit update
+
+See [HeatShift_Warehouse/audit/DATA_QUALITY_AND_LEAKAGE_REVIEW.md](HeatShift_Warehouse/audit/DATA_QUALITY_AND_LEAKAGE_REVIEW.md) and [HeatShift_Warehouse/audit/OPEN_METEO_PROVENANCE.md](HeatShift_Warehouse/audit/OPEN_METEO_PROVENANCE.md). Structural audit completed with limitations. Original Open-Meteo collection evidence remains incomplete. Earlier model results have not been rerun on the expanded data.

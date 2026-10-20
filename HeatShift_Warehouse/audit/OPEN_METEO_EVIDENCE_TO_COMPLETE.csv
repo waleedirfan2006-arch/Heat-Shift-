@@ -1,0 +1,4 @@
+file,original_filename,original_url,original_download_time_with_timezone,selected_model,collection_method,evidence_file,collector
+00_raw/open_meteo_karachi_2022_2024.csv,open-meteo-25.00N67.25E25m.csv,Unverified,Unverified,Unverified,Unverified,Unverified,Unverified
+00_raw/open_meteo_lahore_2022_2024.csv,open-meteo-31.50N74.25E217m.csv,Unverified,Unverified,Unverified,Unverified,Unverified,Unverified
+00_raw/open_meteo_multan_2022_2024.csv,open-meteo-30.25N71.50E123m.csv,Unverified,Unverified,Unverified,Unverified,Unverified,Unverified
