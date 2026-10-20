@@ -36,3 +36,9 @@ The optimizer does not fetch weather data. It uses the GitHub warehouse inputs a
 
 ## Deployment
 Static Space deployment needs index.html, style.css, app.js, core.js, model.js, model.json, experiment.json, REVIEW.md and README.md at the Space root. The repository provides this folder; GitHub and Hugging Face are separate deployments. Do not assume a GitHub merge updates Hugging Face unless a sync is configured. This model/website update does not resolve the guide's separate Gradio/Streamlit requirement.
+
+## Extended session update — 21 October 2026 PKT
+
+Used only the uploaded warehouse data: tested history-temperature features and same-time raw dew point/wind features (14 settings x 4 weights per feature family). The best browser-compatible station-weather HGB was trained on all 16,463 training rows and exported. Development-validation MAE: 1.228046 C versus persistence 1.235165 C. The improvement interval crosses zero; no established superiority is claimed. JMA stays default; the new weather model is an alternative that can run without JMA service requests.
+
+The interface accepts a pasted METAR report to fill dew point and wind, supports optional wind direction, handles calm/variable wind consistently, and improves narrow-screen touch controls and downloads. Software checks: 32 input/parser checks, 12 DOM integration checks, exact browser/Python agreement on 1,783 real validation feature rows. No agent files were changed. Live deployment remains separate from GitHub publication and requires authorized Hugging Face access.

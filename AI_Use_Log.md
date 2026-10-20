@@ -96,3 +96,10 @@ Assistant inspected public main, Space source and accessible shared-chat content
 ## Training and interactive website — 21 October 2026 PKT
 User requested improvement of Waleed's model and website only. Assistant trained and compared eight station-only ML configurations plus persistence on three expanding training folds, selected HGB 250 iterations/7 leaves, fitted it on all 16,463 training rows, and scored fixed validation (1,783 rows). MAE was 1.237479 C versus baseline 1.235165 C, so it was not promoted over the existing JMA primary. No locked-test, replay or reserve scoring/tuning was performed. Artifacts, input hashes and row-level validation predictions are in HeatShift_Training/station_results.
 Assistant authored the redesigned HTML/CSS/JavaScript dashboard, METAR parser, explicit baseline mode, unit/theme controls, session history, source display and JSON downloads. Agent files unchanged. Human review pending. GitHub/Space publication state must be verified separately.
+
+## Extended model and dashboard work — 21 October 2026 PKT
+The assistant trained history-feature and current-weather-feature searches using only uploaded warehouse data, then fitted/exported a browser-compatible weather HGB. Development-validation MAE was 1.228046 C versus persistence 1.235165 C, with an improvement interval crossing zero. The existing JMA default is preserved; the new option uses pasted station weather and needs no JMA call. Assistant authored the training/export/evaluation code, UI changes and short AI_Use_Summary.md. Actual checks: 32 input tests, 12 DOM integration checks and exact browser/Python parity on 1,783 real feature rows. No agent files changed. Human review and live-deployment status must be recorded honestly.
+
+The assistant also calibrated the frozen new model’s per-city error ranges using the separate uploaded March split. Prediction parameters were unchanged. Calibration coverage is not claimed as independent future coverage.
+
+A further real-report check found and fixed a wind-angle arithmetic discrepancy. Full browser input construction and forecasts then matched Python on 1,771 usable reports.

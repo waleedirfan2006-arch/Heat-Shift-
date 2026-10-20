@@ -5,7 +5,7 @@ check(()=>assert.equal(C.validate('Karachi','29','2026-10-21T06:00',now).tempera
 for(const t of ['',' ','abc','29.5','61','-61'])check(()=>assert.throws(()=>C.validate('Karachi',t,'2026-10-21T06:00',now)));
 for(const t of ['2026-10-21T09:00','2026-10-20T20:00','2026-10-21T06:30','2026-02-30T06:00',''])check(()=>assert.throws(()=>C.validate('Karachi','29',t,now)));
 check(()=>assert.throws(()=>C.validate('Unknown','29','2026-10-21T06:00',now)));
-check(()=>assert.deepEqual(C.parseMetar('OPKC 210100Z 00000KT CAVOK 29/11 Q1010','Karachi',now),{temperature:29,stamp:'2026-10-21T06:00'}));
+check(()=>assert.deepEqual(C.parseMetar('OPKC 210100Z 00000KT CAVOK 29/11 Q1010','Karachi',now),{temperature:29,stamp:'2026-10-21T06:00',dewpoint:11,windSpeed:0,windDirection:null}));
 check(()=>assert.equal(C.parseMetar('OPKC 210100Z 00000KT CAVOK M02/M05 Q1010','Karachi',now).temperature,-2));
 check(()=>assert.throws(()=>C.parseMetar('OPLA 210100Z 29/11','Karachi',now)));
 check(()=>assert.throws(()=>C.parseMetar('OPKC 210130Z 29/11','Karachi',now)));
@@ -18,4 +18,13 @@ check(()=>{const x=C.weatherValues(payload,target);assert.equal(x.available,8);a
 payload.hourly[C.fields[3]]=['20'];check(()=>assert.throws(()=>C.weatherValues(payload,target)));
 check(()=>assert.throws(()=>C.weatherValues(payload,new Date('2026-10-22T02:00Z'))));
 check(()=>assert.throws(()=>C.weatherValues({error:true,reason:'outage'},target)));
+check(()=>assert.equal(C.parseMetar('OPKC 210100Z VRB03KT 29/11','Karachi',now).windDirection,null));
+check(()=>assert.equal(C.parseMetar('OPKC 210100Z 08005KT 29/11','Karachi',now).windSpeed,5));
+check(()=>assert.equal(C.parseMetar('OPKC 210100Z 08005KT 29//','Karachi',now).dewpoint,null));
+const sample=C.validate('Karachi','29','2026-10-21T06:00',now);
+check(()=>assert.equal(C.stationWeatherRow(sample,'11','5','80').dew_spread_c,18));
+check(()=>assert.equal(C.stationWeatherRow(sample,'11','0','').wind_sin,null));
+check(()=>assert.throws(()=>C.stationWeatherRow(sample,'','5','80')));
+check(()=>assert.throws(()=>C.stationWeatherRow(sample,'11','200','80')));
+check(()=>assert.throws(()=>C.stationWeatherRow(sample,'11','5','400')));
 console.log(passed+' input, METAR and weather-response checks passed.');
