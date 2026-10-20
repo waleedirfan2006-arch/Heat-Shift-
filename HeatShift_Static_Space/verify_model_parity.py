@@ -45,6 +45,9 @@ def main() -> None:
             "hour_pk": str(hour),
             "month_pk": str(i % 12 + 1),
         })
+    # Copy-only inference fixtures, never used for training or accuracy metrics.
+    for feature in bundle["pipeline"].named_steps["prepare"].transformers_[0][2]:
+        missing = dict(rows[0]); missing[feature] = None; rows.append(missing)
     frame = pd.DataFrame(rows, columns=bundle["features"])
     expected = bundle["pipeline"].predict(frame)
     vectors = [{"row": row, "expected": float(value)} for row, value in zip(rows, expected)]

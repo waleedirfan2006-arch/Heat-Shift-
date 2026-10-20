@@ -1,0 +1,5 @@
+{
+  "kind": "persistence",
+  "label": "Same as observed temperature",
+  "reason": "Selected challenger requires separate export; conservative persistence fallback retained."
+}

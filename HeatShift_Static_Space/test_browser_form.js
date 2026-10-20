@@ -1,0 +1,21 @@
+// Software test fixtures only: never used for training or accuracy evaluation.
+const assert=require('assert'),C=require('./core.js');const now=Date.parse('2026-10-21T01:30:00Z');let passed=0;
+function check(fn){fn();passed++;}
+check(()=>assert.equal(C.validate('Karachi','29','2026-10-21T06:00',now).temperature,29));
+for(const t of ['',' ','abc','29.5','61','-61'])check(()=>assert.throws(()=>C.validate('Karachi',t,'2026-10-21T06:00',now)));
+for(const t of ['2026-10-21T09:00','2026-10-20T20:00','2026-10-21T06:30','2026-02-30T06:00',''])check(()=>assert.throws(()=>C.validate('Karachi','29',t,now)));
+check(()=>assert.throws(()=>C.validate('Unknown','29','2026-10-21T06:00',now)));
+check(()=>assert.deepEqual(C.parseMetar('OPKC 210100Z 00000KT CAVOK 29/11 Q1010','Karachi',now),{temperature:29,stamp:'2026-10-21T06:00'}));
+check(()=>assert.equal(C.parseMetar('OPKC 210100Z 00000KT CAVOK M02/M05 Q1010','Karachi',now).temperature,-2));
+check(()=>assert.throws(()=>C.parseMetar('OPLA 210100Z 29/11','Karachi',now)));
+check(()=>assert.throws(()=>C.parseMetar('OPKC 210130Z 29/11','Karachi',now)));
+check(()=>assert.equal(C.parseMetar('OPKC 302300Z 29/11','Karachi',Date.parse('2026-10-01T01:00:00Z')).stamp,'2026-10-01T04:00'));
+check(()=>assert.throws(()=>C.parseMetar('OPLA 210100Z 10/05 OPKC 210000Z 29/11','Karachi',now)));
+const target=new Date('2026-10-22T01:00:00Z');const payload={hourly:{time:['2026-10-22T01:00'],...Object.fromEntries(C.fields.map(f=>[f,[20]]))}};
+check(()=>assert.equal(C.weatherValues(payload,target).available,10));
+payload.hourly[C.fields[1]]=[null];payload.hourly[C.fields[2]]=[NaN];
+check(()=>{const x=C.weatherValues(payload,target);assert.equal(x.available,8);assert.equal(x.values[C.fields[1]],null);});
+payload.hourly[C.fields[3]]=['20'];check(()=>assert.throws(()=>C.weatherValues(payload,target)));
+check(()=>assert.throws(()=>C.weatherValues(payload,new Date('2026-10-22T02:00Z'))));
+check(()=>assert.throws(()=>C.weatherValues({error:true,reason:'outage'},target)));
+console.log(passed+' input, METAR and weather-response checks passed.');

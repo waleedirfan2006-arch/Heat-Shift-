@@ -89,3 +89,10 @@ The cumulative record is in [HeatShift_Warehouse/AI_Use_Log.md](HeatShift_Wareho
 ## Log merge — 20 October 2026
 
 The assistant preserved the uploaded root assistance log and appended the audit record. The installer now checks against that reviewed uploaded log before replacing it. No other installer checks were removed.
+
+## Live-system review — 21 October 2026 PKT
+Assistant inspected public main, Space source and accessible shared-chat content (plugin outputs redacted). Authored browser inference/input-validation fixes, prediction receipt UI, regression fixtures and HeatShift_Static_Space/REVIEW.md. Verified exported model equality, 51 Python/JS inference cases (max difference zero), and 9 form checks. No new model trained or accuracy improvement claimed. Final publication and human review pending. Training/evaluation reproducibility gaps are documented.
+
+## Training and interactive website — 21 October 2026 PKT
+User requested improvement of Waleed's model and website only. Assistant trained and compared eight station-only ML configurations plus persistence on three expanding training folds, selected HGB 250 iterations/7 leaves, fitted it on all 16,463 training rows, and scored fixed validation (1,783 rows). MAE was 1.237479 C versus baseline 1.235165 C, so it was not promoted over the existing JMA primary. No locked-test, replay or reserve scoring/tuning was performed. Artifacts, input hashes and row-level validation predictions are in HeatShift_Training/station_results.
+Assistant authored the redesigned HTML/CSS/JavaScript dashboard, METAR parser, explicit baseline mode, unit/theme controls, session history, source display and JSON downloads. Agent files unchanged. Human review pending. GitHub/Space publication state must be verified separately.

@@ -17,7 +17,8 @@
     if (model.format !== "heatshift-hgb-js-v1") throw new Error("Unsupported model file.");
     const values = [];
     model.numeric_features.forEach((name, i) => {
-      let value = Number(row[name]);
+      const raw = row[name];
+      let value = raw === null || raw === undefined || raw === "" ? NaN : Number(raw);
       if (!Number.isFinite(value)) value = model.medians[i];
       values.push((value - model.means[i]) / model.scales[i]);
     });
