@@ -89,3 +89,7 @@ This saves separate verified downloads and receipts. It never replaces original 
 3. REMAINING_STEPS.md — model, retrieval, cited answers, hourly runs and submission.
 
 Recommended immediate split of work: A builds the Data Quality Agent; B prepares Prefect and the dashboard; C completes source evidence, declaration proof and official-document collection. Then A trains the simple model, with the final test kept aside until settings are frozen.
+
+## Data audit update
+
+See [audit/DATA_QUALITY_AND_LEAKAGE_REVIEW.md](audit/DATA_QUALITY_AND_LEAKAGE_REVIEW.md) and [audit/OPEN_METEO_PROVENANCE.md](audit/OPEN_METEO_PROVENANCE.md). Structural audit completed with limitations. Original Open-Meteo collection evidence remains incomplete. Earlier model results have not been rerun on the expanded data.

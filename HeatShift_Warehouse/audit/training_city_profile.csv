@@ -1,0 +1,4 @@
+city,rows,min_c,max_c,missing_lag24,missing_lag48
+Karachi,5012,7.5,42.0,280,318
+Lahore,6554,5.0,44.5,940,946
+Multan,4897,3.5,46.0,297,330

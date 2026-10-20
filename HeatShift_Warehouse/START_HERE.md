@@ -139,3 +139,7 @@ Fingerprint / SHA-256: a code that changes when a file's bytes change.
 Provenance: the record of where data came from.
 Leakage: giving the model information that would not be known when predicting.
 MAE: the average size of prediction errors, measured here in degrees Celsius.
+
+## Data audit update
+
+See [audit/DATA_QUALITY_AND_LEAKAGE_REVIEW.md](audit/DATA_QUALITY_AND_LEAKAGE_REVIEW.md) and [audit/OPEN_METEO_PROVENANCE.md](audit/OPEN_METEO_PROVENANCE.md). Structural audit completed with limitations. Original Open-Meteo collection evidence remains incomplete. Earlier model results have not been rerun on the expanded data.

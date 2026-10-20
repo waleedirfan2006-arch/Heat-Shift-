@@ -3,3 +3,12 @@
 !/HeatShift_Training/model_results/validation_metrics.json
 HeatShift_Warehouse/pip-temp/
 /HeatShift_Warehouse/warehouse.sqlite
+
+# Generated local audit/build files
+**/__pycache__/
+**/warehouse.sqlite
+**/warehouse.sqlite.next
+**/warehouse_build.lock
+**/*.next
+
+.venv-audit/

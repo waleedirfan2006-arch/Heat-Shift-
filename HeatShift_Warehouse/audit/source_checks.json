@@ -1,0 +1,12 @@
+{
+  "checked_at_utc": "2026-10-20T04:32:08.703818+00:00",
+  "method": "Official pages opened using web retrieval",
+  "verified_documentation_links": [
+    "https://open-meteo.com/en/docs/historical-weather-api",
+    "https://open-meteo.com/en/terms",
+    "https://open-meteo.com/en/licence",
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "original_download_URLs": "Unverified; none supplied",
+  "note": "Checking a documentation page does not authenticate a historical downloaded file. No weather API request made."
+}

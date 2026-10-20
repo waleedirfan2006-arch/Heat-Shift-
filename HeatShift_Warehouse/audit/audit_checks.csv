@@ -1,0 +1,212 @@
+check,result
+manifest unique paths,PASS
+CSV/JSON manifest agreement,PASS
+raw directory exact file set,PASS
+ZIP integrity,PASS
+raw hash noaa_41640099999_2022.csv,PASS
+snapshot hash noaa_41640099999_2022.csv,PASS
+raw row count noaa_41640099999_2022.csv,PASS
+raw date bounds noaa_41640099999_2022.csv,PASS
+hour aligned noaa_41640099999_2022.csv,PASS
+station identity noaa_41640099999_2022.csv,PASS
+TMP syntax noaa_41640099999_2022.csv,PASS
+raw hash noaa_41640099999_2023.csv,PASS
+snapshot hash noaa_41640099999_2023.csv,PASS
+raw row count noaa_41640099999_2023.csv,PASS
+raw date bounds noaa_41640099999_2023.csv,PASS
+hour aligned noaa_41640099999_2023.csv,PASS
+station identity noaa_41640099999_2023.csv,PASS
+TMP syntax noaa_41640099999_2023.csv,PASS
+raw hash noaa_41640099999_2024.csv,PASS
+snapshot hash noaa_41640099999_2024.csv,PASS
+raw row count noaa_41640099999_2024.csv,PASS
+raw date bounds noaa_41640099999_2024.csv,PASS
+hour aligned noaa_41640099999_2024.csv,PASS
+station identity noaa_41640099999_2024.csv,PASS
+TMP syntax noaa_41640099999_2024.csv,PASS
+raw hash noaa_41640099999_2025.csv,PASS
+snapshot hash noaa_41640099999_2025.csv,PASS
+raw row count noaa_41640099999_2025.csv,PASS
+raw date bounds noaa_41640099999_2025.csv,PASS
+hour aligned noaa_41640099999_2025.csv,PASS
+station identity noaa_41640099999_2025.csv,PASS
+TMP syntax noaa_41640099999_2025.csv,PASS
+raw hash noaa_41675099999_2022.csv,PASS
+snapshot hash noaa_41675099999_2022.csv,PASS
+raw row count noaa_41675099999_2022.csv,PASS
+raw date bounds noaa_41675099999_2022.csv,PASS
+hour aligned noaa_41675099999_2022.csv,PASS
+station identity noaa_41675099999_2022.csv,PASS
+TMP syntax noaa_41675099999_2022.csv,PASS
+raw hash noaa_41675099999_2023.csv,PASS
+snapshot hash noaa_41675099999_2023.csv,PASS
+raw row count noaa_41675099999_2023.csv,PASS
+raw date bounds noaa_41675099999_2023.csv,PASS
+hour aligned noaa_41675099999_2023.csv,PASS
+station identity noaa_41675099999_2023.csv,PASS
+TMP syntax noaa_41675099999_2023.csv,PASS
+raw hash noaa_41675099999_2024.csv,PASS
+snapshot hash noaa_41675099999_2024.csv,PASS
+raw row count noaa_41675099999_2024.csv,PASS
+raw date bounds noaa_41675099999_2024.csv,PASS
+hour aligned noaa_41675099999_2024.csv,PASS
+station identity noaa_41675099999_2024.csv,PASS
+TMP syntax noaa_41675099999_2024.csv,PASS
+raw hash noaa_41675099999_2025.csv,PASS
+snapshot hash noaa_41675099999_2025.csv,PASS
+raw row count noaa_41675099999_2025.csv,PASS
+raw date bounds noaa_41675099999_2025.csv,PASS
+hour aligned noaa_41675099999_2025.csv,PASS
+station identity noaa_41675099999_2025.csv,PASS
+TMP syntax noaa_41675099999_2025.csv,PASS
+raw hash noaa_41780099999_2022.csv,PASS
+snapshot hash noaa_41780099999_2022.csv,PASS
+raw row count noaa_41780099999_2022.csv,PASS
+raw date bounds noaa_41780099999_2022.csv,PASS
+hour aligned noaa_41780099999_2022.csv,PASS
+station identity noaa_41780099999_2022.csv,PASS
+TMP syntax noaa_41780099999_2022.csv,PASS
+raw hash noaa_41780099999_2023.csv,PASS
+snapshot hash noaa_41780099999_2023.csv,PASS
+raw row count noaa_41780099999_2023.csv,PASS
+raw date bounds noaa_41780099999_2023.csv,PASS
+hour aligned noaa_41780099999_2023.csv,PASS
+station identity noaa_41780099999_2023.csv,PASS
+TMP syntax noaa_41780099999_2023.csv,PASS
+raw hash noaa_41780099999_2024.csv,PASS
+snapshot hash noaa_41780099999_2024.csv,PASS
+raw row count noaa_41780099999_2024.csv,PASS
+raw date bounds noaa_41780099999_2024.csv,PASS
+hour aligned noaa_41780099999_2024.csv,PASS
+station identity noaa_41780099999_2024.csv,PASS
+TMP syntax noaa_41780099999_2024.csv,PASS
+raw hash noaa_41780099999_2025.csv,PASS
+snapshot hash noaa_41780099999_2025.csv,PASS
+raw row count noaa_41780099999_2025.csv,PASS
+raw date bounds noaa_41780099999_2025.csv,PASS
+hour aligned noaa_41780099999_2025.csv,PASS
+station identity noaa_41780099999_2025.csv,PASS
+TMP syntax noaa_41780099999_2025.csv,PASS
+raw hash open_meteo_karachi_2022_2024.csv,PASS
+snapshot hash open_meteo_karachi_2022_2024.csv,PASS
+raw row count open_meteo_karachi_2022_2024.csv,PASS
+raw date bounds open_meteo_karachi_2022_2024.csv,PASS
+hour aligned open_meteo_karachi_2022_2024.csv,PASS
+metadata open_meteo_karachi_2022_2024.csv,PASS
+timezone open_meteo_karachi_2022_2024.csv,PASS
+schema open_meteo_karachi_2022_2024.csv,PASS
+complete hourly timeline open_meteo_karachi_2022_2024.csv,PASS
+finite/range open_meteo_karachi_2022_2024.csv temperature_c,PASS
+finite/range open_meteo_karachi_2022_2024.csv relative_humidity_pct,PASS
+finite/range open_meteo_karachi_2022_2024.csv dew_point_c,PASS
+finite/range open_meteo_karachi_2022_2024.csv surface_pressure_hpa,PASS
+finite/range open_meteo_karachi_2022_2024.csv cloud_cover_pct,PASS
+finite/range open_meteo_karachi_2022_2024.csv wind_speed_10m_kmh,PASS
+finite/range open_meteo_karachi_2022_2024.csv shortwave_radiation_wm2,PASS
+raw hash open_meteo_lahore_2022_2024.csv,PASS
+snapshot hash open_meteo_lahore_2022_2024.csv,PASS
+raw row count open_meteo_lahore_2022_2024.csv,PASS
+raw date bounds open_meteo_lahore_2022_2024.csv,PASS
+hour aligned open_meteo_lahore_2022_2024.csv,PASS
+metadata open_meteo_lahore_2022_2024.csv,PASS
+timezone open_meteo_lahore_2022_2024.csv,PASS
+schema open_meteo_lahore_2022_2024.csv,PASS
+complete hourly timeline open_meteo_lahore_2022_2024.csv,PASS
+finite/range open_meteo_lahore_2022_2024.csv temperature_c,PASS
+finite/range open_meteo_lahore_2022_2024.csv relative_humidity_pct,PASS
+finite/range open_meteo_lahore_2022_2024.csv dew_point_c,PASS
+finite/range open_meteo_lahore_2022_2024.csv surface_pressure_hpa,PASS
+finite/range open_meteo_lahore_2022_2024.csv cloud_cover_pct,PASS
+finite/range open_meteo_lahore_2022_2024.csv wind_speed_10m_kmh,PASS
+finite/range open_meteo_lahore_2022_2024.csv shortwave_radiation_wm2,PASS
+raw hash open_meteo_multan_2022_2024.csv,PASS
+snapshot hash open_meteo_multan_2022_2024.csv,PASS
+raw row count open_meteo_multan_2022_2024.csv,PASS
+raw date bounds open_meteo_multan_2022_2024.csv,PASS
+hour aligned open_meteo_multan_2022_2024.csv,PASS
+metadata open_meteo_multan_2022_2024.csv,PASS
+timezone open_meteo_multan_2022_2024.csv,PASS
+schema open_meteo_multan_2022_2024.csv,PASS
+complete hourly timeline open_meteo_multan_2022_2024.csv,PASS
+finite/range open_meteo_multan_2022_2024.csv temperature_c,PASS
+finite/range open_meteo_multan_2022_2024.csv relative_humidity_pct,PASS
+finite/range open_meteo_multan_2022_2024.csv dew_point_c,PASS
+finite/range open_meteo_multan_2022_2024.csv surface_pressure_hpa,PASS
+finite/range open_meteo_multan_2022_2024.csv cloud_cover_pct,PASS
+finite/range open_meteo_multan_2022_2024.csv wind_speed_10m_kmh,PASS
+finite/range open_meteo_multan_2022_2024.csv shortwave_radiation_wm2,PASS
+independent NOAA selection,PASS
+clean NOAA unique keys,PASS
+NOAA values match original decoding,PASS
+NOAA times/stations match original,PASS
+Open-Meteo exact retained rows,PASS
+Open-Meteo unique keys,PASS
+Open-Meteo times/cities match original,PASS
+Open-Meteo independent cleaning temperature_c,PASS
+Open-Meteo independent cleaning relative_humidity_pct,PASS
+Open-Meteo independent cleaning dew_point_c,PASS
+Open-Meteo independent cleaning surface_pressure_hpa,PASS
+Open-Meteo independent cleaning cloud_cover_pct,PASS
+Open-Meteo independent cleaning wind_speed_10m_kmh,PASS
+Open-Meteo independent cleaning shortwave_radiation_wm2,PASS
+context-only flag,PASS
+unique examples,PASS
+current/target present finite,PASS
+current_row_id exists,PASS
+current_row_id station,PASS
+current_row_id time,PASS
+current_row_id value,PASS
+current_row_id raw source ID,PASS
+lag24_row_id exists,PASS
+lag24_row_id station,PASS
+lag24_row_id time,PASS
+lag24_row_id value,PASS
+lag48_row_id exists,PASS
+lag48_row_id station,PASS
+lag48_row_id time,PASS
+lag48_row_id value,PASS
+target_row_id exists,PASS
+target_row_id station,PASS
+target_row_id time,PASS
+target_row_id value,PASS
+target_row_id raw source ID,PASS
+lag24 missing flag,PASS
+lag24 ID missing agreement,PASS
+lag48 missing flag,PASS
+lag48 ID missing agreement,PASS
+baseline fixed,PASS
+horizon fixed,PASS
+PKT features,PASS
+independent split assignments,PASS
+exact partition boundary_gap,PASS
+disjoint examples boundary_gap,PASS
+exact partition calibration,PASS
+disjoint examples calibration,PASS
+exact partition replay,PASS
+disjoint examples replay,PASS
+exact partition reserve_2025,PASS
+disjoint examples reserve_2025,PASS
+exact partition test_locked,PASS
+disjoint examples test_locked,PASS
+exact partition train,PASS
+disjoint examples train,PASS
+exact partition validation,PASS
+disjoint examples validation,PASS
+label available before next partition train,PASS
+label available before next partition validation,PASS
+label available before next partition calibration,PASS
+label available before next partition test_locked,PASS
+label available before next partition replay,PASS
+all and only eligible examples,PASS
+missing-target exclusions reconcile,PASS
+contract feature allowlist,PASS
+training feature allowlist,PASS
+training entry guards,PASS
+fold 1 label separation,PASS
+fold 1 disjoint,PASS
+fold 2 label separation,PASS
+fold 2 disjoint,PASS
+fold 3 label separation,PASS
+fold 3 disjoint,PASS
+preprocessing in training pipeline,PASS
+median inside pipeline,PASS

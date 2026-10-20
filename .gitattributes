@@ -1,0 +1,9 @@
+# Preserve raw bytes for SHA-256 checks on Windows and Linux.
+HeatShift_Warehouse/00_raw/** -text
+*.zip -text
+*.joblib -text
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+Makefile text eol=lf

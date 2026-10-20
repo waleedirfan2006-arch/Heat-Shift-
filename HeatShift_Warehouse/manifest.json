@@ -341,8 +341,8 @@
     "source_url_status": "Unverified: exact original download URL and model setting were not supplied.",
     "original_query": null,
     "model_setting": "Unverified",
-    "licence": "Open-Meteo data: CC BY 4.0; exact underlying model attribution needs original request.",
-    "licence_url": "https://open-meteo.com/en/terms",
+    "licence": "Open-Meteo API data: CC BY 4.0. Credit supplier, link licence, disclose changes. Original selected model still Unverified.",
+    "licence_url": "https://open-meteo.com/en/licence",
     "export_metadata": {
       "latitude": 25.0,
       "longitude": 67.25,
@@ -353,9 +353,16 @@
     },
     "fetched_at_utc": null,
     "collection_status": "User supplied during event; exact publisher download time Unverified.",
-    "update_rate": "Unverified for original selected model; ERA5 would update daily with delay, but original model is not proved.",
+    "update_rate": "Unverified for selected original model. Official docs list IFS every 6h; ERA5/ERA5-Land daily with 5-day delay. Original model is unknown.",
     "robots_status": "API host robots.txt disallows crawlers. No new automated Open-Meteo collection in this completion task; local supplied snapshot reused. Original collection method Unverified.",
-    "outside_track_list": false
+    "outside_track_list": false,
+    "publisher_documentation_url": "https://open-meteo.com/en/docs/historical-weather-api",
+    "documentation_checked_at_utc": "2026-10-20T04:32:08.703818+00:00",
+    "api_terms_url": "https://open-meteo.com/en/terms",
+    "time_resolution": "Hourly (verified in stored export); not publisher refresh frequency.",
+    "response_coordinates_status": "Verified exported grid coordinates; original requested coordinates Unverified.",
+    "provenance_status": "PARTIAL: metadata and published licence checked. Original URL/query, model, fetch time and collection method remain Unverified.",
+    "attribution_text": "Weather data by Open-Meteo.com, CC BY 4.0. Processed by HeatShift; original exports retained. Selected underlying model Unverified."
   },
   {
     "raw_file": "00_raw/open_meteo_lahore_2022_2024.csv",
@@ -375,8 +382,8 @@
     "source_url_status": "Unverified: exact original download URL and model setting were not supplied.",
     "original_query": null,
     "model_setting": "Unverified",
-    "licence": "Open-Meteo data: CC BY 4.0; exact underlying model attribution needs original request.",
-    "licence_url": "https://open-meteo.com/en/terms",
+    "licence": "Open-Meteo API data: CC BY 4.0. Credit supplier, link licence, disclose changes. Original selected model still Unverified.",
+    "licence_url": "https://open-meteo.com/en/licence",
     "export_metadata": {
       "latitude": 31.5,
       "longitude": 74.25,
@@ -387,9 +394,16 @@
     },
     "fetched_at_utc": null,
     "collection_status": "User supplied during event; exact publisher download time Unverified.",
-    "update_rate": "Unverified for original selected model; ERA5 would update daily with delay, but original model is not proved.",
+    "update_rate": "Unverified for selected original model. Official docs list IFS every 6h; ERA5/ERA5-Land daily with 5-day delay. Original model is unknown.",
     "robots_status": "API host robots.txt disallows crawlers. No new automated Open-Meteo collection in this completion task; local supplied snapshot reused. Original collection method Unverified.",
-    "outside_track_list": false
+    "outside_track_list": false,
+    "publisher_documentation_url": "https://open-meteo.com/en/docs/historical-weather-api",
+    "documentation_checked_at_utc": "2026-10-20T04:32:08.703818+00:00",
+    "api_terms_url": "https://open-meteo.com/en/terms",
+    "time_resolution": "Hourly (verified in stored export); not publisher refresh frequency.",
+    "response_coordinates_status": "Verified exported grid coordinates; original requested coordinates Unverified.",
+    "provenance_status": "PARTIAL: metadata and published licence checked. Original URL/query, model, fetch time and collection method remain Unverified.",
+    "attribution_text": "Weather data by Open-Meteo.com, CC BY 4.0. Processed by HeatShift; original exports retained. Selected underlying model Unverified."
   },
   {
     "raw_file": "00_raw/open_meteo_multan_2022_2024.csv",
@@ -409,8 +423,8 @@
     "source_url_status": "Unverified: exact original download URL and model setting were not supplied.",
     "original_query": null,
     "model_setting": "Unverified",
-    "licence": "Open-Meteo data: CC BY 4.0; exact underlying model attribution needs original request.",
-    "licence_url": "https://open-meteo.com/en/terms",
+    "licence": "Open-Meteo API data: CC BY 4.0. Credit supplier, link licence, disclose changes. Original selected model still Unverified.",
+    "licence_url": "https://open-meteo.com/en/licence",
     "export_metadata": {
       "latitude": 30.25,
       "longitude": 71.5,
@@ -421,8 +435,15 @@
     },
     "fetched_at_utc": null,
     "collection_status": "User supplied during event; exact publisher download time Unverified.",
-    "update_rate": "Unverified for original selected model; ERA5 would update daily with delay, but original model is not proved.",
+    "update_rate": "Unverified for selected original model. Official docs list IFS every 6h; ERA5/ERA5-Land daily with 5-day delay. Original model is unknown.",
     "robots_status": "API host robots.txt disallows crawlers. No new automated Open-Meteo collection in this completion task; local supplied snapshot reused. Original collection method Unverified.",
-    "outside_track_list": false
+    "outside_track_list": false,
+    "publisher_documentation_url": "https://open-meteo.com/en/docs/historical-weather-api",
+    "documentation_checked_at_utc": "2026-10-20T04:32:08.703818+00:00",
+    "api_terms_url": "https://open-meteo.com/en/terms",
+    "time_resolution": "Hourly (verified in stored export); not publisher refresh frequency.",
+    "response_coordinates_status": "Verified exported grid coordinates; original requested coordinates Unverified.",
+    "provenance_status": "PARTIAL: metadata and published licence checked. Original URL/query, model, fetch time and collection method remain Unverified.",
+    "attribution_text": "Weather data by Open-Meteo.com, CC BY 4.0. Processed by HeatShift; original exports retained. Selected underlying model Unverified."
   }
 ]
