@@ -12,3 +12,10 @@ HeatShift_Warehouse/pip-temp/
 **/*.next
 
 .venv-audit/
+
+# Rebuildable research artifacts; portable production artifact is included.
+/HeatShift_Training/history_results/history_challenger.joblib
+/HeatShift_Training/weather_results/weather_challenger.joblib
+/HeatShift_Training/weather_results/browser_parity_vectors.json
+
+/HeatShift_Training/weather_results/weather_model.json.gz

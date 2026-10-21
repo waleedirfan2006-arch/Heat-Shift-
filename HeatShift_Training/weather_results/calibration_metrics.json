@@ -1,0 +1,34 @@
+{
+  "calibration_sha256": "68bae84534a1a67c98602f62848e43358aba1661991b7e52e6cf546b59ec545f",
+  "model_sha256": "eedda1c67736c26f5053040f9beff5c5570f997c8e82e9f764f4e4ee1501eacb",
+  "model_changed": false,
+  "nominal_coverage": 0.9,
+  "method": "Per-city split-conformal absolute error quantile with finite-sample rank correction",
+  "groups": {
+    "Karachi": {
+      "examples": 183,
+      "half_width_c": 2.8035534564005182,
+      "calibration_coverage": 0.907103825136612
+    },
+    "Lahore": {
+      "examples": 398,
+      "half_width_c": 3.816686819477688,
+      "calibration_coverage": 0.9045226130653267
+    },
+    "Multan": {
+      "examples": 174,
+      "half_width_c": 3.2560465321317302,
+      "calibration_coverage": 0.9080459770114943
+    }
+  },
+  "raw_feature_sources": {
+    "00_raw/noaa_41640099999_2024.csv": "66e21af07ffc065028b3b83f6f53602d6b3baed884966039731e312db62ee99f",
+    "00_raw/noaa_41675099999_2024.csv": "af010452bedca937d5f22f445d33dffc3499ff6124ce252d2f2e85cbae038f96",
+    "00_raw/noaa_41780099999_2024.csv": "b074773ce2cf9460eecd4aab6867f00321fba3312f25b68d7a518dab83491ae0"
+  },
+  "limitations": [
+    "Time-series exchangeability is not guaranteed.",
+    "Coverage measured on calibration rows is not independent future coverage.",
+    "This does not choose or tune prediction-model parameters."
+  ]
+}

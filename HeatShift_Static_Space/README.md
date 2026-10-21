@@ -39,3 +39,13 @@ Predictions are not guaranteed. The approximate 90th-percentile error bands use 
 ## Interactive update
 
 The workspace supports pasted station reports, Celsius/Fahrenheit, dark mode, baseline-only mode, five session comparisons and downloadable receipts. Entered observations must be exact-hour reports from the last four hours. The new station-only training experiment is documented in REVIEW.md; it was not promoted because it did not beat validation persistence. Copy all deployment files together.
+
+## New station-weather alternative
+
+The default remains Waleed's JMA model. The new alternative uses only a pasted airport report's temperature, dew point and wind, then runs a compressed HGB model in the browser. No JMA request is made in that mode. A modern browser with gzip stream support is needed.
+
+The new model's development-validation MAE is 1.228046 C, versus baseline 1.235165 C. This small improvement is uncertain; its block-bootstrap interval includes no gain. Validation was reused during development and is not a new independent final test. Full results and per-city errors are visible in Model evidence.
+
+New deployment files: `station_weather_model.json.gz` and `weather_model_metrics.json`. Keep the existing `model.json` for JMA mode. The compressed new model was checked against Python on all 1,783 real validation feature rows with zero difference. No agent code was changed.
+
+New-model error ranges use the separate March 2024 calibration split, with per-city finite-sample error quantiles. They do not guarantee future coverage. The earlier JMA ranges retain their original training-error method.
