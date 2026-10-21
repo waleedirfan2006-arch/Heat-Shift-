@@ -10,7 +10,7 @@ HeatShift estimates the temperature at the same airport station 24 hours after a
 - Original Data Quality Agent: duplicate removal, short-gap fill, flags and quality_log.
 - Original Insight Agent: numeric table summaries plus keyword retrieval from trusted notes, row/section citations and unsupported-question refusals. This is lightweight deterministic RAG, not a general LLM chatbot.
 - Hourly GitHub Actions: fetch METAR/JMA, review, predict, cite, retain raw/cleaned/processed data, manifest and SQLite; publish runtime/latest.json. Scheduling and upstream requests can be delayed. Check [Actions](https://github.com/waleedirfan2006-arch/Heat-Shift-/actions).
-- Static browser agents keep uploaded CSVs in the visitor's browser. First use downloads Python/pandas and can take about a minute.
+- Static browser agents keep uploaded CSVs in the visitor's browser. First use loads Python/pandas and can take up to two minutes in a new tab. Warm the dashboard before presenting.
 
 ## Reproduced evaluation (21 October 2026)
 
@@ -68,5 +68,13 @@ Roles provided by Waleed Irfan on 21 October 2026:
 
 These responsibilities are the team's reported contribution allocation. Substantial AI assistance is documented separately in `AI_Use_Log.md`; the allocation does not remove that disclosure or imply that every line was written without assistance.
 
-Live Dashboard link:
-https://huggingface.co/spaces/Waleed-1234/HeatShift-Dashboard
+
+## Final audit disclosures
+
+See [final checklist](SUBMISSION_CHECKLIST.md): historical Prefect export/screenshot missing; declaration late; some original source/fitting records unverified. Strict Insight scope and source row IDs are implemented. Operational refreshes use heatshift-runtime so final code can stay frozen. Slides and a Devpost link are required by the latest notice.
+
+
+Judge CSV guide: [steps and example files](submission/Karachi_CSV_Demo_Instructions.md). The real Karachi CSV is already clean; a separate sample is clearly labeled synthetic and demonstrates fills, flags and duplicate removal.
+
+
+Judge CSV guide: [steps and example files](submission/Karachi_CSV_Demo_Instructions.md). The real Karachi CSV is already clean; a separate sample is clearly labeled synthetic and demonstrates fills, flags and duplicate removal.

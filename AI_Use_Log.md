@@ -133,3 +133,21 @@ AI updated four PDFs, the checklist, source manifests, demo captions, presentati
 ## 21 October 2026 — Requested prediction time-field correction
 
 At the user's request after the previous final release, Codex removed the browser-native datetime step popup and routed form errors through the existing explicit model validation. The time field accepts minute entry for clear inline feedback; the unchanged hourly model still requires actual on-hour observations from the last four hours. The UI points users to the verified latest-observation fill button. No observation is silently rounded or invented, and model parameters remain unchanged. The final tag is refreshed only after verification of this requested fix.
+
+
+## 21 October 2026 — Dashboard guidance and bounded prediction
+
+At Waleed's request, Codex added plain-language steps for selecting a CSV, reviewing the Data Quality Agent decisions, asking the Insight Agent, and filling a current airport observation for prediction. Added a real 5,012-row Karachi training CSV and a separate, clearly labeled synthetic QA exercise. It contains one duplicate, two internal missing readings, a four-row missing run and one out-of-range value. The preserved Mateen agent reported one duplicate removed, two filled values and one range flag; it left the long gap missing. The fixture is not weather evidence.
+
+The frozen model and original agent code are unchanged. Model, calibration and JMA requests now have time limits; failures restore the button and show a readable message. The existing on-hour and last-four-hours observation requirements remain. JavaScript syntax checks passed, off-hour and stale-input messages were checked, and the practice CSV was processed by the original agent.
+
+
+## 21 October 2026 — Dashboard guidance and bounded prediction
+
+At Waleed's request, Codex added plain-language steps for selecting a CSV, reviewing the Data Quality Agent decisions, asking the Insight Agent, and filling a current airport observation for prediction. Added a real 5,012-row Karachi training CSV and a separate, clearly labeled synthetic QA exercise. It contains one duplicate, two internal missing readings, a four-row missing run and one out-of-range value. The preserved Mateen agent reported one duplicate removed, two filled values and one range flag; it left the long gap missing. The fixture is not weather evidence.
+
+The frozen model and original agent code are unchanged. Model, calibration and JMA requests now have time limits; failures restore the button and show a readable message. The existing on-hour and last-four-hours observation requirements remain. JavaScript syntax checks passed, off-hour and stale-input messages were checked, and the practice CSV was processed by the original agent.
+
+## 21 October 2026 — Live dashboard smoke test
+
+The public Space was tested end to end after the CSV guidance update. Downloading and reselecting the labeled synthetic practice file worked. In a new tab, the first original-agent startup took about two minutes; keep a warmed tab open for a short judge demo. Mateen's unchanged agent reported 1 duplicate removed, 2 short-gap values filled, 1 out-of-range value flagged and 4 long-gap values left missing. A cited Karachi temperature answer and an unsupported AQI “I don't know” answer both worked. The live frozen model returned 30.2 °C for 22 Oct 20:00 PKT from a 30.0 °C manual test observation at 21 Oct 20:00 PKT, with 10/10 JMA fields. The manually supplied test input is labeled as such; it is not represented as a newly observed measurement. No model or agent source was changed.
