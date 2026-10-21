@@ -88,7 +88,7 @@ function pipelineView(){
   return '<tr><td>'+escapeHtml(name)+'</td><td>'+(r.observation_utc?escapeHtml(fmtDate(r.observation_utc)):'Unavailable')+'</td><td>'+(valid?r.observed_temperature_c.toFixed(1)+' °C':'Unavailable')+'</td><td>'+(valid?r.prediction_c.toFixed(1)+' °C':'Unavailable')+'</td><td>'+escapeHtml(r.quality_status||'unavailable')+'</td><td>'+escapeHtml(valid?(outdated?'stale':Math.round(readingAge*60)+' min old'):r.error||r.status)+'</td></tr>';
  }).join('')+'</tbody></table></div>';
  const row=d.cities?.[city.value];const readingAge=row?(Date.now()-new Date(row.observation_utc).getTime())/3600000:Infinity;
- if(!stale&&row?.status==='ready'&&Number.isFinite(row.observed_temperature_c)&&Number.isFinite(row.prediction_c)&&readingAge>=0&&readingAge<=4){button.disabled=false;button.textContent='Use latest '+row.icao+' observation · '+fmtDate(row.observation_utc);}
+ const observationStamp=row?.observation_utc?new Date(row.observation_utc):null;const onHour=observationStamp&&Number.isFinite(observationStamp.getTime())&&observationStamp.getUTCMinutes()===0&&observationStamp.getUTCSeconds()===0;if(row?.status==='ready'&&Number.isFinite(row.observed_temperature_c)&&Number.isFinite(row.prediction_c)&&onHour&&readingAge>=0&&readingAge<=4){button.disabled=false;button.textContent='Use latest '+row.icao+' observation · '+fmtDate(row.observation_utc)+(stale?' · snapshot stale':'');}else if(row?.status==='ready'&&readingAge>4){button.textContent='Latest automatic observation is over 4 hours old';}else if(row?.status==='ready'&&readingAge<0){button.textContent='Latest automatic observation has a future timestamp';}
 }
 async function loadPipeline(){
  $('refreshPipeline').disabled=true;
