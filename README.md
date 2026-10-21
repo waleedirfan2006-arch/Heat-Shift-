@@ -68,7 +68,5 @@ Roles provided by Waleed Irfan on 21 October 2026:
 
 These responsibilities are the team's reported contribution allocation. Substantial AI assistance is documented separately in `AI_Use_Log.md`; the allocation does not remove that disclosure or imply that every line was written without assistance.
 
-
-## Final audit disclosures
-
-See [final checklist](SUBMISSION_CHECKLIST.md): historical Prefect export/screenshot missing; declaration late; some original source/fitting records unverified. Strict Insight scope and source row IDs are implemented. Operational refreshes use heatshift-runtime so final code can stay frozen. Slides and a Devpost link are required by the latest notice.
+Live Dashboard link:
+https://huggingface.co/spaces/Waleed-1234/HeatShift-Dashboard
