@@ -5,6 +5,7 @@ check(()=>assert.equal(C.validate('Karachi','29','2026-10-21T06:00',now).tempera
 for(const t of ['',' ','abc','29.5','61','-61'])check(()=>assert.throws(()=>C.validate('Karachi',t,'2026-10-21T06:00',now)));
 for(const t of ['2026-10-21T09:00','2026-10-20T20:00','2026-10-21T06:30','2026-02-30T06:00',''])check(()=>assert.throws(()=>C.validate('Karachi','29',t,now)));
 check(()=>assert.throws(()=>C.validate('Unknown','29','2026-10-21T06:00',now)));
+check(()=>assert.deepEqual(C.parseMetar('OPKC 210100Z 00000KT CAVOK 29/11 Q1010','Karachi',now),{temperature:29,stamp:'2026-10-21T06:00'}));
 check(()=>assert.deepEqual(C.parseMetar('OPKC 210100Z 00000KT CAVOK 29/11 Q1010','Karachi',now),{temperature:29,stamp:'2026-10-21T06:00',dewpoint:11,windSpeed:0,windDirection:null}));
 check(()=>assert.equal(C.parseMetar('OPKC 210100Z 00000KT CAVOK M02/M05 Q1010','Karachi',now).temperature,-2));
 check(()=>assert.throws(()=>C.parseMetar('OPLA 210100Z 29/11','Karachi',now)));
