@@ -11,7 +11,7 @@ async function init(){
     postMessage({status:'Loading pandas and the preserved agents…'});
     await py.loadPackage('pandas');
     py.FS.mkdirTree('/heatshift/vendor');py.FS.mkdirTree('/heatshift/evidence');
-    const files=['integration.py','vendor/data_quality_agent.py','vendor/insight_agent.py','evidence/integration_provenance.json','evidence/karachi_train.csv.gz','evidence/lahore_train.csv.gz','evidence/multan_train.csv.gz','trusted_weather_guide.md'];
+    const files=['integration.py','vendor/data_quality_agent.py','vendor/insight_agent.py','evidence/integration_provenance.json','evidence/karachi_train.csv.gz','evidence/lahore_train.csv.gz','evidence/multan_train.csv.gz','trusted_weather_guide.md','insight_policy.py','gold_manifest.json'];
     await Promise.all(files.map(async file=>{const r=await fetch(new URL(file.split('/').pop(),self.location.href));if(!r.ok)throw Error('Agent source unavailable: '+file);py.FS.writeFile('/heatshift/'+file,new Uint8Array(await r.arrayBuffer()));}));
     await py.runPythonAsync("import sys, json\nsys.path.insert(0, '/heatshift')\nfrom integration import run_quality, ask_insight, training_evidence, _load_agent\n_load_agent('data_quality_agent.py', 'DataQualityAgent')\n_load_agent('insight_agent.py', 'InsightAgent')");
     return py;

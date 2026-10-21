@@ -1,0 +1,26 @@
+{
+  "Karachi": {
+    "file": "karachi_train.csv.gz",
+    "sha256": "b1c9024ff807f97e4ab659095ff4765345d6d7cb6f3ab6051434c56f95be79c1",
+    "row_id_column": "source_row_id",
+    "role": "Canonical training-only temperature gold table",
+    "provenance": "Derived from HeatShift_Warehouse/02_final/train.csv; targets excluded",
+    "underlying_observations": "NOAA station measurements; gold means a verified canonical table, not error-free weather truth"
+  },
+  "Lahore": {
+    "file": "lahore_train.csv.gz",
+    "sha256": "6b7435e2cea6676e89db096525ac794029134dc0315cff641675d7985a99abfb",
+    "row_id_column": "source_row_id",
+    "role": "Canonical training-only temperature gold table",
+    "provenance": "Derived from HeatShift_Warehouse/02_final/train.csv; targets excluded",
+    "underlying_observations": "NOAA station measurements; gold means a verified canonical table, not error-free weather truth"
+  },
+  "Multan": {
+    "file": "multan_train.csv.gz",
+    "sha256": "8d8dc9ed33df7fc084eaccd3b501cac10cecd175a5384e50123e6008ab2aa452",
+    "row_id_column": "source_row_id",
+    "role": "Canonical training-only temperature gold table",
+    "provenance": "Derived from HeatShift_Warehouse/02_final/train.csv; targets excluded",
+    "underlying_observations": "NOAA station measurements; gold means a verified canonical table, not error-free weather truth"
+  }
+}

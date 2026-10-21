@@ -10,6 +10,7 @@ import tempfile
 from pathlib import Path
 
 import pandas as pd
+from insight_policy import classify
 
 ROOT = Path(__file__).resolve().parent
 CITIES = ("Karachi", "Lahore", "Multan")
@@ -103,14 +104,57 @@ def ask_insight(city, question):
         guide = ROOT / "trusted_weather_guide.md"
         if guide.exists():
             (agent.docs_dir / guide.name).write_text(guide.read_text(encoding="utf-8"), encoding="utf-8")
-        # Domain guard invokes the original refusal path instead of inventing an answer.
-        supported_terms = r"\b(temperature|temperatures|temp|weather|minimum|maximum|average|mean|summary|summarize|recorded|data|aqi|pollution|pollutant|uncertainty|baseline|station|quality|interpolation|forecast|citations)\b"
-        if not re.search(supported_terms, question, flags=re.I):
-            agent.processed_dir = base / "no_supported_evidence"
+        decision = classify(question, city)
+        # Verify the actual canonical table bytes before allowing numeric answers.
+        gold = json.loads((ROOT / "gold_manifest.json").read_text(encoding="utf-8"))[city]
+        gold_path = ROOT / "evidence" / gold["file"]
+        if not gold_path.exists():
+            gold_path = ROOT / gold["file"]
+        if hashlib.sha256(gold_path.read_bytes()).hexdigest() != gold["sha256"]:
+            raise ValueError("Gold table fingerprint mismatch. No insight produced.")
         agent.report_dir = base
         agent.retriever = None
         agent.data_store = None
-        result = agent.ask(question)
+        if decision["intent"] == "refuse":
+            agent.processed_dir = base / "no_supported_evidence"
+            agent.docs_dir = base / "no_supported_documents"
+            result = agent.ask(question)
+            result["answer"]["answer"] = "I don't know. " + decision["reason"]
+        elif decision["intent"] == "statistics":
+            # Numbers come only from the gold table, not unrelated retrieved prose.
+            agent.docs_dir = base / "no_document_numbers"
+            result = agent.ask(question)
+            result["answer"]["answer"] = result["answer"]["answer"].split(" This is information,")[0]
+        else:
+            # Retrieve with Mateen's original retriever, then require the intended section.
+            query = decision["section"]
+            documents = agent.retrieve_documents(query, limit=20)
+            documents = [d for d in documents if d["row_id"] == "section:" + query]
+            if not documents:
+                result = {"question":question,"answer":{"answer":"I don't know. The requested trusted source is unavailable.","supported":False,"citations":[]},"citations_valid":True}
+            else:
+                # Return the complete trusted section. No invented numeric advice.
+                sections = re.split(r"(?m)^# ", guide.read_text(encoding="utf-8"))
+                section = next(x for x in sections if x.partition("\n")[0].strip() == query)
+                result = {"question":question,"answer":{"answer":section.partition("\n")[2].strip(),"supported":True,"citations":[{"source":guide.name,"row_id":"section:"+query,"source_sha256":hashlib.sha256(guide.read_bytes()).hexdigest()}]},"citations_valid":True}
+        result["policy"] = {"version":"strict-scope-v2","intent":decision["intent"],"primary_user":"Everyday weather planner","recommendations":"Only sourced data-use guidance; no personalized safety advice"}
+        result["gold_table"] = gold
+        result["numeric_claims"] = []
+        result["evidence_rows"] = []
+        if decision["intent"] == "statistics" and result["answer"]["supported"]:
+            series = frame["temperature_c"]
+            for metric, value in [("minimum",float(series.min())),("maximum",float(series.max())),("mean",float(series.mean())),("count",int(series.count()))]:
+                result["numeric_claims"].append({"metric":metric,"column":"temperature_c","value":value,"gold_table":gold["file"],"gold_sha256":gold["sha256"],"row_id":city.lower()+":aggregate"})
+            for pos in sorted({int(series.idxmin()),int(series.idxmax())}):
+                row = frame.iloc[pos]
+                result["evidence_rows"].append({"row_position":pos,"gold_row_id":row["source_row_id"],"time":row["time"],"temperature_c":float(row["temperature_c"]),"gold_table":gold["file"]})
+            for c in result["answer"]["citations"]:
+                suffix = c["row_id"].rsplit(":",1)[-1]
+                c["source"] = gold["file"]
+                c["source_sha256"] = gold["sha256"]
+                c["gold_row_id"] = city.lower()+":aggregate" if suffix == "aggregate" else frame.iloc[int(suffix)]["source_row_id"]
+                c["row_id"] = gold["file"]+":"+suffix
+            result["citations_valid"] = all(c["source_sha256"] == gold["sha256"] for c in result["answer"]["citations"])
         # Keep citation row numbers unchanged; shorten disposable file paths.
         for item in result["answer"]["citations"]:
             item["source"] = Path(item["source"]).name

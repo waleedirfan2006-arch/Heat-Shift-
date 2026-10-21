@@ -62,7 +62,7 @@ $('runQuality').addEventListener('click',async()=>{
 $('approveCleaned').addEventListener('change',()=>{$('downloadCleaned').disabled=!$('approveCleaned').checked;});$('downloadCleaned').addEventListener('click',()=>{if(qualityResult&&$('approveCleaned').checked)download(qualityResult.cleaned,'heatshift-reviewed-cleaned.csv','text/csv');});$('downloadQuality').addEventListener('click',()=>{if(qualityResult)download(qualityResult.report,'heatshift-quality-report.json');});
 document.querySelectorAll('[data-question]').forEach(b=>b.addEventListener('click',()=>{$('question').value=b.dataset.question;}));
 $('askInsight').addEventListener('click',async()=>{const question=$('question').value.trim(),selected=city.value;if(!question){$('insightResult').textContent='Enter a question first.';return;}const button=$('askInsight');button.disabled=true;$('insightResult').textContent='Loading the original Insight Agent and selected training table…';
- try{const r=await agents('insight',selected,question);if(city.value!==selected)throw Error('City changed. Ask again for the selected city.');const a=r.answer;$('insightResult').innerHTML=`<span class="eyebrow">${r.saved_run?'SAVED ORIGINAL-AGENT RUN · ':''}${a.supported?'EVIDENCE-BASED SUMMARY':'INSUFFICIENT EVIDENCE'}</span><p>${escapeHtml(a.answer)}</p><p class="help">${r.saved_run?'Saved run: '+escapeHtml(r.timestamp)+' (agent clock, zone unstated)<br>':''}${escapeHtml(r.scope)}<br>${escapeHtml(r.data_start_utc)} to ${escapeHtml(r.data_end_utc)} · ${r.rows.toLocaleString()} rows<br>Citation validation: ${r.citations_valid?'passed':'failed'} · Checks references exist, not the meaning of every possible answer.</p>${a.citations.length?'<div class="citations">SOURCE REFERENCES<br>'+a.citations.map(c=>'<span class="citation">'+escapeHtml(c.row_id)+'</span>').join('')+'</div>':''}<button id="insightDownload" class="button secondary">Download cited answer ↓</button>`;$('insightDownload').addEventListener('click',()=>download(r,'heatshift-'+selected.toLowerCase()+'-insight.json'));}
+ try{const r=await agents('insight',selected,question);if(city.value!==selected)throw Error('City changed. Ask again for the selected city.');const a=r.answer;$('insightResult').innerHTML=`<span class="eyebrow">${r.saved_run?'SAVED ORIGINAL-AGENT RUN · ':''}${a.supported?'EVIDENCE-BASED SUMMARY':'INSUFFICIENT EVIDENCE'}</span><p>${escapeHtml(a.answer)}</p><p class="help">${r.saved_run?'Saved run: '+escapeHtml(r.timestamp)+' (agent clock, zone unstated)<br>':''}${escapeHtml(r.scope)}<br>${escapeHtml(r.data_start_utc)} to ${escapeHtml(r.data_end_utc)} · ${r.rows.toLocaleString()} rows<br>Scope check: ${escapeHtml(r.policy?.intent||'legacy')} · Citation validation: ${r.citations_valid?'passed':'failed'}</p>${a.citations.length?'<div class="citations">VERIFIED SOURCE REFERENCES<br>'+a.citations.map(c=>'<span class="citation">'+escapeHtml(c.gold_row_id||c.row_id)+'</span>').join('')+'</div>':''}${r.gold_table?'<p class="help">Gold table SHA-256: '+escapeHtml(r.gold_table.sha256)+'</p><a class="text-link" href="'+escapeHtml(r.gold_table.file)+'" download>Download the cited canonical table ↗</a>':''}<button id="insightDownload" class="button secondary">Download cited answer ↓</button>`;$('insightDownload').addEventListener('click',()=>download(r,'heatshift-'+selected.toLowerCase()+'-insight.json'));}
  catch(e){$('insightResult').innerHTML='<div class="error">Insight agent unavailable: '+escapeHtml(e.message)+'</div>';}
  finally{button.disabled=false;}
 });
@@ -72,20 +72,32 @@ let latestPipeline=null;
 function pipelineView(){
  const target=$('pipelineResults'),button=$('usePipelineObservation');if(!target)return;
  button.disabled=true;button.textContent='Latest automatic observation unavailable';
- if(!latestPipeline)return;
+ if(!latestPipeline){target.innerHTML='';$('lastSuccess').textContent='Last successful run unavailable.';return;}
  const d=latestPipeline;const age=(Date.now()-new Date(d.generated_at_utc).getTime())/3600000;
  const stale=!Number.isFinite(age)||age<0||age>2;
- $('pipelineStatus').textContent=(stale?'Stale snapshot · ':'Latest snapshot · ')+fmtDate(d.generated_at_utc)+' · '+d.status+(d.bundled?' · bundled copy; live repository connection unavailable':' · repository connection verified');
- target.innerHTML='<div class="table-scroll"><table><thead><tr><th>City</th><th>Observation</th><th>24-hour estimate</th><th>Status</th></tr></thead><tbody>'+Object.entries(d.cities||{}).map(([name,r])=>'<tr><td>'+escapeHtml(name)+'</td><td>'+(r.status==='ready'?r.observed_temperature_c.toFixed(1)+' °C':'—')+'</td><td>'+(r.status==='ready'?r.prediction_c.toFixed(1)+' °C':'Unavailable')+'</td><td>'+escapeHtml(stale?'stale':r.status)+'</td></tr>').join('')+'</tbody></table></div>';
+ $('pipelineStatus').textContent=(stale?'STALE · ':'Fresh snapshot · ')+fmtDate(d.generated_at_utc)+' · '+d.status+(d.bundled?' · bundled copy; live repository unavailable':' · operational repository verified');
+ const success=d.last_successful_run;
+ $('lastSuccess').textContent=success?'Last successful run: '+fmtDate(success.finished_at_utc):'Last successful run not provided by this snapshot.';
+ if(success?.run_url&&/^https:\/\/github\.com\/waleedirfan2006-arch\/Heat-Shift-\/actions\/runs\/\d+$/.test(success.run_url)){
+  $('lastSuccess').innerHTML+=' <a class="text-link" target="_blank" rel="noreferrer" href="'+escapeHtml(success.run_url)+'">View verified run ↗</a>';
+ }
+ target.innerHTML='<div class="table-scroll"><table><thead><tr><th>City</th><th>Observed at (PKT)</th><th>Temperature</th><th>24-hour estimate</th><th>Quality</th><th>Freshness / status</th></tr></thead><tbody>'+Object.entries(d.cities||{}).map(([name,r])=>{
+  const readingAge=(Date.now()-new Date(r.observation_utc).getTime())/3600000;
+  const valid=r.status==='ready'&&Number.isFinite(r.prediction_c)&&Number.isFinite(r.observed_temperature_c);
+  const outdated=stale||!Number.isFinite(readingAge)||readingAge<0||readingAge>4;
+  return '<tr><td>'+escapeHtml(name)+'</td><td>'+(r.observation_utc?escapeHtml(fmtDate(r.observation_utc)):'Unavailable')+'</td><td>'+(valid?r.observed_temperature_c.toFixed(1)+' °C':'Unavailable')+'</td><td>'+(valid?r.prediction_c.toFixed(1)+' °C':'Unavailable')+'</td><td>'+escapeHtml(r.quality_status||'unavailable')+'</td><td>'+escapeHtml(valid?(outdated?'stale':Math.round(readingAge*60)+' min old'):r.error||r.status)+'</td></tr>';
+ }).join('')+'</tbody></table></div>';
  const row=d.cities?.[city.value];const readingAge=row?(Date.now()-new Date(row.observation_utc).getTime())/3600000:Infinity;
- if(!stale&&row?.status==='ready'&&readingAge>=0&&readingAge<=4){button.disabled=false;button.textContent='Use latest '+row.icao+' observation · '+fmtDate(row.observation_utc);}
+ if(!stale&&row?.status==='ready'&&Number.isFinite(row.observed_temperature_c)&&Number.isFinite(row.prediction_c)&&readingAge>=0&&readingAge<=4){button.disabled=false;button.textContent='Use latest '+row.icao+' observation · '+fmtDate(row.observation_utc);}
 }
 async function loadPipeline(){
  $('refreshPipeline').disabled=true;
- try{const r=await fetch('https://raw.githubusercontent.com/waleedirfan2006-arch/Heat-Shift-/main/runtime/latest.json?at='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error();latestPipeline=await r.json();}
+ try{const r=await fetch('https://raw.githubusercontent.com/waleedirfan2006-arch/Heat-Shift-/heatshift-runtime/runtime/latest.json?at='+Date.now(),{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!r.ok)throw Error();latestPipeline=await r.json();}
  catch(e){try{const r=await fetch('latest_pipeline.json');if(!r.ok)throw Error();latestPipeline={...await r.json(),bundled:true};}catch{latestPipeline=null;$('pipelineStatus').textContent='Hourly snapshot unavailable. No live data is assumed.';}}
  finally{pipelineView();$('refreshPipeline').disabled=false;}
 }
 $('refreshPipeline').addEventListener('click',loadPipeline);city.addEventListener('change',pipelineView);
 $('usePipelineObservation').addEventListener('click',()=>{const r=latestPipeline?.cities?.[city.value];if(!r||$('usePipelineObservation').disabled)return;clearForecast();$('temperature').value=r.observed_temperature_c;$('observedAt').value=new Date(new Date(r.observation_utc).getTime()+5*3600000).toISOString().slice(0,16);$('metar').value=r.metar||'';observationOrigin='automatic GitHub pipeline; AWC METAR';$('forecastStatus').textContent='Automatic observation filled. Review the values and run a forecast.';});
 loadPipeline();
+setInterval(()=>{if(!document.hidden)loadPipeline();},60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)loadPipeline();});

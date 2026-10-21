@@ -57,10 +57,10 @@ def run(output):
         receipt={'rebuilt_at_utc':datetime.now(timezone.utc).isoformat(),
                  'mode':'verified_local_snapshot_reload',
                  'raw_files_verified':len(manifest),'raw_files_restored':restored,
-                 'data_quality_agent':'NOT IMPLEMENTED: intentionally excluded by user',
+                 'data_quality_agent':'Separate preserved agent in HeatShift_Unified_Space; warehouse build performs deterministic cleaning',
                  'note':'Reload time is not original publisher fetch time. No model trained.'}
         (output/'quality'/'rebuild_receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
-        print('DONE: raw, cleaned, final and SQLite warehouse rebuilt. Data Quality Agent remains pending.')
+        print('DONE: raw, cleaned, final and SQLite warehouse rebuilt. Run the separate preserved agent for its decision log.')
     finally:
         lock.unlink(missing_ok=True)
 
