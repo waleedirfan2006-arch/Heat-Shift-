@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-10-21T15:58:08.057818+00:00",
-  "status": "ok",
+  "generated_at_utc": "2026-10-21T18:36:34.738872+00:00",
+  "status": "partial",
   "cities": {
     "Karachi": {
       "status": "ready",
       "icao": "OPKC",
-      "observation_utc": "2026-10-21T15:00:00+00:00",
-      "target_utc": "2026-10-22T15:00:00+00:00",
-      "observed_temperature_c": 30.0,
-      "baseline_c": 30.0,
-      "metar": "METAR OPKC 211500Z 24005KT 5000 HZ NSC 30/11 Q1014 NOSIG",
+      "observation_utc": "2026-10-21T18:00:00+00:00",
+      "target_utc": "2026-10-22T18:00:00+00:00",
+      "observed_temperature_c": 28.0,
+      "baseline_c": 28.0,
+      "metar": "METAR OPKC 211800Z 30006KT 5000 HZ NSC 28/16 Q1015 NOSIG",
       "jma_fields": 10,
       "observation_source": "AWC METAR API; automatic pipeline",
       "quality_status": "review required",
@@ -21,56 +21,31 @@
         "weather_flags_total": 0,
         "missing_values_after": 0
       },
-      "prediction_c": 30.517897418841557,
+      "prediction_c": 27.984410664732163,
       "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     },
     "Lahore": {
-      "status": "ready",
-      "icao": "OPLA",
-      "observation_utc": "2026-10-21T15:00:00+00:00",
-      "target_utc": "2026-10-22T15:00:00+00:00",
-      "observed_temperature_c": 26.0,
-      "baseline_c": 26.0,
-      "metar": "METAR OPLA 211500Z 00000KT 4000 FU NSC 26/18 Q1016 NOSIG RMK QFE990 A30.02",
-      "jma_fields": 10,
-      "observation_source": "AWC METAR API; automatic pipeline",
-      "quality_status": "review required",
-      "quality": {
-        "rows_before": 16,
-        "rows_after": 16,
-        "duplicates_removed": 0,
-        "values_filled": 0,
-        "weather_flags_total": 0,
-        "missing_values_after": 0
-      },
-      "prediction_c": 26.893296768235857,
-      "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
+      "status": "unavailable",
+      "error": "Expecting value: line 1 column 1 (char 0)"
     },
     "Multan": {
-      "status": "ready",
-      "icao": "OPMT",
-      "observation_utc": "2026-10-21T15:00:00+00:00",
-      "target_utc": "2026-10-22T15:00:00+00:00",
-      "observed_temperature_c": 30.0,
-      "baseline_c": 30.0,
-      "metar": "METAR OPMT 211500Z 09004KT 4000 FU NSC 30/18 Q1014 NOSIG",
-      "jma_fields": 10,
-      "observation_source": "AWC METAR API; automatic pipeline",
-      "quality_status": "review required",
-      "quality": {
-        "rows_before": 16,
-        "rows_after": 16,
-        "duplicates_removed": 0,
-        "values_filled": 0,
-        "weather_flags_total": 0,
-        "missing_values_after": 0
-      },
-      "prediction_c": 30.05534746068623,
-      "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
+      "status": "unavailable",
+      "error": "Expecting value: line 1 column 1 (char 0)"
     }
   },
-  "errors": [],
-  "elapsed_seconds": 2.224780772000031,
+  "errors": [
+    {
+      "city": "Lahore",
+      "stage": "city pipeline",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "city": "Multan",
+      "stage": "city pipeline",
+      "error": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ],
+  "elapsed_seconds": 64.968056358,
   "model_retrained": false,
   "scheduler": "GitHub Actions hourly, at minute 17 UTC; delays possible",
   "raw_cleaned_processed_evidence": "GitHub Actions run artifact",
@@ -78,7 +53,7 @@
   "quality_status": "review required",
   "data_quality_agent": "original source, fingerprint verified",
   "insight_agent": "original source with trusted document retrieval and citations",
-  "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/39630408230",
+  "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/39654018299",
   "last_successful_run": {
     "finished_at_utc": "2026-10-21T15:58:08.057818+00:00",
     "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/39630408230",
