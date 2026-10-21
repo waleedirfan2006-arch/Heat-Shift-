@@ -1,0 +1,360 @@
+{
+  "created_at_utc": "2026-10-20T19:42:41.287594+00:00",
+  "purpose": "station-only fallback; not a replacement for JMA primary",
+  "training_rows": 16463,
+  "training_sha256": "8a0631c337dd89272c141b04d2e61df0c368d2413b2ed8a3728540c56aa6f6f5",
+  "validation_sha256": "afd513bc85535eea623672ba4c409677822d7e0cd2ac1ef49af37f8e8985b792",
+  "selection": "pooled MAE across three expanding training-only folds; baseline eligible",
+  "fold_windows": [
+    [
+      "2022-07-01",
+      "2023-01-01"
+    ],
+    [
+      "2023-01-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-01-01"
+    ]
+  ],
+  "candidates": [
+    {
+      "candidate": {
+        "id": "persistence",
+        "kind": "baseline"
+      },
+      "examples": 12511,
+      "mae_c": 1.3742546559028055,
+      "rmse_c": 2.028806021430368,
+      "baseline_mae_c": 1.3742546559028055,
+      "folds": [
+        {
+          "examples": 3263,
+          "mae_c": 1.3519460619062211,
+          "rmse_c": 2.0143296034038842,
+          "baseline_mae_c": 1.3519460619062211
+        },
+        {
+          "examples": 4377,
+          "mae_c": 1.616289696138908,
+          "rmse_c": 2.2839223103004693,
+          "baseline_mae_c": 1.616289696138908
+        },
+        {
+          "examples": 4871,
+          "mae_c": 1.1717101211250256,
+          "rmse_c": 1.7794938141080396,
+          "baseline_mae_c": 1.1717101211250256
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "id": "ridge_1",
+        "kind": "ridge",
+        "alpha": 1
+      },
+      "examples": 12511,
+      "mae_c": 1.5678784642978982,
+      "rmse_c": 2.1185158862696345,
+      "baseline_mae_c": 1.3742546559028055,
+      "folds": [
+        {
+          "examples": 3263,
+          "mae_c": 2.080881673938154,
+          "rmse_c": 2.5127607917562655,
+          "baseline_mae_c": 1.3519460619062211
+        },
+        {
+          "examples": 4377,
+          "mae_c": 1.5576853062417546,
+          "rmse_c": 2.1868078857344924,
+          "baseline_mae_c": 1.616289696138908
+        },
+        {
+          "examples": 4871,
+          "mae_c": 1.233385748172993,
+          "rmse_c": 1.7322811874396287,
+          "baseline_mae_c": 1.1717101211250256
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "id": "ridge_10",
+        "kind": "ridge",
+        "alpha": 10
+      },
+      "examples": 12511,
+      "mae_c": 1.559634733365691,
+      "rmse_c": 2.1100087390009663,
+      "baseline_mae_c": 1.3742546559028055,
+      "folds": [
+        {
+          "examples": 3263,
+          "mae_c": 2.0499496326714945,
+          "rmse_c": 2.4848518385333045,
+          "baseline_mae_c": 1.3519460619062211
+        },
+        {
+          "examples": 4377,
+          "mae_c": 1.5578981446701237,
+          "rmse_c": 2.187249512597731,
+          "baseline_mae_c": 1.616289696138908
+        },
+        {
+          "examples": 4871,
+          "mae_c": 1.2327415969020616,
+          "rmse_c": 1.7320801720239716,
+          "baseline_mae_c": 1.1717101211250256
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "id": "ridge_100",
+        "kind": "ridge",
+        "alpha": 100
+      },
+      "examples": 12511,
+      "mae_c": 1.499964960159183,
+      "rmse_c": 2.0539752644346785,
+      "baseline_mae_c": 1.3742546559028055,
+      "folds": [
+        {
+          "examples": 3263,
+          "mae_c": 1.8270400905835802,
+          "rmse_c": 2.2941116258790784,
+          "baseline_mae_c": 1.3519460619062211
+        },
+        {
+          "examples": 4377,
+          "mae_c": 1.5600757653670416,
+          "rmse_c": 2.1915522399679253,
+          "baseline_mae_c": 1.616289696138908
+        },
+        {
+          "examples": 4871,
+          "mae_c": 1.2268483218981268,
+          "rmse_c": 1.7304670421736938,
+          "baseline_mae_c": 1.1717101211250256
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "id": "ridge_1000",
+        "kind": "ridge",
+        "alpha": 1000
+      },
+      "examples": 12511,
+      "mae_c": 1.3922652932257757,
+      "rmse_c": 1.9888762207115707,
+      "baseline_mae_c": 1.3742546559028055,
+      "folds": [
+        {
+          "examples": 3263,
+          "mae_c": 1.4293982073995495,
+          "rmse_c": 2.0185899778644187,
+          "baseline_mae_c": 1.3519460619062211
+        },
+        {
+          "examples": 4377,
+          "mae_c": 1.5784705057494741,
+          "rmse_c": 2.2210672557520748,
+          "baseline_mae_c": 1.616289696138908
+        },
+        {
+          "examples": 4871,
+          "mae_c": 1.20006966313642,
+          "rmse_c": 1.7313248447782825,
+          "baseline_mae_c": 1.1717101211250256
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "id": "hgb_100_7",
+        "kind": "hgb",
+        "iterations": 100,
+        "leaves": 7
+      },
+      "examples": 12511,
+      "mae_c": 1.3563986607896088,
+      "rmse_c": 1.9813509882817197,
+      "baseline_mae_c": 1.3742546559028055,
+      "folds": [
+        {
+          "examples": 3263,
+          "mae_c": 1.3933087672637396,
+          "rmse_c": 2.0162878870500163,
+          "baseline_mae_c": 1.3519460619062211
+        },
+        {
+          "examples": 4377,
+          "mae_c": 1.562254555737196,
+          "rmse_c": 2.222364741576142,
+          "baseline_mae_c": 1.616289696138908
+        },
+        {
+          "examples": 4871,
+          "mae_c": 1.1466945077182316,
+          "rmse_c": 1.7093243302640824,
+          "baseline_mae_c": 1.1717101211250256
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "id": "hgb_100_15",
+        "kind": "hgb",
+        "iterations": 100,
+        "leaves": 15
+      },
+      "examples": 12511,
+      "mae_c": 1.3671936145490162,
+      "rmse_c": 1.9849745915646473,
+      "baseline_mae_c": 1.3742546559028055,
+      "folds": [
+        {
+          "examples": 3263,
+          "mae_c": 1.4621641572383284,
+          "rmse_c": 2.0702947640351,
+          "baseline_mae_c": 1.3519460619062211
+        },
+        {
+          "examples": 4377,
+          "mae_c": 1.5561978924134934,
+          "rmse_c": 2.228387722799271,
+          "baseline_mae_c": 1.616289696138908
+        },
+        {
+          "examples": 4871,
+          "mae_c": 1.1337383476617158,
+          "rmse_c": 1.6693624410858263,
+          "baseline_mae_c": 1.1717101211250256
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "id": "hgb_250_7",
+        "kind": "hgb",
+        "iterations": 250,
+        "leaves": 7
+      },
+      "examples": 12511,
+      "mae_c": 1.356226250512423,
+      "rmse_c": 1.976840167658999,
+      "baseline_mae_c": 1.3742546559028055,
+      "folds": [
+        {
+          "examples": 3263,
+          "mae_c": 1.4198571153461725,
+          "rmse_c": 2.0292238970628302,
+          "baseline_mae_c": 1.3519460619062211
+        },
+        {
+          "examples": 4377,
+          "mae_c": 1.5551770949738797,
+          "rmse_c": 2.2312226880959294,
+          "baseline_mae_c": 1.616289696138908
+        },
+        {
+          "examples": 4871,
+          "mae_c": 1.1348270802885836,
+          "rmse_c": 1.6749402559315933,
+          "baseline_mae_c": 1.1717101211250256
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "id": "hgb_250_15",
+        "kind": "hgb",
+        "iterations": 250,
+        "leaves": 15
+      },
+      "examples": 12511,
+      "mae_c": 1.366364720600659,
+      "rmse_c": 1.9856482782202294,
+      "baseline_mae_c": 1.3742546559028055,
+      "folds": [
+        {
+          "examples": 3263,
+          "mae_c": 1.4376444258046257,
+          "rmse_c": 2.043157131368224,
+          "baseline_mae_c": 1.3519460619062211
+        },
+        {
+          "examples": 4377,
+          "mae_c": 1.5713778681160224,
+          "rmse_c": 2.2634913968657493,
+          "baseline_mae_c": 1.616289696138908
+        },
+        {
+          "examples": 4871,
+          "mae_c": 1.1343942371772782,
+          "rmse_c": 1.6512813635404495,
+          "baseline_mae_c": 1.1717101211250256
+        }
+      ]
+    }
+  ],
+  "selected": {
+    "id": "hgb_250_7",
+    "kind": "hgb",
+    "iterations": 250,
+    "leaves": 7
+  },
+  "validation": {
+    "examples": 1783,
+    "mae_c": 1.237479486988547,
+    "rmse_c": 1.6215356552114946,
+    "baseline_mae_c": 1.2351654514862591
+  },
+  "validation_by_city": {
+    "Karachi": {
+      "examples": 419,
+      "mae_c": 1.3442951461152532,
+      "rmse_c": 1.7976552532028944,
+      "baseline_mae_c": 1.3675417661097853
+    },
+    "Lahore": {
+      "examples": 963,
+      "mae_c": 1.1543804378330815,
+      "rmse_c": 1.491654042501739,
+      "baseline_mae_c": 1.1290758047767393
+    },
+    "Multan": {
+      "examples": 401,
+      "mae_c": 1.3254311656983304,
+      "rmse_c": 1.7237158058808346,
+      "baseline_mae_c": 1.3516209476309227
+    }
+  },
+  "historical_oof_q90_half_width_c": 3.0706703374747164,
+  "validation_band_coverage": 0.9326977005047672,
+  "elapsed_seconds": 5.118116350000037,
+  "limitations": [
+    "Not a fresh independent final evaluation: this validation period has been examined previously.",
+    "Not compared head-to-head against JMA model: archived JMA training inputs absent from repository.",
+    "Historical station reports lack original arrival times.",
+    "No locked-test, replay or reserve files read.",
+    "Do not infer live METAR accuracy from historical NOAA validation alone."
+  ],
+  "environment": {
+    "numpy": "2.5.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "joblib": "1.4.2",
+    "scipy": "1.18.1",
+    "threadpoolctl": "3.7.0",
+    "python-dateutil": "2.9.0.post0",
+    "pytz": "2026.5",
+    "tzdata": "2026.5",
+    "six": "1.17.0"
+  }
+}
