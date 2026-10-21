@@ -1,0 +1,281 @@
+{
+  "checked_at_utc": "2026-10-21 15:51:07 UTC",
+  "branch_search": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "165be6f1a61130e42099f9b30683f29d4820e22b",
+        "truncated": false,
+        "matches": [
+          {
+            "path": "HeatShift_Warehouse/Dataset_Declaration_DRAFT.md",
+            "sha": "9761fb106a627c6c5f669d75b05f9677700e48f8"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "8f3e9f1c76fe3cd8ecc1d65f530528a42478958a",
+        "truncated": false,
+        "matches": []
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "6262ed60a8e2bd69ec137bd49b140528fa85fc0d",
+        "truncated": false,
+        "matches": []
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "2bc26b159470c199873a92ff58f456f90cdb8c46",
+        "truncated": false,
+        "matches": [
+          {
+            "path": "HeatShift_Warehouse/Dataset_Declaration_DRAFT.md",
+            "sha": "9761fb106a627c6c5f669d75b05f9677700e48f8"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "6d66a6524e2414e3bd694c0da0e42e1b9da7bed6",
+        "truncated": false,
+        "matches": [
+          {
+            "path": "HeatShift_Warehouse/Dataset_Declaration_DRAFT.md",
+            "sha": "9761fb106a627c6c5f669d75b05f9677700e48f8"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "5a78e1f9bff06b1db47a19eefab920c265aeccff",
+        "truncated": false,
+        "matches": []
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "5b1d49a90dfbb6729b07a09f2e14952af724d685",
+        "truncated": false,
+        "matches": []
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "ff9064767a4370c5a146e1e00ae1ea73fa898294",
+        "truncated": false,
+        "matches": [
+          {
+            "path": "HeatShift_Warehouse/Dataset_Declaration_DRAFT.md",
+            "sha": "9761fb106a627c6c5f669d75b05f9677700e48f8"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "1d86a6b630ef64c4bb56479c0020253cd6e3b450",
+        "truncated": false,
+        "matches": [
+          {
+            "path": "HeatShift_Warehouse/Dataset_Declaration_DRAFT.md",
+            "sha": "9761fb106a627c6c5f669d75b05f9677700e48f8"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "a3d805564afaae1c64c4737a0874529c0a5f9ce6",
+        "truncated": false,
+        "matches": [
+          {
+            "path": "HeatShift_Warehouse/Dataset_Declaration_DRAFT.md",
+            "sha": "9761fb106a627c6c5f669d75b05f9677700e48f8"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "077f0e52d56a4fd9ee98dc75fa04f03707fce2bb",
+        "truncated": false,
+        "matches": [
+          {
+            "path": "HeatShift_Warehouse/Dataset_Declaration_DRAFT.md",
+            "sha": "9761fb106a627c6c5f669d75b05f9677700e48f8"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "6d8c3942f81943d62bcefbbe1bc67d350a4e6b08",
+        "truncated": false,
+        "matches": [
+          {
+            "path": "HeatShift_Warehouse/Dataset_Declaration_DRAFT.md",
+            "sha": "9761fb106a627c6c5f669d75b05f9677700e48f8"
+          }
+        ]
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "ref": "9f1593f08c3aa28d9a9af6865f3851b2a8ca7ca6",
+        "truncated": false,
+        "matches": [
+          {
+            "path": "HeatShift_Warehouse/Dataset_Declaration_DRAFT.md",
+            "sha": "9761fb106a627c6c5f669d75b05f9677700e48f8"
+          }
+        ]
+      }
+    }
+  ],
+  "declaration": [
+    {
+      "sha": "3ed7b70b4334ce1758a284ef62dfb6f49ae39a1f",
+      "date": "2026-10-19T18:46:43Z",
+      "message": "Update warehouse data, rebuild scripts and assistance log"
+    }
+  ],
+  "baseline": [
+    {
+      "path": "HeatShift_Warehouse/02_final/model_contract.json",
+      "commits": [
+        {
+          "sha": "8f3e9f1c76fe3cd8ecc1d65f530528a42478958a",
+          "date": "2026-10-19T14:05:30Z",
+          "message": "Add HeatShift initial dataset warehouse"
+        }
+      ]
+    },
+    {
+      "path": "HeatShift_Training/model_results/validation_metrics.json",
+      "commits": [
+        {
+          "sha": "4a27d7af7aae206eacf494d971ca75682b04fc6b",
+          "date": "2026-10-19T16:18:40Z",
+          "message": "Separate HeatShift model training from warehouse\n\nMove Ridge training code, dependencies, and validation results into HeatShift_Training. Keep the warehouse focused on data and document the validation workflow. Ridge validation MAE remains above the simple baseline; the locked test data was not used."
+        }
+      ]
+    },
+    {
+      "path": "HeatShift_Karachi_Space/karachi_station_jma_temperature_model.joblib",
+      "commits": [
+        {
+          "sha": "2bc26b159470c199873a92ff58f456f90cdb8c46",
+          "date": "2026-10-20T16:27:55Z",
+          "message": "Add pooled model artifact for three-city demo"
+        }
+      ]
+    }
+  ],
+  "current_run": {
+    "generated_at_utc": "2026-10-21T15:32:37.258402+00:00",
+    "status": "ok",
+    "cities": {
+      "Karachi": {
+        "status": "ready",
+        "icao": "OPKC",
+        "observation_utc": "2026-10-21T15:00:00+00:00",
+        "target_utc": "2026-10-22T15:00:00+00:00",
+        "observed_temperature_c": 30,
+        "baseline_c": 30,
+        "metar": "METAR OPKC 211500Z 24005KT 5000 HZ NSC 30/11 Q1014 NOSIG",
+        "jma_fields": 10,
+        "observation_source": "AWC METAR API; automatic pipeline",
+        "quality_status": "review required",
+        "quality": {
+          "rows_before": 16,
+          "rows_after": 16,
+          "duplicates_removed": 0,
+          "values_filled": 0,
+          "weather_flags_total": 0,
+          "missing_values_after": 0
+        },
+        "prediction_c": 30.517897418841557,
+        "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
+      },
+      "Lahore": {
+        "status": "ready",
+        "icao": "OPLA",
+        "observation_utc": "2026-10-21T15:00:00+00:00",
+        "target_utc": "2026-10-22T15:00:00+00:00",
+        "observed_temperature_c": 26,
+        "baseline_c": 26,
+        "metar": "METAR OPLA 211500Z 00000KT 4000 FU NSC 26/18 Q1016 NOSIG RMK QFE990 A30.02",
+        "jma_fields": 10,
+        "observation_source": "AWC METAR API; automatic pipeline",
+        "quality_status": "review required",
+        "quality": {
+          "rows_before": 16,
+          "rows_after": 16,
+          "duplicates_removed": 0,
+          "values_filled": 0,
+          "weather_flags_total": 0,
+          "missing_values_after": 0
+        },
+        "prediction_c": 26.893296768235857,
+        "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
+      },
+      "Multan": {
+        "status": "ready",
+        "icao": "OPMT",
+        "observation_utc": "2026-10-21T15:00:00+00:00",
+        "target_utc": "2026-10-22T15:00:00+00:00",
+        "observed_temperature_c": 30,
+        "baseline_c": 30,
+        "metar": "METAR OPMT 211500Z 09004KT 4000 FU NSC 30/18 Q1014 NOSIG",
+        "jma_fields": 10,
+        "observation_source": "AWC METAR API; automatic pipeline",
+        "quality_status": "review required",
+        "quality": {
+          "rows_before": 16,
+          "rows_after": 16,
+          "duplicates_removed": 0,
+          "values_filled": 0,
+          "weather_flags_total": 0,
+          "missing_values_after": 0
+        },
+        "prediction_c": 30.05534746068623,
+        "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
+      }
+    },
+    "errors": [],
+    "elapsed_seconds": 1.405696995999996,
+    "model_retrained": false,
+    "scheduler": "GitHub Actions hourly, at minute 17 UTC; delays possible",
+    "raw_cleaned_processed_evidence": "GitHub Actions run artifact",
+    "scheduler_evidence": "GitHub Actions; no historical Prefect export supplied",
+    "quality_status": "review required",
+    "data_quality_agent": "original source, fingerprint verified",
+    "insight_agent": "original source with trusted document retrieval and citations",
+    "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/39626555443",
+    "last_successful_run": {
+      "finished_at_utc": "2026-10-21T15:32:37.258402+00:00",
+      "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/39626555443",
+      "run_id": "39626555443"
+    },
+    "publication_branch": "heatshift-runtime"
+  }
+}

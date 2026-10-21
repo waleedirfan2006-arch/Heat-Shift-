@@ -381,14 +381,14 @@ def build():
                  examples_by_split={k:int(v) for k,v in model.split.value_counts().sort_index().items()},
                  missing_optional_lag24=int(model.lag24_missing.sum()), missing_optional_lag48=int(model.lag48_missing.sum()),
                  checks_passed=len(check_rows), rule_counts=rule_counts, model_trained=False,
-                 data_quality_agent_status='Not implemented: explicitly excluded by user',
+                 data_quality_agent_status='Separate preserved agent in HeatShift_Unified_Space; this build performs deterministic cleaning',
                  limitations=['NOAA 2022-2023 supports training. Test dates remain fixed; 2025 is not used for training.',
                               'NOAA 2025 is reserve data, not extra training across the locked 2024 test.',
                               'Original Open-Meteo download time, request and model setting remain Unverified. NOAA has new verified during-event fetch receipts.',
                               'Station measurements are sparse. Not a complete 24-hour forecast curve.',
                               'Historical availability of station reports is unknown; replay assumes event-time availability.',
-                              'No performance claim: model and fixed baseline have not been evaluated.',
-                              'Complete local-snapshot rebuild provided. Hourly orchestration and Data Quality Agent are future steps.'])
+                              'This warehouse rebuild does not evaluate a model; current frozen-model evidence is in evidence/final_audit/primary_model.',
+                              'Complete local-snapshot rebuild provided. Separate preserved agents and hourly orchestration are under HeatShift_Unified_Space and automation.'])
     write_json(staging / 'quality/summary.json', audit)
     quality_report(staging / 'quality', audit, split_counts, pd.DataFrame(coverage))
     contract = dict(status='Recommended. Check against your actually submitted declaration before model training.',

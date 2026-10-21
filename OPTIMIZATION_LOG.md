@@ -13,3 +13,14 @@ All lower MAE values are better; values are C, not percentage accuracy. These en
 | Hourly combined METAR fetch + three JMA requests | No fitting; marks failures explicitly | Successful manual run 2.777 s; one sample is not an SLA | Schedule hourly; retain evidence |
 
 Evidence: evidence/final_audit/primary_model/metrics.json, agent_benchmarks.json and hourly_manual_run/. The model heap snapshot excludes startup/network, loading and native/process memory; Python allocation tracing excludes native arrays. No original training speed, total browser memory, energy use or human hours were recorded. The 7-day bootstrap improvement interval [-0.0417, 0.2707] includes zero. Locked-test/replay/reserve were not scored in the final audit.
+
+
+## Final scope and publication changes
+
+| Change | Gain | Cost / measurement limit |
+|---|---|---|
+| Strict whole-request scope and table fingerprints | Prevents unsupported city/date/future/advice answers being inferred from unrelated statistics; stores numeric lineage | Conservative grammar refuses arbitrary paraphrases. Additional hash/policy overhead not benchmarked; old agent timings do not measure this version. |
+| Separate runtime branch and preserved last-success pointer | Hourly observations can refresh while final source tag stays frozen; failures remain visible | Still depends on scheduled Actions and upstream weather APIs; no uptime guarantee or historical Prefect proof. |
+| Clean-start snapshot restore and raw-hash checks | Deterministic warehouse rebuild; changed inputs fail rather than silently repair evidence | Packaged snapshots cannot recover missing original collection metadata. |
+
+No model parameters were changed in this audit. Human hours and original training memory remain unrecorded. No claim of improved prediction accuracy is attached to UI or policy changes.

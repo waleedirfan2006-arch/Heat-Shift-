@@ -42,7 +42,7 @@ $('forecastForm').addEventListener('submit',async event=>{
 $('units').addEventListener('click',()=>{unit=unit==='C'?'F':'C';renderForecast();});$('downloadForecast').addEventListener('click',()=>{if(lastForecast)download(lastForecast,'heatshift-'+lastForecast.city.toLowerCase()+'-forecast.json');});
 async function agents(kind,cityName,text,filename,isUpload=false){
 
- if(!worker){worker=new Worker('agent-worker.js');worker.onmessage=({data})=>{
+ if(!worker){worker=new Worker('agent-worker.js?v=strict-scope-v2');worker.onmessage=({data})=>{
   if(data.status){$('runtimeStatus').textContent=data.status;$('agentStatus').textContent='Starting…';return;}
   const request=pending.get(data.id);if(!request)return;clearTimeout(request.timer);pending.delete(data.id);
   if(data.error){$('agentStatus').textContent='Unavailable · execution failed';$('runtimeStatus').textContent='Agent unavailable: '+data.error;request.reject(Error(data.error));}

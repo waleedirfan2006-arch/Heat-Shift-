@@ -1,0 +1,80 @@
+{
+  "question": "Summarize recorded weather temperature and uncertainty.",
+  "answer": {
+    "answer": "Weather data summary: temperature_c: min 30.00 (row 15), max 38.00 (row 2), average 35.31 over 16 values; temperature_c: min 26.00 (row 14), max 31.00 (row 1), average 29.31 over 16 values; temperature_c: min 30.00 (row 13), max 34.00 (row 3), average 32.62 over 16 values.",
+    "supported": true,
+    "citations": [
+      {
+        "source": "karachi_cleaned.csv",
+        "row_id": "karachi_cleaned.csv:aggregate",
+        "source_sha256": "bd57ba15e0abc3e1e7741ec940d8cf7d980e067a20e7ede177c2a5de05234ff4"
+      },
+      {
+        "source": "karachi_cleaned.csv",
+        "row_id": "karachi_cleaned.csv:15",
+        "source_sha256": "bd57ba15e0abc3e1e7741ec940d8cf7d980e067a20e7ede177c2a5de05234ff4",
+        "gold_row_id": "OPKC:1792594800"
+      },
+      {
+        "source": "karachi_cleaned.csv",
+        "row_id": "karachi_cleaned.csv:2",
+        "source_sha256": "bd57ba15e0abc3e1e7741ec940d8cf7d980e067a20e7ede177c2a5de05234ff4",
+        "gold_row_id": "OPKC:1792571400"
+      },
+      {
+        "source": "lahore_cleaned.csv",
+        "row_id": "lahore_cleaned.csv:aggregate",
+        "source_sha256": "53cb8422f451790c08523ef1106175207ee60d2f0c9c359b2cfc6f46b2c3562c"
+      },
+      {
+        "source": "lahore_cleaned.csv",
+        "row_id": "lahore_cleaned.csv:14",
+        "source_sha256": "53cb8422f451790c08523ef1106175207ee60d2f0c9c359b2cfc6f46b2c3562c",
+        "gold_row_id": "OPLA:1792593000"
+      },
+      {
+        "source": "lahore_cleaned.csv",
+        "row_id": "lahore_cleaned.csv:1",
+        "source_sha256": "53cb8422f451790c08523ef1106175207ee60d2f0c9c359b2cfc6f46b2c3562c",
+        "gold_row_id": "OPLA:1792569600"
+      },
+      {
+        "source": "multan_cleaned.csv",
+        "row_id": "multan_cleaned.csv:aggregate",
+        "source_sha256": "07cb0038e4b7af9269ec7e909c34437ed239554acb40fe5ce60953406dc9b428"
+      },
+      {
+        "source": "multan_cleaned.csv",
+        "row_id": "multan_cleaned.csv:13",
+        "source_sha256": "07cb0038e4b7af9269ec7e909c34437ed239554acb40fe5ce60953406dc9b428",
+        "gold_row_id": "OPMT:1792591200"
+      },
+      {
+        "source": "multan_cleaned.csv",
+        "row_id": "multan_cleaned.csv:3",
+        "source_sha256": "07cb0038e4b7af9269ec7e909c34437ed239554acb40fe5ce60953406dc9b428",
+        "gold_row_id": "OPMT:1792573200"
+      }
+    ]
+  },
+  "evidence_count": 9,
+  "citations_valid": true,
+  "timestamp": "2026-10-21T20:28:13.227528",
+  "gold_tables": [
+    {
+      "file": "karachi_cleaned.csv",
+      "sha256": "bd57ba15e0abc3e1e7741ec940d8cf7d980e067a20e7ede177c2a5de05234ff4",
+      "rows": 16
+    },
+    {
+      "file": "lahore_cleaned.csv",
+      "sha256": "53cb8422f451790c08523ef1106175207ee60d2f0c9c359b2cfc6f46b2c3562c",
+      "rows": 16
+    },
+    {
+      "file": "multan_cleaned.csv",
+      "sha256": "07cb0038e4b7af9269ec7e909c34437ed239554acb40fe5ce60953406dc9b428",
+      "rows": 16
+    }
+  ]
+}

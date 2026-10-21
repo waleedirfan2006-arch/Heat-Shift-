@@ -1,0 +1,111 @@
+{
+  "audit_date": "2026-10-21",
+  "deadline_pkt": "2026-10-22T00:00:00+05:00",
+  "required_prefect_window_utc": [
+    "2026-10-20T11:00:00Z",
+    "2026-10-21T11:00:00Z"
+  ],
+  "requirements": [
+    {
+      "id": "warehouse",
+      "status": "verified",
+      "evidence": "Clean-start snapshot restoration and 14 checks; make data also passed on Ubuntu Actions."
+    },
+    {
+      "id": "manifest",
+      "status": "partial",
+      "evidence": "Every raw file listed with SHA/source/query/fetch/license fields; original metadata for three Open-Meteo snapshots remains unverified."
+    },
+    {
+      "id": "quality_agent",
+      "status": "verified",
+      "evidence": "Original source fingerprint preserved; fix/fill/flag and quality_log available."
+    },
+    {
+      "id": "baseline_before_results",
+      "status": "verified",
+      "evidence": "Contract committed 19 Oct 14:05:30 UTC, before Ridge results at 16:18:40 UTC and later JMA artifact."
+    },
+    {
+      "id": "model_beats_baseline",
+      "status": "verified_with_limits",
+      "evidence": "Reused validation MAE 1.101946 vs 1.235165 C; January loses; bootstrap interval includes zero."
+    },
+    {
+      "id": "uncertainty_groups",
+      "status": "verified_with_limits",
+      "evidence": "City/month errors and nominal March 90% calibration bands; future coverage unproven."
+    },
+    {
+      "id": "insight_grounding",
+      "status": "verified",
+      "evidence": "Strict whole-request scope; gold-table SHA256, original row IDs and computed numeric claims; sourced guidance and unsupported refusals."
+    },
+    {
+      "id": "hourly_pipeline",
+      "status": "partial",
+      "evidence": "Minute-17 schedule configured; real push runs passed. This does not prove the requested historical hourly window or Prefect execution."
+    },
+    {
+      "id": "space",
+      "status": "verified",
+      "evidence": "Public Space shows freshness, quality status and last successful run. Original Python agents executed in browser."
+    },
+    {
+      "id": "prefect_export",
+      "status": "missing",
+      "evidence": "No unedited prefect_runs.csv for 20 Oct 16:00 to 21 Oct 16:00 PKT found across fourteen branches."
+    },
+    {
+      "id": "prefect_screenshot",
+      "status": "missing",
+      "evidence": "No actual Prefect dashboard screenshot found. GitHub Actions evidence is not a substitute."
+    },
+    {
+      "id": "declaration_deadline",
+      "status": "unmet",
+      "evidence": "First Dataset_Declaration_DRAFT.md commit 19 Oct 18:46:43 UTC / 23:46:43 PKT, after Monday noon."
+    },
+    {
+      "id": "summary",
+      "status": "verified",
+      "evidence": "Summary.pdf exactly one page; team roles and known gaps included."
+    },
+    {
+      "id": "demo",
+      "status": "verified_with_limits",
+      "evidence": "Public captioned dashboard walkthrough below 180 seconds; screenshot sequence, no audio or continuous live screen recording."
+    },
+    {
+      "id": "ai_log",
+      "status": "verified",
+      "evidence": "Cumulative AI assistance log updated; no invented human sign-off."
+    },
+    {
+      "id": "business_optimization",
+      "status": "verified",
+      "evidence": "User/payer/value/cost hypotheses, measured accuracy/speed/limited memory, unknown effort labelled."
+    },
+    {
+      "id": "slides",
+      "status": "verified",
+      "evidence": "Editable PowerPoint, PDF backup and notes supplied; latest event notice requires slides."
+    },
+    {
+      "id": "devpost",
+      "status": "human_action",
+      "evidence": "Submission/link not provided or verified; prepare it before presentation."
+    },
+    {
+      "id": "physical_viva",
+      "status": "human_action",
+      "evidence": "All members must attend, rehearse and explain their work."
+    },
+    {
+      "id": "final_tag",
+      "status": "release_workflow",
+      "evidence": "Final tag must match reviewed main after all files; verify successful finalization workflow. Operational status uses separate branch."
+    }
+  ],
+  "complete_compliance": false
+}

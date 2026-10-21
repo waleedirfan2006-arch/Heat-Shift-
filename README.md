@@ -49,7 +49,7 @@ Reproduce frozen-model validation/calibration (network required; reads only thos
 
 ## Submission and honest limitations
 
-See [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md). Required PDFs are in submission/, including organizer-spelled datasetpropsal.pdf and one-page Summary.pdf. The event message does not explicitly require slides; Project_Explanation_Viva.pdf supplies a simple speaking outline. Every team member must attend the physical viva.
+See [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md). Required PDFs are in submission/, including organizer-spelled datasetpropsal.pdf and one-page Summary.pdf. The latest event notice explicitly requires slides and a Devpost link; Project_Explanation_Viva.pdf supplies a simple speaking outline. Every team member must attend the physical viva.
 
 Some original Open-Meteo collection metadata and original JMA fitting evidence remain unverified. Airport weather is not every neighborhood's weather. This is a temperature prototype, not rain/pollution forecasting or an official warning service. Commercial use needs appropriate source rights and service planning.
 
@@ -67,3 +67,8 @@ Roles provided by Waleed Irfan on 21 October 2026:
 | **Aman Khan Lodhi** | Responsible for data cleaning, data warehouse management and related data preparation. |
 
 These responsibilities are the team's reported contribution allocation. Substantial AI assistance is documented separately in `AI_Use_Log.md`; the allocation does not remove that disclosure or imply that every line was written without assistance.
+
+
+## Final audit disclosures
+
+See [final checklist](SUBMISSION_CHECKLIST.md): historical Prefect export/screenshot missing; declaration late; some original source/fitting records unverified. Strict Insight scope and source row IDs are implemented. Operational refreshes use heatshift-runtime so final code can stay frozen. Slides and a Devpost link are required by the latest notice.

@@ -117,3 +117,14 @@ Publication verification: the public Space update was confirmed live; first Acti
 ## 2026-10-21 - Team contribution clarification
 
 Waleed explicitly supplied the team roles: Waleed Irfan developed and improved the prediction model; Syed Mateen Ali developed, managed and maintained both the Data Quality and Insight agents; Aman Khan Lodhi handled data cleaning, warehouse management and related data preparation. Codex added this allocation to the four submission PDFs, README, business-model document and team/AI summaries. These are user-reported responsibilities, not an independent authorship audit. Earlier AI-assistance disclosures and pending human-review notes remain in force. No model or agent code was changed.
+
+
+## 21 October 2026 — Strict insight scope and final requirements audit
+
+Codex added a strict complete-question policy around the unchanged Mateen Insight Agent. It verifies canonical table hashes, records original source IDs and numeric aggregation claims, and permits selected source-cited project guidance. Unsupported locations, date filters, future weather and personal recommendations refuse. The restricted grammar may also refuse reasonable paraphrases. Original agent vendor files and frozen model parameters remain unchanged. No fitting or new locked/replay/reserve scoring was done.
+
+Thirteen adapter/scope tests, one failure-path test and one status-publication mock passed. Browser execution verified historical statistics with original NOAA IDs, unsupported Islamabad refusal and sourced uncertainty explanation. The clean-start warehouse passed fourteen checks. The legacy Streamlit UI test remains unrun locally. Existing timing benchmarks predate this policy and are not measurements of the new checks.
+
+AI changed hourly publication to a separate operational branch, added explicit failure/freshness/last-success reporting, and verified a successful real Actions run. AI inspected fourteen branches and declaration/baseline commit history: no historical Prefect export/screenshot was found and the declaration draft was late. These items are disclosed, not fabricated or marked fulfilled. Original fitting and some collection records remain unavailable.
+
+AI updated four PDFs, the checklist, source manifests, demo captions, presentation packaging and release preparation. The saved demo is an actual-dashboard screenshot sequence without voice narration, not a continuous live recording. Human review, Devpost submission and all-member viva attendance are not invented. Team roles were supplied by Waleed, not independently certified authorship. No organizer message was sent.
