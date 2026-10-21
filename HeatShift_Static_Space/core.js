@@ -18,7 +18,6 @@ function parseMetar(text,city,now=Date.now()){
  const cfg=cities[city];const tokens=text.trim().toUpperCase().split(/\s+/);
  if(!cfg||!tokens.includes(cfg.icao))throw Error('The report must match the selected airport station.');
  if(tokens.filter(x=>/^\d{6}Z$/.test(x)).length!==1)throw Error('Paste one report at a time.');
- const stamp=tokens.find(x=>/^\d{6}Z$/.test(x));const temperature=tokens.find(x=>/^(M?\d{2})\/(M?\d{2}|\/\/)$/.test(x));
  const stamp=tokens.find(x=>/^\d{6}Z$/.test(x));const temperature=tokens.find(x=>/^(M?\d{2})\/(M?\d{2}|\/)$/.test(x));
  if(!stamp||!temperature)throw Error('Could not find a DDHHMMZ time and temperature/dew-point group. Enter the values manually.');
  const day=Number(stamp.slice(0,2)),hour=Number(stamp.slice(2,4)),minute=Number(stamp.slice(4,6));
@@ -26,7 +25,6 @@ function parseMetar(text,city,now=Date.now()){
  const n=new Date(now);const candidates=[-1,0].map(offset=>new Date(Date.UTC(n.getUTCFullYear(),n.getUTCMonth()+offset,day,hour,minute))).filter(d=>d.getUTCDate()===day&&d.getTime()<=now&&now-d.getTime()<=4*3600000);
  if(candidates.length!==1)throw Error('This report is too old, future-dated, or has an ambiguous date.');
  const raw=temperature.split('/')[0];const value=raw.startsWith('M')?-Number(raw.slice(1)):Number(raw);
- return {temperature:value,stamp:new Date(candidates[0].getTime()+5*3600000).toISOString().slice(0,16)};
  const dew=temperature.split('/')[1]; const dewpoint=/^M?\d{2}$/.test(dew)?(dew.startsWith('M')?-Number(dew.slice(1)):Number(dew)):null;
  const wind=tokens.find(x=>/^(\d{3}|VRB)\d{2,3}(?:G\d{2,3})?KT$/.test(x));const match=wind?.match(/^(\d{3}|VRB)(\d{2,3})(?:G\d{2,3})?KT$/);
  const windSpeed=match?Number(match[2]):null;const windDirection=match&&match[1]!=='VRB'&&windSpeed!==0?Number(match[1]):null;
@@ -42,7 +40,6 @@ function weatherValues(payload,target){
  return {values,available};
 }
 function row(input,values){const local=new Date(input.observation.getTime()+5*3600000);const hour=local.getUTCHours();const day=Math.floor((Date.UTC(local.getUTCFullYear(),local.getUTCMonth(),local.getUTCDate())-Date.UTC(local.getUTCFullYear(),0,1))/86400000)+1;return {station_temp_input_c:input.temperature,hour_sin:Math.sin(2*Math.PI*hour/24),hour_cos:Math.cos(2*Math.PI*hour/24),year_sin:Math.sin(2*Math.PI*(day-1)/365.2425),year_cos:Math.cos(2*Math.PI*(day-1)/365.2425),station_id:cities[input.city].station,hour_pk:String(hour),month_pk:String(local.getUTCMonth()+1),...values};}
-const api={cities,fields,validate,parseMetar,weatherValues,row};root.HeatShiftCore=api;if(typeof module!=='undefined')module.exports=api;
 function stationWeatherRow(input,dew,speed,direction){
  if(String(dew).trim()===''||String(speed).trim()==='')throw Error('Paste a full METAR report, or enter dew point and wind speed.');
  const d=Number(dew),w=Number(speed);let angle=String(direction).trim()===''?null:Number(direction);

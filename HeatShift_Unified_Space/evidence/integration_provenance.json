@@ -1,0 +1,23 @@
+{
+  "agent_commit": "165be6f1a61130e42099f9b30683f29d4820e22b",
+  "agent_branch": "add-airguard-agent-folder",
+  "agents": {
+    "data_quality_agent.py": "1afac2fd2870e9218599d3dba996960956eb51eda4e76a5e084c7f19a3531f70",
+    "insight_agent.py": "2dcdbccaf1d03ad94fe3bfa6c917932477ffa57947d97e43ca91ae412f49f572"
+  },
+  "prediction_source_commit": "054a96819cd40b3c568b2c45851c03d15095ffc1",
+  "legacy_model_json_sha256": "3cdd1ea1e498c17365b26a3e1daa310bb95fbb30e9d715d683a4e94c741c48eb",
+  "data": {
+    "source": "HeatShift_Warehouse/02_final/train.csv",
+    "sha256": "8a0631c337dd89272c141b04d2e61df0c368d2413b2ed8a3728540c56aa6f6f5",
+    "rows": 16463,
+    "columns": [
+      "source_row_id",
+      "time",
+      "temperature_c"
+    ],
+    "scope": "Training observations only. No targets, validation, locked test, replay or reserve."
+  },
+  "integration_base_commit": "40576db27a5bd6ce522d39b4acd733afcaff7d21",
+  "merge_repair": "Restore four prediction UI files to the last tested release; later merge duplicated declarations, handlers and DOM IDs."
+}
