@@ -1,0 +1,113 @@
+[
+  {
+    "city": "Karachi",
+    "source": "karachi_live.csv",
+    "output": "uploaded_karachi_live_cleaned.csv",
+    "source_type": "uploaded",
+    "rows_before": 16,
+    "rows_after": 16,
+    "duplicates_removed": 0,
+    "missing_values_before": 0,
+    "missing_values_before_fill": 0,
+    "missing_values_after": 0,
+    "missing_numeric_values_after_fill": 0,
+    "remaining_missing_values_flagged": 0,
+    "values_filled": 0,
+    "weather_flags": [],
+    "weather_flags_total": 0,
+    "latest_data_time": "2026-10-21T13:00:00",
+    "data_age_hours": null,
+    "decisions": [
+      {
+        "timestamp": "2026-10-21T18:07:50",
+        "file": "karachi_live.csv",
+        "column": "time",
+        "rule": "time_zone_check",
+        "action": "flag",
+        "rows_affected": 16,
+        "reason": "File does not state a time zone. Treated as UTC; convert to PKT only for display and verify before merging sources."
+      }
+    ],
+    "status": "processed",
+    "timestamp": "2026-10-21T18:07:50",
+    "input_sha256": "48fd3d985343f33281d2da3bbbfb17a0cac72a46bf1602c366a6f2b69b35fa0f",
+    "integration_notes": [
+      "Adapter converted explicitly zoned time to UTC without a suffix in the temporary copy. Display these times as UTC. The agent's generic time-zone flag still appears unchanged.",
+      "Data age is not asserted: the original agent uses a server-local clock without time-zone information."
+    ]
+  },
+  {
+    "city": "Lahore",
+    "source": "lahore_live.csv",
+    "output": "uploaded_lahore_live_cleaned.csv",
+    "source_type": "uploaded",
+    "rows_before": 16,
+    "rows_after": 16,
+    "duplicates_removed": 0,
+    "missing_values_before": 0,
+    "missing_values_before_fill": 0,
+    "missing_values_after": 0,
+    "missing_numeric_values_after_fill": 0,
+    "remaining_missing_values_flagged": 0,
+    "values_filled": 0,
+    "weather_flags": [],
+    "weather_flags_total": 0,
+    "latest_data_time": "2026-10-21T13:00:00",
+    "data_age_hours": null,
+    "decisions": [
+      {
+        "timestamp": "2026-10-21T18:07:50",
+        "file": "lahore_live.csv",
+        "column": "time",
+        "rule": "time_zone_check",
+        "action": "flag",
+        "rows_affected": 16,
+        "reason": "File does not state a time zone. Treated as UTC; convert to PKT only for display and verify before merging sources."
+      }
+    ],
+    "status": "processed",
+    "timestamp": "2026-10-21T18:07:50",
+    "input_sha256": "0c10bd385403e476570bbf748a16823427c72eec54d837b79c17eb881cd43803",
+    "integration_notes": [
+      "Adapter converted explicitly zoned time to UTC without a suffix in the temporary copy. Display these times as UTC. The agent's generic time-zone flag still appears unchanged.",
+      "Data age is not asserted: the original agent uses a server-local clock without time-zone information."
+    ]
+  },
+  {
+    "city": "Multan",
+    "source": "multan_live.csv",
+    "output": "uploaded_multan_live_cleaned.csv",
+    "source_type": "uploaded",
+    "rows_before": 16,
+    "rows_after": 16,
+    "duplicates_removed": 0,
+    "missing_values_before": 0,
+    "missing_values_before_fill": 0,
+    "missing_values_after": 0,
+    "missing_numeric_values_after_fill": 0,
+    "remaining_missing_values_flagged": 0,
+    "values_filled": 0,
+    "weather_flags": [],
+    "weather_flags_total": 0,
+    "latest_data_time": "2026-10-21T13:00:00",
+    "data_age_hours": null,
+    "decisions": [
+      {
+        "timestamp": "2026-10-21T18:07:51",
+        "file": "multan_live.csv",
+        "column": "time",
+        "rule": "time_zone_check",
+        "action": "flag",
+        "rows_affected": 16,
+        "reason": "File does not state a time zone. Treated as UTC; convert to PKT only for display and verify before merging sources."
+      }
+    ],
+    "status": "processed",
+    "timestamp": "2026-10-21T18:07:51",
+    "input_sha256": "e79342077e60ed7372f259dcc2ef64559eb04611250a76b4301169bcae7abdf8",
+    "integration_notes": [
+      "Adapter converted explicitly zoned time to UTC without a suffix in the temporary copy. Display these times as UTC. The agent's generic time-zone flag still appears unchanged.",
+      "Data age is not asserted: the original agent uses a server-local clock without time-zone information."
+    ]
+  }
+]

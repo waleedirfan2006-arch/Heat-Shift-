@@ -1,0 +1,60 @@
+name: HeatShift hourly pipeline
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/hourly.yml'
+      - 'automation/**'
+permissions:
+  contents: write
+concurrency:
+  group: heatshift-hourly
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install agent dependency
+        run: python -m pip install pandas==2.2.3
+      - name: Verify the single-command historical warehouse build
+        if: github.event_name != 'schedule'
+        run: make data PYTHON=python WORKDIR="${{ runner.temp }}/heatshift-warehouse"
+      - name: Acquire, review, predict and cite
+        id: pipeline
+        continue-on-error: true
+        run: python automation/hourly_pipeline.py --output automation/runs
+      - name: Retain raw, cleaned, processed and manifest evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hourly-evidence-${{ github.run_id }}
+          path: automation/runs/
+          retention-days: 30
+          if-no-files-found: error
+      - name: Publish latest status for the dashboard
+        if: always()
+        run: |
+          test -f automation/runs/latest.json
+          mkdir -p runtime
+          cp automation/runs/latest.json runtime/latest.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add runtime/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh hourly HeatShift status'
+            git push
+          fi
+      - name: Surface upstream or pipeline failures
+        if: steps.pipeline.outcome != 'success'
+        run: exit 1

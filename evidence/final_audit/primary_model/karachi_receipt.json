@@ -1,0 +1,8 @@
+{
+  "source_url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=25&longitude=67.25&models=jma_gsm&hourly=temperature_2m_previous_day1%2Crelative_humidity_2m_previous_day1%2Cdew_point_2m_previous_day1%2Capparent_temperature_previous_day1%2Cprecipitation_previous_day1%2Ccloud_cover_previous_day1%2Cwind_speed_10m_previous_day1%2Cwind_direction_10m_previous_day1%2Csurface_pressure_previous_day1%2Cpressure_msl_previous_day1&start_date=2024-01-02&end_date=2024-03-31&timezone=UTC&temperature_unit=celsius&wind_speed_unit=kmh",
+  "fetched_at_utc": "2026-10-21T13:03:44.911226+00:00",
+  "response_sha256": "daaa2b310ad1d4b17753c77e6ee254335cfe7c51edc7a056a347dda725739226",
+  "city": "Karachi",
+  "purpose": "Frozen-model validation and separate calibration; no fitting or selection",
+  "original_historical_arrival": "unknown; current archive revision"
+}

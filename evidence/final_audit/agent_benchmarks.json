@@ -1,0 +1,13 @@
+{
+  "quality_5012_rows": {
+    "runs": 5,
+    "median_seconds": 0.23816989999613725,
+    "max_python_traced_allocation_bytes": 2933053
+  },
+  "insight_5012_rows": {
+    "runs": 5,
+    "median_seconds": 0.1032718000060413,
+    "max_python_traced_allocation_bytes": 1970584
+  },
+  "limits": "Local warm Python functions, not browser startup. Traced Python allocations exclude native arrays and total process memory. No human effort hours or original training speed were recorded."
+}

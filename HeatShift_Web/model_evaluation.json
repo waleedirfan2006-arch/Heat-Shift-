@@ -1,0 +1,85 @@
+{
+  "model_source_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e",
+  "frozen_model_changed": false,
+  "validation": {
+    "examples": 1783,
+    "model_mae_c": 1.1019464086208355,
+    "declared_raw_baseline_mae_c": 1.2351654514862591,
+    "rounded_station_baseline_mae_c": 1.2439147504206394,
+    "improvement_c": 0.13321904286542366
+  },
+  "by_city": {
+    "Karachi": {
+      "examples": 419,
+      "model_mae_c": 1.0305931088964504,
+      "declared_raw_baseline_mae_c": 1.3675417661097853,
+      "rounded_station_baseline_mae_c": 1.3973747016706444,
+      "improvement_c": 0.3369486572133349
+    },
+    "Lahore": {
+      "examples": 963,
+      "model_mae_c": 1.0815305876196468,
+      "declared_raw_baseline_mae_c": 1.1290758047767393,
+      "rounded_station_baseline_mae_c": 1.1307372793354102,
+      "improvement_c": 0.047545217157092604
+    },
+    "Multan": {
+      "examples": 401,
+      "model_mae_c": 1.2255311173706163,
+      "declared_raw_baseline_mae_c": 1.3516209476309227,
+      "rounded_station_baseline_mae_c": 1.355361596009975,
+      "improvement_c": 0.1260898302603064
+    }
+  },
+  "by_month": {
+    "2024-01": {
+      "examples": 775,
+      "model_mae_c": 1.1653022199295153,
+      "declared_raw_baseline_mae_c": 1.0739354838709676,
+      "rounded_station_baseline_mae_c": 1.0830967741935484,
+      "improvement_c": -0.09136673605854764
+    },
+    "2024-02": {
+      "examples": 1008,
+      "model_mae_c": 1.0532353433785469,
+      "declared_raw_baseline_mae_c": 1.3591269841269842,
+      "rounded_station_baseline_mae_c": 1.3675595238095237,
+      "improvement_c": 0.3058916407484373
+    }
+  },
+  "seven_day_block_bootstrap_95pct_improvement_interval_c": [
+    -0.04169377053666658,
+    0.2706989324486297
+  ],
+  "calibration_bands": {
+    "Karachi": {
+      "calibration_examples": 183,
+      "half_width_c": 2.2237866802649258,
+      "calibration_coverage": 0.907103825136612
+    },
+    "Lahore": {
+      "calibration_examples": 398,
+      "half_width_c": 3.084036339953453,
+      "calibration_coverage": 0.9045226130653267
+    },
+    "Multan": {
+      "calibration_examples": 174,
+      "half_width_c": 2.2708259064495593,
+      "calibration_coverage": 0.9080459770114943
+    }
+  },
+  "input_rows": 2538,
+  "missing_feature_rows": 0,
+  "missing_example_ids": [],
+  "inference_ms": 80.3972,
+  "node_heap_used_bytes": 11503288,
+  "baseline_definition": "current raw NOAA temperature, identical scored rows",
+  "model_precision": "Python round to whole degrees, then current rounded station temperature plus frozen residual",
+  "limitations": [
+    "Validation was previously used during development; this is not a new untouched final test.",
+    "Archived JMA responses fetched now may differ from original historical versions.",
+    "No original training feature rows or training search for this JMA artifact were supplied.",
+    "City calibration uses March only; time dependence means future coverage is not guaranteed.",
+    "Locked test, replay and reserve files were not opened or scored."
+  ]
+}

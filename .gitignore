@@ -19,3 +19,15 @@ HeatShift_Warehouse/pip-temp/
 /HeatShift_Training/weather_results/browser_parity_vectors.json
 
 /HeatShift_Training/weather_results/weather_model.json.gz
+
+# Local dependencies and generated runtime assets
+__pycache__/
+*.pyc
+HeatShift_Web/*.whl
+HeatShift_Web/pyodide.js
+HeatShift_Web/pyodide.asm.js
+HeatShift_Web/pyodide.asm.wasm
+HeatShift_Web/pyodide-lock.json
+HeatShift_Web/python_stdlib.zip
+automation/runs/
+*.sqlite

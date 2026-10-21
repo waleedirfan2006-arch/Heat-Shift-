@@ -51,8 +51,12 @@ class IntegrationTests(unittest.TestCase):
             self.assertIn(f"min {frame.temperature_c.min():.2f}", answer)
             self.assertIn(f"max {frame.temperature_c.max():.2f}", answer)
             for citation in report["answer"]["citations"]:
-                row = citation["row_id"].rsplit(":", 1)[-1]
-                self.assertTrue(row == "aggregate" or 0 <= int(row) < len(frame))
+                if citation["row_id"].startswith("section:"):
+                    guide = (ROOT / "trusted_weather_guide.md").read_text(encoding="utf-8")
+                    self.assertIn(citation["row_id"][8:], guide)
+                else:
+                    row = citation["row_id"].rsplit(":", 1)[-1]
+                    self.assertTrue(row == "aggregate" or 0 <= int(row) < len(frame))
 
     def test_pollution_is_not_invented(self):
         report = ask_insight("Karachi", "What is the air quality or AQI?")

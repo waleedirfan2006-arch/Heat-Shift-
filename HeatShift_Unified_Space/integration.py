@@ -17,7 +17,12 @@ CITIES = ("Karachi", "Lahore", "Multan")
 
 def _load_agent(filename, class_name):
     path = ROOT / "vendor" / filename
-    expected = json.loads((ROOT / "evidence/integration_provenance.json").read_text())["agents"][filename]
+    if not path.exists():
+        path = ROOT / filename
+    manifest = ROOT / "evidence/integration_provenance.json"
+    if not manifest.exists():
+        manifest = ROOT / "integration_provenance.json"
+    expected = json.loads(manifest.read_text(encoding="utf-8"))["agents"][filename]
     if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
         raise ValueError("Agent source changed. Review the integration before running it.")
     spec = importlib.util.spec_from_file_location("heatshift_" + path.stem, path)
@@ -29,7 +34,10 @@ def _load_agent(filename, class_name):
 def training_evidence(city):
     if city not in CITIES:
         raise ValueError("Choose a supported city.")
-    return pd.read_csv(ROOT / "evidence" / f"{city.lower()}_train.csv.gz")
+    path = ROOT / "evidence" / f"{city.lower()}_train.csv.gz"
+    if not path.exists():
+        path = ROOT / f"{city.lower()}_train.csv.gz"
+    return pd.read_csv(path)
 
 
 def run_quality(data: bytes, filename: str):
@@ -91,6 +99,14 @@ def ask_insight(city, question):
         agent.project_dir = base
         agent.processed_dir = base
         agent.docs_dir = base / "docs"
+        agent.docs_dir.mkdir()
+        guide = ROOT / "trusted_weather_guide.md"
+        if guide.exists():
+            (agent.docs_dir / guide.name).write_text(guide.read_text(encoding="utf-8"), encoding="utf-8")
+        # Domain guard invokes the original refusal path instead of inventing an answer.
+        supported_terms = r"\b(temperature|temperatures|temp|weather|minimum|maximum|average|mean|summary|summarize|recorded|data|aqi|pollution|pollutant|uncertainty|baseline|station|quality|interpolation|forecast|citations)\b"
+        if not re.search(supported_terms, question, flags=re.I):
+            agent.processed_dir = base / "no_supported_evidence"
         agent.report_dir = base
         agent.retriever = None
         agent.data_store = None
@@ -108,18 +124,18 @@ def ask_insight(city, question):
 def forecast_html():
     """Bundle existing JS/CSS/data into one iframe without changing inference."""
     folder = ROOT / "prediction"
-    html = (folder / "index.html").read_text()
+    html = (folder / "index.html").read_text(encoding="utf-8")
     html = html.replace('<link rel="stylesheet" href="style.css">',
-                        '<style>' + (folder / "style.css").read_text() + '</style>')
+                        '<style>' + (folder / "style.css").read_text(encoding="utf-8") + '</style>')
     assets = {}
     for name in ("model.json", "station_weather_model.json", "experiment.json", "weather_model_metrics.json"):
         path = folder / name
-        assets[name] = json.loads(gzip.decompress(path.with_suffix(path.suffix + ".gz").read_bytes())) if name in ("model.json", "station_weather_model.json") else json.loads(path.read_text())
+        assets[name] = json.loads(gzip.decompress(path.with_suffix(path.suffix + ".gz").read_bytes())) if name in ("model.json", "station_weather_model.json") else json.loads(path.read_text(encoding="utf-8"))
     assets["station_weather_model.json.gz"] = assets.pop("station_weather_model.json")
     bootstrap = "const bundledAssets=" + json.dumps(assets).replace("<", "\\u003c") + ";\n"
     bootstrap += "const nativeFetch=window.fetch.bind(window); function bundledFetch(url,options){return Object.prototype.hasOwnProperty.call(bundledAssets,url)?Promise.resolve(new Response(JSON.stringify(bundledAssets[url]),{headers:{'Content-Type':'application/json'}})):nativeFetch(url,options);}\n"
     for name in ("model.js", "core.js", "app.js"):
-        code = (folder / name).read_text()
+        code = (folder / name).read_text(encoding="utf-8")
         if name == "app.js":
             code = bootstrap + code.replace("fetch(", "bundledFetch(")
         html = html.replace(f'<script src="{name}"></script>', "<script>" + code.replace("</script", "<\\/script") + "</script>")

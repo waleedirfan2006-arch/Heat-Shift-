@@ -1,0 +1,8 @@
+{
+  "source_url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=31.5&longitude=74.25&models=jma_gsm&hourly=temperature_2m_previous_day1%2Crelative_humidity_2m_previous_day1%2Cdew_point_2m_previous_day1%2Capparent_temperature_previous_day1%2Cprecipitation_previous_day1%2Ccloud_cover_previous_day1%2Cwind_speed_10m_previous_day1%2Cwind_direction_10m_previous_day1%2Csurface_pressure_previous_day1%2Cpressure_msl_previous_day1&start_date=2024-01-02&end_date=2024-03-31&timezone=UTC&temperature_unit=celsius&wind_speed_unit=kmh",
+  "fetched_at_utc": "2026-10-21T13:03:44.897226+00:00",
+  "response_sha256": "26276a2ac1018ab8a50650b7b571c38b73a1434e7313627c172483b29dd42268",
+  "city": "Lahore",
+  "purpose": "Frozen-model validation and separate calibration; no fitting or selection",
+  "original_historical_arrival": "unknown; current archive revision"
+}

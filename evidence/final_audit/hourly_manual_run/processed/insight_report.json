@@ -1,0 +1,56 @@
+{
+  "question": "Summarize recorded weather temperature and uncertainty.",
+  "answer": {
+    "answer": "Weather data summary: temperature_c: min 33.00 (row 0), max 38.00 (row 6), average 36.12 over 16 values; temperature_c: min 28.00 (row 0), max 31.00 (row 5), average 30.00 over 16 values; temperature_c: min 31.00 (row 0), max 34.00 (row 7), average 32.94 over 16 values. Guidance (trusted_weather_guide.md, section:Uncertainty and baseline): The declared baseline repeats the current measured station temperature. Lower mean absolute error in Celsius is better. Error ranges describe historical or calibration errors; time dependence means future coverage is not guaranteed. A forecast is not an official weather warning. Source: evidence/final_audit/primary_model/metrics.json. Guidance (trusted_weather_guide.md, section:Temperature prediction scope): HeatShift estimates the selected airport station's temperature exactly 24 hours after an observation. Karachi, Lahore and Multan are supported. Historical training summaries are not live weather and do not predict pollutant levels. Source: repository model contract and frozen model. This is information, not professional advice; follow official services for emergencies. Interpret within the date range and coverage of the data.",
+    "supported": true,
+    "citations": [
+      {
+        "source": "karachi_cleaned.csv",
+        "row_id": "karachi_cleaned.csv:aggregate"
+      },
+      {
+        "source": "karachi_cleaned.csv",
+        "row_id": "karachi_cleaned.csv:0"
+      },
+      {
+        "source": "karachi_cleaned.csv",
+        "row_id": "karachi_cleaned.csv:6"
+      },
+      {
+        "source": "lahore_cleaned.csv",
+        "row_id": "lahore_cleaned.csv:aggregate"
+      },
+      {
+        "source": "lahore_cleaned.csv",
+        "row_id": "lahore_cleaned.csv:0"
+      },
+      {
+        "source": "lahore_cleaned.csv",
+        "row_id": "lahore_cleaned.csv:5"
+      },
+      {
+        "source": "multan_cleaned.csv",
+        "row_id": "multan_cleaned.csv:aggregate"
+      },
+      {
+        "source": "multan_cleaned.csv",
+        "row_id": "multan_cleaned.csv:0"
+      },
+      {
+        "source": "multan_cleaned.csv",
+        "row_id": "multan_cleaned.csv:7"
+      },
+      {
+        "source": "trusted_weather_guide.md",
+        "row_id": "section:Uncertainty and baseline"
+      },
+      {
+        "source": "trusted_weather_guide.md",
+        "row_id": "section:Temperature prediction scope"
+      }
+    ]
+  },
+  "evidence_count": 9,
+  "citations_valid": true,
+  "timestamp": "2026-10-21T18:07:52.033821"
+}

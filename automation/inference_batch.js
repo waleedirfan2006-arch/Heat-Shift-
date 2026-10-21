@@ -1,0 +1,10 @@
+'use strict';
+const fs=require('node:fs');
+const path=require('node:path');
+const C=require('../HeatShift_Web/core.js');
+const M=require('../HeatShift_Web/model.js');
+const model=JSON.parse(fs.readFileSync(path.join(__dirname,'../HeatShift_Web/model.json'),'utf8'));
+const rows=JSON.parse(fs.readFileSync(process.argv[2],'utf8'));
+const started=performance.now();
+const results=rows.map(r=>{const input={city:r.city,temperature:r.input_temperature_c,observation:new Date(r.observation_utc),target:new Date(r.target_utc)};return {...r,prediction_c:input.temperature+M.predictResidual(C.row(input,r.weather_values),model),model_sha256:model.source_sha256};});
+process.stdout.write(JSON.stringify({results,inference_ms:performance.now()-started,node_heap_used_bytes:process.memoryUsage().heapUsed,model_source_sha256:model.source_sha256}));
