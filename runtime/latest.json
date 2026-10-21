@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-10-21T18:36:34.738872+00:00",
-  "status": "partial",
+  "generated_at_utc": "2026-10-21T18:37:10.310552+00:00",
+  "status": "ok",
   "cities": {
     "Karachi": {
       "status": "ready",
@@ -25,27 +25,52 @@
       "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     },
     "Lahore": {
-      "status": "unavailable",
-      "error": "Expecting value: line 1 column 1 (char 0)"
+      "status": "ready",
+      "icao": "OPLA",
+      "observation_utc": "2026-10-21T18:00:00+00:00",
+      "target_utc": "2026-10-22T18:00:00+00:00",
+      "observed_temperature_c": 25.0,
+      "baseline_c": 25.0,
+      "metar": "METAR OPLA 211800 00000KT 4000 FU NSC 25/19 Q1017 NOSIG RMK QFE991 A30.03",
+      "jma_fields": 10,
+      "observation_source": "AWC METAR API; automatic pipeline",
+      "quality_status": "review required",
+      "quality": {
+        "rows_before": 16,
+        "rows_after": 16,
+        "duplicates_removed": 0,
+        "values_filled": 0,
+        "weather_flags_total": 0,
+        "missing_values_after": 0
+      },
+      "prediction_c": 25.306888482105744,
+      "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     },
     "Multan": {
-      "status": "unavailable",
-      "error": "Expecting value: line 1 column 1 (char 0)"
+      "status": "ready",
+      "icao": "OPMT",
+      "observation_utc": "2026-10-21T18:00:00+00:00",
+      "target_utc": "2026-10-22T18:00:00+00:00",
+      "observed_temperature_c": 27.0,
+      "baseline_c": 27.0,
+      "metar": "METAR OPMT 211800Z 00000KT 4000 FU NSC 27/19 Q1015 NOSIG",
+      "jma_fields": 10,
+      "observation_source": "AWC METAR API; automatic pipeline",
+      "quality_status": "review required",
+      "quality": {
+        "rows_before": 16,
+        "rows_after": 16,
+        "duplicates_removed": 0,
+        "values_filled": 0,
+        "weather_flags_total": 0,
+        "missing_values_after": 0
+      },
+      "prediction_c": 27.103787261929295,
+      "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     }
   },
-  "errors": [
-    {
-      "city": "Lahore",
-      "stage": "city pipeline",
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    },
-    {
-      "city": "Multan",
-      "stage": "city pipeline",
-      "error": "Expecting value: line 1 column 1 (char 0)"
-    }
-  ],
-  "elapsed_seconds": 64.968056358,
+  "errors": [],
+  "elapsed_seconds": 9.384767890999996,
   "model_retrained": false,
   "scheduler": "GitHub Actions hourly, at minute 17 UTC; delays possible",
   "raw_cleaned_processed_evidence": "GitHub Actions run artifact",
@@ -53,11 +78,11 @@
   "quality_status": "review required",
   "data_quality_agent": "original source, fingerprint verified",
   "insight_agent": "original source with trusted document retrieval and citations",
-  "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/39654018299",
+  "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/39654261026",
   "last_successful_run": {
-    "finished_at_utc": "2026-10-21T15:58:08.057818+00:00",
-    "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/39630408230",
-    "run_id": "39630408230"
+    "finished_at_utc": "2026-10-21T18:37:10.310552+00:00",
+    "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/39654261026",
+    "run_id": "39654261026"
   },
   "publication_branch": "heatshift-runtime"
 }
