@@ -54,3 +54,16 @@ See [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md). Required PDFs are in sub
 Some original Open-Meteo collection metadata and original JMA fitting evidence remain unverified. Airport weather is not every neighborhood's weather. This is a temperature prototype, not rain/pollution forecasting or an official warning service. Commercial use needs appropriate source rights and service planning.
 
 Mateen's original copies remain under HeatShift_Unified_Space/vendor/; adapters verify their fingerprints. Historical experiments and audit files remain available under their original folders. Read AI_Use_Log.md for substantial AI assistance and pending human review.
+
+
+## Team contributions
+
+Roles provided by Waleed Irfan on 21 October 2026:
+
+| Team member | Responsibilities |
+|---|---|
+| **Waleed Irfan** | Developed the prediction model and worked on improving it. |
+| **Syed Mateen Ali** | Developed, managed and maintained both AI agents: the Data Quality Agent and the Insight Agent. |
+| **Aman Khan Lodhi** | Responsible for data cleaning, data warehouse management and related data preparation. |
+
+These responsibilities are the team's reported contribution allocation. Substantial AI assistance is documented separately in `AI_Use_Log.md`; the allocation does not remove that disclosure or imply that every line was written without assistance.

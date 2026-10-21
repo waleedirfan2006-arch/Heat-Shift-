@@ -112,3 +112,8 @@ The frozen JMA model was not refitted. AI reproduced 1,783 validation prediction
 Missing original collection metadata and original JMA fitting/search records remain explicit. Exact human effort and original training resource use are unknown. No paying customers or measured social impact are claimed. Human contribution review, correction of inaccurate authorship statements, source/license confirmation and all-member viva attendance remain team responsibilities. No human sign-off is fabricated. Publication is verified in release/delivery records; workflow execution must be checked separately.
 
 Publication verification: the public Space update was confirmed live; first Actions run 39608434792 succeeded, including make data and status publication. A clock-triggered hourly event has not yet been observed at this point.
+
+
+## 2026-10-21 - Team contribution clarification
+
+Waleed explicitly supplied the team roles: Waleed Irfan developed and improved the prediction model; Syed Mateen Ali developed, managed and maintained both the Data Quality and Insight agents; Aman Khan Lodhi handled data cleaning, warehouse management and related data preparation. Codex added this allocation to the four submission PDFs, README, business-model document and team/AI summaries. These are user-reported responsibilities, not an independent authorship audit. Earlier AI-assistance disclosures and pending human-review notes remain in force. No model or agent code was changed.

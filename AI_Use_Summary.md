@@ -1,8 +1,19 @@
-# AI-use summary — HeatShift
+# AI-use and team-contribution summary - HeatShift
 
-- **Amaan:** supplied and organized datasets; ran local checks and installation commands; committed, pushed and merged project updates.
-- **Waleed:** supplied the existing prediction model and Hugging Face deployment. This summary does not verify independent authorship of its code.
-- **ChatGPT/Codex:** provided substantial warehouse/audit code, model-training experiments, evaluation code and dashboard implementation; ran the recorded software checks.
-- **Human review:** pending where not explicitly recorded. Team members should confirm which files they understand.
+## Team contributions
 
-This is a short summary. The cumulative `AI_Use_Log.md` retains the detailed record. This update does not review or change Mateen's agent files.
+Roles provided by Waleed Irfan on 21 October 2026:
+
+| Team member | Responsibilities |
+|---|---|
+| **Waleed Irfan** | Developed the prediction model and worked on improving it. |
+| **Syed Mateen Ali** | Developed, managed and maintained both AI agents: the Data Quality Agent and the Insight Agent. |
+| **Aman Khan Lodhi** | Responsible for data cleaning, data warehouse management and related data preparation. |
+
+These responsibilities are the team's reported contribution allocation. Substantial AI assistance is documented separately in `AI_Use_Log.md`; the allocation does not remove that disclosure or imply that every line was written without assistance.
+
+## AI assistance and human review
+
+ChatGPT/Codex supplied substantial warehouse/audit code, model-training experiments, evaluation code, dashboard integration, hourly automation and submission-document preparation. Detailed activities remain recorded in the cumulative `AI_Use_Log.md`.
+
+The role allocation above was explicitly provided by Waleed; it is not an independent file-by-file authorship audit. Human review remains pending where it has not been explicitly recorded. Each member should confirm their own contribution and understanding before the viva. The original agent source files were not changed for this documentation update.
