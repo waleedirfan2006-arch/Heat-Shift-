@@ -1,38 +1,56 @@
 # HeatShift
 
-HeatShift is a beginner weather project that predicts the temperature at the same weather station 24 hours later. This prototype uses historical observations from three stations in Pakistan; it is not yet a live forecast for every location.
+HeatShift estimates the temperature at the same airport station 24 hours after a recent observation. The public responsive dashboard combines Waleed's existing frozen JMA-assisted model with Mateen's two preserved Python agents. Supported stations: Karachi, Lahore and Multan.
 
-## First regression model
+**[Open the Hugging Face dashboard](https://huggingface.co/spaces/Waleed-1234/HeatShift-Dashboard)** | [Submission package](submission/) | [Business model](Business_Model.md) | [Optimization log](OPTIMIZATION_LOG.md) | [AI use log](AI_Use_Log.md)
 
-The project uses Ridge regression and compares it with a simple baseline: predict that tomorrow's temperature will be the same as today's. The script checks settings using time-ordered folds from the training data, then compares model choices on the separate validation data.
+## What works
 
-### Validation results
+- Predictions with a persistence baseline, calibrated error range and input receipt.
+- Original Data Quality Agent: duplicate removal, short-gap fill, flags and quality_log.
+- Original Insight Agent: numeric table summaries plus keyword retrieval from trusted notes, row/section citations and unsupported-question refusals. This is lightweight deterministic RAG, not a general LLM chatbot.
+- Hourly GitHub Actions: fetch METAR/JMA, review, predict, cite, retain raw/cleaned/processed data, manifest and SQLite; publish runtime/latest.json. Scheduling and upstream requests can be delayed. Check [Actions](https://github.com/waleedirfan2006-arch/Heat-Shift-/actions).
+- Static browser agents keep uploaded CSVs in the visitor's browser. First use downloads Python/pandas and can take about a minute.
 
-| Approach | Mean absolute error |
-|---|---:|
-| Simple baseline: tomorrow equals today | 1.235 °C |
-| Ridge, direct temperature prediction | 1.382 °C |
-| Ridge, predict temperature change | 1.321 °C |
-| Ridge, temperature change without the 48-hour lag | 1.326 °C |
+## Reproduced evaluation (21 October 2026)
 
-Lower error is better. The best Ridge version is the temperature-change model, but its validation error is still higher than the baseline's. The model has **not beaten the baseline**, so this project does not claim that it has. The locked test data has not been used; keep it untouched until the model and choices are finalized.
+The primary is **HistGradientBoosting**, not the early Ridge experiment. On the same 1,783 reused validation rows, model MAE **1.101946 C** vs declared raw-temperature persistence **1.235165 C** (10.8% observed reduction). The rounded deployment baseline is separately **1.243915 C**. January was worse than persistence; the seven-day block-bootstrap improvement interval **[-0.0417, 0.2707] C** includes zero. Do not describe this as independent final-test proof.
 
-The detailed results are in [`HeatShift_Training/model_results/validation_metrics.json`](HeatShift_Training/model_results/validation_metrics.json). They include error breakdowns and details of the candidate comparisons.
+| Group | Rows | Model MAE | Raw baseline MAE |
+|---|---:|---:|---:|
+| Karachi |419|1.031|1.368|
+| Lahore |963|1.082|1.129|
+| Multan |401|1.226|1.352|
+| January 2024 |775|1.165|1.074|
+| February 2024 |1008|1.053|1.359|
 
-## Run the model
+March nominal 90% calibration bands: Karachi +/-2.224 C (183 rows), Lahore +/-3.084 C (398), Multan +/-2.271 C (174). Future coverage is not guaranteed. [Receipts, row IDs and metrics](evidence/final_audit/primary_model/). No new locked-test/replay/reserve scoring or retraining occurred.
 
-Open a terminal in `HeatShift_Training`, then run:
+## Reproduce and run
 
-```bash
-python -m pip install -r requirements.txt
-python train_model.py
+With Python 3.12, pandas and GNU make installed, from repository root:
+
+```sh
+python -m pip install pandas==2.2.3
+make data
 ```
 
-The script reads `HeatShift_Warehouse/02_final/train.csv` and `validation.csv`. It saves the fitted model, validation scores, and example predictions in `HeatShift_Training/model_results/`. It does not read `test_locked.csv`, `replay.csv`, or `reserve_2025.csv`.
+The command rebuilds the warehouse in automation/runs/historical by default; set WORKDIR to choose another output. Existing authoritative warehouse files stay preserved. The hourly workflow verifies the same command on Ubuntu for manual/push runs. On Windows without make, use the equivalent Python warehouse command documented in the Makefile.
 
-The data files and their cleaning notes are in [`HeatShift_Warehouse/START_HERE.md`](HeatShift_Warehouse/START_HERE.md).
+For a one-off live run, install Node 22 as well:
 
+```sh
+python automation/hourly_pipeline.py --output automation/runs
+```
 
-## Data audit update
+To serve the static source locally, first run python HeatShift_Web/download_runtime.py, then serve HeatShift_Web with a local HTTP server. The runtime downloader pins official Pyodide 0.27.7 assets and checks SHA256. Never publish user CSVs or credentials.
 
-See [HeatShift_Warehouse/audit/DATA_QUALITY_AND_LEAKAGE_REVIEW.md](HeatShift_Warehouse/audit/DATA_QUALITY_AND_LEAKAGE_REVIEW.md) and [HeatShift_Warehouse/audit/OPEN_METEO_PROVENANCE.md](HeatShift_Warehouse/audit/OPEN_METEO_PROVENANCE.md). Structural audit completed with limitations. Original Open-Meteo collection evidence remains incomplete. Earlier model results have not been rerun on the expanded data.
+Reproduce frozen-model validation/calibration (network required; reads only those two splits): python automation/evaluate_frozen_primary.py. Original JMA model fitting feature table/search records are unavailable, so full fitting reproducibility is incomplete.
+
+## Submission and honest limitations
+
+See [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md). Required PDFs are in submission/, including organizer-spelled datasetpropsal.pdf and one-page Summary.pdf. The event message does not explicitly require slides; Project_Explanation_Viva.pdf supplies a simple speaking outline. Every team member must attend the physical viva.
+
+Some original Open-Meteo collection metadata and original JMA fitting evidence remain unverified. Airport weather is not every neighborhood's weather. This is a temperature prototype, not rain/pollution forecasting or an official warning service. Commercial use needs appropriate source rights and service planning.
+
+Mateen's original copies remain under HeatShift_Unified_Space/vendor/; adapters verify their fingerprints. Historical experiments and audit files remain available under their original folders. Read AI_Use_Log.md for substantial AI assistance and pending human review.

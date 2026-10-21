@@ -63,6 +63,11 @@ class IntegrationTests(unittest.TestCase):
         self.assertFalse(report["answer"]["supported"])
         self.assertEqual(report["answer"]["citations"], [])
 
+    def test_unrelated_question_is_refused(self):
+        report = ask_insight("Karachi", "Who won the football match?")
+        self.assertFalse(report["answer"]["supported"])
+        self.assertEqual(report["answer"]["citations"], [])
+
     def test_input_guards(self):
         with self.assertRaises(ValueError):
             training_evidence("unknown")
