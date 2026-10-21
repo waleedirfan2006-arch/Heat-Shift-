@@ -128,3 +128,8 @@ Thirteen adapter/scope tests, one failure-path test and one status-publication m
 AI changed hourly publication to a separate operational branch, added explicit failure/freshness/last-success reporting, and verified a successful real Actions run. AI inspected fourteen branches and declaration/baseline commit history: no historical Prefect export/screenshot was found and the declaration draft was late. These items are disclosed, not fabricated or marked fulfilled. Original fitting and some collection records remain unavailable.
 
 AI updated four PDFs, the checklist, source manifests, demo captions, presentation packaging and release preparation. The saved demo is an actual-dashboard screenshot sequence without voice narration, not a continuous live recording. Human review, Devpost submission and all-member viva attendance are not invented. Team roles were supplied by Waleed, not independently certified authorship. No organizer message was sent.
+
+
+## 21 October 2026 — Requested prediction time-field correction
+
+At the user's request after the previous final release, Codex removed the browser-native datetime step popup and routed form errors through the existing explicit model validation. The time field accepts minute entry for clear inline feedback; the unchanged hourly model still requires actual on-hour observations from the last four hours. The UI points users to the verified latest-observation fill button. No observation is silently rounded or invented, and model parameters remain unchanged. The final tag is refreshed only after verification of this requested fix.

@@ -7,11 +7,11 @@ function validate(city,temp,stamp,now=Date.now()){
  if(String(temp).trim()==='')throw Error('Enter the observed temperature.');
  const value=Number(temp);
  if(!Number.isFinite(value)||!Number.isInteger(value)||value < -60||value>60)throw Error('Use a whole-number station temperature from −60 to 60 °C.');
- if(!/^\d{4}-\d{2}-\d{2}T\d{2}:00$/.test(stamp))throw Error('Use an exact on-the-hour observation time. Do not round a report time.');
+ if(!/^\d{4}-\d{2}-\d{2}T\d{2}:00$/.test(stamp))throw Error('This model needs an airport reading at :00 minutes. Click the latest airport observation button above to fill a valid reading. Do not round an actual report time.');
  const time=new Date(stamp+':00+05:00');
  if(!Number.isFinite(time.getTime())||new Date(time.getTime()+5*3600000).toISOString().slice(0,16)!==stamp)throw Error('Check the observation date.');
  const age=(now-time.getTime())/3600000;
- if(age<0||age>4)throw Error('Use an observation from the last four hours, not a future time.');
+ if(age<0||age>4)throw Error('That observation is too old or in the future. Click the latest airport observation button above, or enter a real report from the last four hours.');
  return {city,temperature:value,observation:time,target:new Date(time.getTime()+24*3600000)};
 }
 function parseMetar(text,city,now=Date.now()){
