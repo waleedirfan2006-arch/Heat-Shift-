@@ -1,54 +1,88 @@
 {
-  "generated_at_utc": "2026-11-03T17:56:03.958802+00:00",
-  "status": "failed",
+  "generated_at_utc": "2026-11-03T23:30:43.716892+00:00",
+  "status": "ok",
   "cities": {
     "Karachi": {
-      "status": "unavailable",
-      "error": "No valid exact-hour station report from the last four hours."
+      "status": "ready",
+      "icao": "OPKC",
+      "observation_utc": "2026-11-03T23:00:00+00:00",
+      "target_utc": "2026-11-04T23:00:00+00:00",
+      "observed_temperature_c": 22.0,
+      "baseline_c": 22.0,
+      "metar": "METAR OPKC 032300Z 00000KT 4000 HZ NSC 22/11 Q1015 NOSIG",
+      "jma_fields": 10,
+      "observation_source": "AWC METAR API; automatic pipeline",
+      "quality_status": "review required",
+      "quality": {
+        "rows_before": 15,
+        "rows_after": 15,
+        "duplicates_removed": 0,
+        "values_filled": 0,
+        "weather_flags_total": 0,
+        "missing_values_after": 0
+      },
+      "prediction_c": 22.46204297221098,
+      "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     },
     "Lahore": {
-      "status": "unavailable",
-      "error": "No valid exact-hour station report from the last four hours."
+      "status": "ready",
+      "icao": "OPLA",
+      "observation_utc": "2026-11-03T23:00:00+00:00",
+      "target_utc": "2026-11-04T23:00:00+00:00",
+      "observed_temperature_c": 18.0,
+      "baseline_c": 18.0,
+      "metar": "METAR OPLA 032300Z 32002KT 2000 BR NSC 18/15 Q1015 NOSIG RMK QFE990 A30.00",
+      "jma_fields": 10,
+      "observation_source": "AWC METAR API; automatic pipeline",
+      "quality_status": "review required",
+      "quality": {
+        "rows_before": 15,
+        "rows_after": 15,
+        "duplicates_removed": 0,
+        "values_filled": 0,
+        "weather_flags_total": 0,
+        "missing_values_after": 0
+      },
+      "prediction_c": 18.45617740009533,
+      "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     },
     "Multan": {
-      "status": "unavailable",
-      "error": "No valid exact-hour station report from the last four hours."
+      "status": "ready",
+      "icao": "OPMT",
+      "observation_utc": "2026-11-03T23:00:00+00:00",
+      "target_utc": "2026-11-04T23:00:00+00:00",
+      "observed_temperature_c": 21.0,
+      "baseline_c": 21.0,
+      "metar": "METAR OPMT 032300Z 00000KT 1500 BR NSC 21/18 Q1014 TEMPO 1200",
+      "jma_fields": 10,
+      "observation_source": "AWC METAR API; automatic pipeline",
+      "quality_status": "review required",
+      "quality": {
+        "rows_before": 15,
+        "rows_after": 15,
+        "duplicates_removed": 0,
+        "values_filled": 0,
+        "weather_flags_total": 0,
+        "missing_values_after": 0
+      },
+      "prediction_c": 20.773168978226852,
+      "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     }
   },
-  "errors": [
-    {
-      "stage": "METAR acquisition",
-      "error": "HTTP Error 504: Gateway Time-out"
-    },
-    {
-      "city": "Karachi",
-      "stage": "city pipeline",
-      "error": "No valid exact-hour station report from the last four hours."
-    },
-    {
-      "city": "Lahore",
-      "stage": "city pipeline",
-      "error": "No valid exact-hour station report from the last four hours."
-    },
-    {
-      "city": "Multan",
-      "stage": "city pipeline",
-      "error": "No valid exact-hour station report from the last four hours."
-    }
-  ],
-  "elapsed_seconds": 20.068925256999997,
+  "errors": [],
+  "elapsed_seconds": 2.2927302679999997,
   "model_retrained": false,
   "scheduler": "GitHub Actions hourly, at minute 17 UTC; delays possible",
   "raw_cleaned_processed_evidence": "GitHub Actions run artifact",
   "scheduler_evidence": "GitHub Actions; no historical Prefect export supplied",
-  "quality_status": "unavailable",
+  "quality_status": "review required",
   "data_quality_agent": "original source, fingerprint verified",
   "insight_agent": "original source with trusted document retrieval and citations",
-  "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/41688856794",
+  "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/41739679371",
   "last_successful_run": {
-    "finished_at_utc": "2026-11-03T09:44:20.803458+00:00",
-    "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/41613396957",
-    "run_id": "41613396957"
+    "finished_at_utc": "2026-11-03T23:30:43.716892+00:00",
+    "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/41739679371",
+    "run_id": "41739679371"
   },
   "publication_branch": "heatshift-runtime"
 }
