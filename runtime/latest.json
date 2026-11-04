@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-04T15:35:07.685590+00:00",
+  "generated_at_utc": "2026-11-04T15:38:35.988788+00:00",
   "status": "ok",
   "cities": {
     "Karachi": {
@@ -21,7 +21,7 @@
         "weather_flags_total": 0,
         "missing_values_after": 0
       },
-      "prediction_c": 28.981582923382113,
+      "prediction_c": 28.92715849889289,
       "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     },
     "Lahore": {
@@ -43,7 +43,7 @@
         "weather_flags_total": 0,
         "missing_values_after": 0
       },
-      "prediction_c": 24.15628902897178,
+      "prediction_c": 24.204143466362137,
       "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     },
     "Multan": {
@@ -65,12 +65,12 @@
         "weather_flags_total": 0,
         "missing_values_after": 0
       },
-      "prediction_c": 25.059836489548655,
+      "prediction_c": 25.224214692134236,
       "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     }
   },
   "errors": [],
-  "elapsed_seconds": 11.420244821000011,
+  "elapsed_seconds": 13.025305002,
   "model_retrained": false,
   "scheduler": "GitHub Actions hourly, at minute 17 UTC; delays possible",
   "raw_cleaned_processed_evidence": "GitHub Actions run artifact",
@@ -78,11 +78,11 @@
   "quality_status": "review required",
   "data_quality_agent": "original source, fingerprint verified",
   "insight_agent": "original source with trusted document retrieval and citations",
-  "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/41859182641",
+  "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/41688856794",
   "last_successful_run": {
-    "finished_at_utc": "2026-11-04T15:35:07.685590+00:00",
-    "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/41859182641",
-    "run_id": "41859182641"
+    "finished_at_utc": "2026-11-04T15:38:35.988788+00:00",
+    "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/41688856794",
+    "run_id": "41688856794"
   },
   "publication_branch": "heatshift-runtime"
 }
