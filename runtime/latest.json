@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-11-06T08:01:55.664487+00:00",
+  "generated_at_utc": "2026-11-06T16:02:17.355412+00:00",
   "status": "ok",
   "cities": {
     "Karachi": {
       "status": "ready",
       "icao": "OPKC",
-      "observation_utc": "2026-11-06T08:00:00+00:00",
-      "target_utc": "2026-11-07T08:00:00+00:00",
-      "observed_temperature_c": 36.0,
-      "baseline_c": 36.0,
-      "metar": "METAR OPKC 060800Z VRB02KT 5000 HZ NSC 36/04 Q1017 NOSIG",
+      "observation_utc": "2026-11-06T16:00:00+00:00",
+      "target_utc": "2026-11-07T16:00:00+00:00",
+      "observed_temperature_c": 29.0,
+      "baseline_c": 29.0,
+      "metar": "METAR OPKC 061600Z 31005KT 4000 HZ NSC 29/09 Q1017 NOSIG",
       "jma_fields": 10,
       "observation_source": "AWC METAR API; automatic pipeline",
       "quality_status": "review required",
@@ -21,39 +21,17 @@
         "weather_flags_total": 0,
         "missing_values_after": 0
       },
-      "prediction_c": 35.24078201735672,
+      "prediction_c": 28.47064545436449,
       "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     },
     "Lahore": {
       "status": "ready",
       "icao": "OPLA",
-      "observation_utc": "2026-11-06T08:00:00+00:00",
-      "target_utc": "2026-11-07T08:00:00+00:00",
-      "observed_temperature_c": 29.0,
-      "baseline_c": 29.0,
-      "metar": "METAR OPLA 060800Z 32005KT 5000 HZ NSC 29/14 Q1017 NOSIG RMK QFE991 A30.03",
-      "jma_fields": 10,
-      "observation_source": "AWC METAR API; automatic pipeline",
-      "quality_status": "review required",
-      "quality": {
-        "rows_before": 15,
-        "rows_after": 15,
-        "duplicates_removed": 0,
-        "values_filled": 0,
-        "weather_flags_total": 0,
-        "missing_values_after": 0
-      },
-      "prediction_c": 28.68801051609151,
-      "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
-    },
-    "Multan": {
-      "status": "ready",
-      "icao": "OPMT",
-      "observation_utc": "2026-11-06T08:00:00+00:00",
-      "target_utc": "2026-11-07T08:00:00+00:00",
-      "observed_temperature_c": 29.0,
-      "baseline_c": 29.0,
-      "metar": "METAR OPMT 060800Z 00000KT 1000 FU NSC 29/18 Q1017 NOSIG",
+      "observation_utc": "2026-11-06T16:00:00+00:00",
+      "target_utc": "2026-11-07T16:00:00+00:00",
+      "observed_temperature_c": 24.0,
+      "baseline_c": 24.0,
+      "metar": "METAR OPLA 061600Z 30002KT 4000 FU NSC 24/17 Q1016 NOSIG RMK QFE990 A30.03",
       "jma_fields": 10,
       "observation_source": "AWC METAR API; automatic pipeline",
       "quality_status": "review required",
@@ -65,12 +43,34 @@
         "weather_flags_total": 0,
         "missing_values_after": 0
       },
-      "prediction_c": 29.606816316858232,
+      "prediction_c": 23.640594807816424,
+      "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
+    },
+    "Multan": {
+      "status": "ready",
+      "icao": "OPMT",
+      "observation_utc": "2026-11-06T16:00:00+00:00",
+      "target_utc": "2026-11-07T16:00:00+00:00",
+      "observed_temperature_c": 25.0,
+      "baseline_c": 25.0,
+      "metar": "METAR OPMT 061600Z 00000KT 1300 FU NSC 25/18 Q1016 NOSIG",
+      "jma_fields": 10,
+      "observation_source": "AWC METAR API; automatic pipeline",
+      "quality_status": "review required",
+      "quality": {
+        "rows_before": 16,
+        "rows_after": 16,
+        "duplicates_removed": 0,
+        "values_filled": 0,
+        "weather_flags_total": 0,
+        "missing_values_after": 0
+      },
+      "prediction_c": 24.86581430102388,
       "model_sha256": "db4d74e7c92efbc57c8e4b844e5f621d68287640f202ac63241fc4e99095585e"
     }
   },
   "errors": [],
-  "elapsed_seconds": 2.2978947619999985,
+  "elapsed_seconds": 2.5772401139999985,
   "model_retrained": false,
   "scheduler": "GitHub Actions hourly, at minute 17 UTC; delays possible",
   "raw_cleaned_processed_evidence": "GitHub Actions run artifact",
@@ -78,11 +78,11 @@
   "quality_status": "review required",
   "data_quality_agent": "original source, fingerprint verified",
   "insight_agent": "original source with trusted document retrieval and citations",
-  "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/42184744441",
+  "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/42248521482",
   "last_successful_run": {
-    "finished_at_utc": "2026-11-06T08:01:55.664487+00:00",
-    "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/42184744441",
-    "run_id": "42184744441"
+    "finished_at_utc": "2026-11-06T16:02:17.355412+00:00",
+    "run_url": "https://github.com/waleedirfan2006-arch/Heat-Shift-/actions/runs/42248521482",
+    "run_id": "42248521482"
   },
   "publication_branch": "heatshift-runtime"
 }
